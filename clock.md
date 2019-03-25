@@ -1,8 +1,8 @@
 - clock.html
 
 ```html
-<div class='clock_container'>
-  <h4 class='current_time'></h4>
+<div class="clock_container">
+  <h4 class="current_time"></h4>
 </div>
 ```
 
