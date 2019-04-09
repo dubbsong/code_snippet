@@ -1,0 +1,74 @@
+- App.js
+
+```react
+import React, { Component } from 'react';
+import './App.css';
+import Movie from './Movie';
+
+const movies = [
+  {
+    title: "Batman Begins",
+    poster: "https://dummyimage.com/100x150/ff7473/fff"
+  },
+  {
+    title: "Batman Dark Knight",
+    poster: "https://dummyimage.com/100x150/ffc952/fff"
+  },
+  {
+    title: "Batman Rises",
+    poster: "https://dummyimage.com/100x150/47b8e0/fff"
+  }
+];
+
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        {movies.map((movie, index) => {
+          return (
+            <Movie title={movie.title} poster={movie.poster} key={index} />
+          );
+        })}
+      </div>
+    );
+  }
+}
+
+export default App;
+```
+
+<br>
+
+- Movie.js
+
+```react
+import React from 'react';
+import PropTypes from 'prop-types';
+import './Movie.css';
+
+function Movie({ title, poster }) {
+  return (
+    <div>
+      <MoviePoster poster={poster} />
+      <h1>{title}</h1>
+    </div>
+  );
+}
+
+function MoviePoster({ poster }) {
+  return <img src={poster} alt="" />
+}
+
+Movie.propTypes = {
+  title: PropTypes.string.isRequired,
+  poster: PropTypes.string.isRequired
+};
+
+MoviePoster.propTypes = {
+  poster: PropTypes.string.isRequired
+};
+
+export default Movie;
+```
+
+<br>
