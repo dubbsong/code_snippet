@@ -89,6 +89,20 @@ init();
 
 ------
 
+> `forEach()` 메소드
+>
+> 배열의 각 element에 대해, 제공된 함수를 차례로 한 번씩 호출한다.
+
+> `filter()` 메소드
+>
+> 테스트를 통과한 배열의 각 값을 모아, 새 배열로 반환한다.
+
+------
+
+<br>
+
+> **JSON의 일반적인 사용은, 웹 서버와 데이터를 교환하는 것이다.**
+
 <br>
 
 - `JSON.stringify()`
@@ -107,11 +121,13 @@ console.log(JSON.stringify(obj));	// {"name":"Sam","age":28,"city":"Dubbo"}
 <br>
 
 - `JSON.parse()`
-  - 데이터를 JS 객체로 변환한다.
+  - 문자열 데이터를 JS 객체로 변환한다.
 
 ```js
 console.log(JSON.parse('{"name":"Sam","age":28,"city":"Dubbo"}'));
 // {name: "Sam", age: 28, city: "Dubbo"}
 ```
+
+------
 
 <br>
