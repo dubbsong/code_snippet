@@ -1,4 +1,4 @@
-- greeting.html
+- index.html
 
 ```html
 <form class="greeting_form hiding">
@@ -9,7 +9,7 @@
 
 <br>
 
-- greeting.css
+- index.css
 
 ```css
 .hiding {
