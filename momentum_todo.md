@@ -1,4 +1,4 @@
-- todo.html
+- index.html
 
 ```html
 <form class="todo_form">
@@ -15,7 +15,6 @@
 const todoForm = document.querySelector('.todo_form');
 const todoInput = todoForm.querySelector('input');
 const todoList = document.querySelector('.todo_list');
-
 let todos = [];
 
 function saveTodos() {
@@ -54,17 +53,10 @@ function deleteTodo(event) {
   
   const cleanTodos = todos.filter(todo => {
     return todo.id !== parseInt(li.id);
-  })
+  });
   
-  todo = cleanTodos;
+  todos = cleanTodos;
   saveTodos();
-}
-
-function handleSubmit(event) {
-  event.preventDefault();
-  const currentValue = todoInput.value;
-  showTodo(currentValue);
-  todoInput.value = '';
 }
 
 function loadTodos() {
@@ -75,8 +67,15 @@ function loadTodos() {
     
     parsedTodos.forEach(todo => {
       showTodo(todo.text);
-    })
+    });
   }
+}
+
+function handleSubmit(event) {
+  event.preventDefault();
+  const currentValue = todoInput.value;
+  showTodo(currentValue);
+  todoInput.value = '';
 }
 
 function init() {
