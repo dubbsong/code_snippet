@@ -50,7 +50,7 @@ function Movie({ title, poster }) {
   return (
     <div>
       <MoviePoster poster={poster} />
-      <h1>{title}</h1>
+      <h2>{title}</h2>
     </div>
   );
 }
