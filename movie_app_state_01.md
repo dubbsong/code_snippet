@@ -85,3 +85,9 @@ export default Movie;
 ```
 
 <br>
+
+> `map()` 메소드
+>
+> 배열 내 모든 element에 대해, 호출한 함수의 결과를 모아 새로운 배열을 반환한다.
+
+<br>
