@@ -44,7 +44,6 @@ function showTodo(text) {
   todos.push(todoObj);
   saveTodos();
 }
-
 // appendChild(): 특정 node의 마지막 자식으로 node를 추가한다.
 
 function deleteTodo(event) {
@@ -60,7 +59,6 @@ function deleteTodo(event) {
   todos = cleanTodos;
   saveTodos();
 }
-
 // filter(): 테스트를 통과한 배열의 각 값을 모아, 새 배열로 반환한다.
 
 function loadTodos() {
@@ -74,7 +72,6 @@ function loadTodos() {
     });
   }
 }
-
 // forEach(): 배열의 각 element에 대해, 제공된 함수를 차례로 한 번씩 호출한다.
 
 function handleSubmit(event) {
