@@ -1,6 +1,24 @@
 - customer_center.js
 
 ```js
+// Toggle Buttons
+$('.inquiry_btn').click(function() {
+  $('.inquiry_btn').addClass('btn-info');
+  $('.notice_btn').removeClass('btn-info');
+  $('.inquiry_page').css('display', '');
+  $('.notice_page').css('display', 'none');
+});
+
+$('.notice_btn').click(function() {
+  $('.notice_btn').addClass('btn-info');
+  $('.inquiry_btn').addClass('btn-secondary');
+  $('.inquiry_btn').removeClass('btn-info');
+  $('.notice_page').css('display', '');
+  $('.inquiry_page').css('display', 'none');
+});
+
+
+// 문의사항
 $('.submit_btn').click(function() {
   let inputName = $('.input_name').val();
   let inputPhone = $('.input_phone').val();
@@ -75,6 +93,18 @@ $('.submit_btn').click(function() {
     alert('정상적으로 제출되었습니다.');
   } else {
     return;
+  }
+});
+
+
+// 공지사항
+$('.show_tr').click(function() {
+  let obj = $(this);
+  
+  if (obj.next().css('display') === 'none') {
+    obj.next().show();
+  } else {
+    obj.next().hide();
   }
 });
 ```
