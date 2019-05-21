@@ -96,7 +96,7 @@ init();
 <br>
 
 - `JSON.stringify()`
-  - JS 객체를 문자열로 변환한다.
+  - JS 객체를 문자열 데이터로 변환한다.
 
 ```js
 const obj = {
