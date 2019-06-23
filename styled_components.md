@@ -1,4 +1,4 @@
-### create-react-app 생성
+#### create-react-app 생성
 
 ```bash
 $ npx create-react-app styled_components
@@ -6,7 +6,7 @@ $ npx create-react-app styled_components
 
 <br>
 
-### VSCode 열기
+#### VSCode 열기
 
 ```bash
 $ cd styled_components
@@ -15,7 +15,7 @@ $ code .
 
 <br>
 
-### 코드 수정
+#### 코드 수정
 
 - public/index.html
 
@@ -25,13 +25,13 @@ $ code .
 
 <br>
 
-### 파일 삭제
+#### 파일 삭제
 
 - src/App.css
 - src/App.test.js
 - src/index.css
 - src/logo.svg
-- serviceWorker.js
+- src/serviceWorker.js
 
 <br>
 
@@ -63,7 +63,7 @@ export default App;
 
 <br>
 
-### react 실행
+#### react 실행
 
 - terminal
 
@@ -75,13 +75,13 @@ $ yarn start
 
 <br>
 
-### 파일 생성
+#### 파일 생성
 
 - src/App.css
 
 <br>
 
-### 코드 추가
+#### 코드 추가
 
 - App.css
 
@@ -142,7 +142,7 @@ export default App;
 
 <br>
 
-### styeld-components 설치
+#### styeld-components 설치
 
 - terminal
 
@@ -153,7 +153,7 @@ $ yarn start
 
 <br>
 
-### 코드 수정 및 추가
+#### 코드 수정 및 추가
 
 - App.js
 
@@ -200,7 +200,7 @@ export default App;
 
 <br>
 
-### 파일 제거
+#### 파일 제거
 
 - src/App.css
 
@@ -212,7 +212,7 @@ export default App;
 
 <br>
 
-### createGlobalStyle 사용하기 (body margin 제거)
+#### createGlobalStyle 사용하기 (body margin 제거)
 
 - App.js
 
@@ -269,7 +269,7 @@ export default App;
 
 <br>
 
-### 컴포넌트 재활용 (extension)
+#### 컴포넌트 재활용 (extension)
 
 - App.js
 
@@ -331,7 +331,7 @@ export default App;
 
 <br>
 
-### 회전 애니메이션 적용하기
+#### 회전 애니메이션 적용하기
 
 - App.js
 
@@ -411,7 +411,7 @@ export default App;
 
 <br>
 
-### Attributes 설정
+#### Attributes 설정
 
 - App.js
 
@@ -456,7 +456,7 @@ export default App;
 
 <br>
 
-### Mixins 설정
+#### Mixins 설정
 
 - App.js
 
@@ -511,7 +511,7 @@ export default App;
 
 <br>
 
-### Theme 설정
+#### Theme 설정
 
 - src/theme.js 생성
 
@@ -588,7 +588,7 @@ export default App;
 
 <br>
 
-### Nesting
+#### Nesting
 
 - App.js
   - ex: Form 내의 모든 Card를 선택해서 변경하고 싶다면,
