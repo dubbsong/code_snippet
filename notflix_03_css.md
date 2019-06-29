@@ -33,6 +33,13 @@ $ yarn add styled-reset
 
 <br>
 
+#### VSCode styled-components 설치
+
+- `vscode-styled-components` 설치
+  - 설치 후 백틱 내에서 CSS 자동완성
+
+<br>
+
 #### 코드 수정 (구조 변경)
 
 - App.js
