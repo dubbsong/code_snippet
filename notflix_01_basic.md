@@ -76,14 +76,6 @@ $ yarn start
 
 <br>
 
-#### prop-types 설치 (나중에 필요)
-
-```bash
-$ yarn add prop-types
-```
-
-<br>
-
 #### README 작성
 
 - README.md
