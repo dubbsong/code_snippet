@@ -1,22 +1,3 @@
-#### 구조
-
-```bash
-src
-	├─ Components
-	│		├─ App.js
-	│		├─ Header.js
-	│		├─ Router.js
-	│		└─ GlobalStyles.js
-	├─ Routes
-	│		├─ Home.js
-	│		├─ TV.js
-	│		├─ Search.js
-	│		└─ Detail.js
-	└─ index.js
-```
-
-<br>
-
 #### styled-components 설치
 
 ```bash

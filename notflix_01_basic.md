@@ -1,7 +1,41 @@
+#### 구조
+
+```bash
+src
+	├─ Components
+	│			├─ App.js
+	│			├─ Router.js
+	│			├─ Header.js
+	│			├─ GlobalStyle.js
+	│			├─ Poster.js
+	│			├─ Loader.js
+	│			├─ Section.js
+	│			└─ Message.js
+	├─ Routes
+	│			├─ Home
+	│			│		├─ index.js
+	│			│		├─ HomeContainer.js
+	│			│		└─ HomePresenter.js
+	│			├─ TV
+	│			│		├─ index.js
+	│			│		├─ TVContainer.js
+	│			│		└─ TVPresenter.js
+	│			├─ Search
+	│			│		├─ index.js
+	│			│		├─ SearchContainer.js
+	│			│		└─ SearchPresenter.js
+	│			└─ Detail
+	├─ assets
+	│			└─ noPoster.png
+	└─ index.js
+```
+
+<br>
+
 #### create-react-app 생성
 
 ```bash
-$ cd Desktop
+$ cd Documents
 $ npx create-react-app notflix
 ```
 
@@ -82,13 +116,33 @@ $ yarn start
 
 ```markdown
 # NOTFLIX
-Learning React and ES6 by building a Movie Discovery App.
+Learning React and ES6 by building a Movie App.
 
-## Screens
-- [] Home
-- [] TV
-- [] Search
-- [] Detail
+## Todo
+[] Home
+[] TV
+[] Search
+[] Detail
+```
+
+<br>
+
+#### 저장소 생성 (for commit)
+
+1. https://github.com 이동
+2. `Repositories` 탭 클릭
+3. `New` 버튼 클릭
+4. `Repository name` 기입
+5. `Create repository` 버튼 클릭
+6. `Terminal` 작성
+
+```bash
+$ cd notflix
+$ git init
+$ git add .
+$ git commit -m '1st commit'
+$ git remote add origin https://github.com/dubbsong/notflix.git
+$ git push -u origin master
 ```
 
 <br>
@@ -132,6 +186,8 @@ NODE_PATH=src
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from 'Components/App'
+
+ReactDOM.render(<App />, document.getElementById('root'));
 ```
 
 > 다시 `$ yarn start`

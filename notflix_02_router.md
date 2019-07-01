@@ -1,3 +1,11 @@
+#### react-router-dom 설치
+
+```bash
+$ yarn add react-router-dom
+```
+
+<br>
+
 #### Routes 폴더 생성
 
 ```bash
@@ -7,7 +15,7 @@ $ mkdir Routes
 
 <br>
 
-#### 파일 생성
+#### 파일 생성 (Home, TV, Search, Detail)
 
 ```bash
 $ cd Routes
@@ -47,15 +55,7 @@ export default () => 'Detail';
 
 <br>
 
-#### react-router-dom 설치
-
-```bash
-$ yarn add react-router-dom
-```
-
-<br>
-
-#### 파일 생성
+#### 파일 생성 (Router.js)
 
 ```bash
 $ cd src
@@ -78,12 +78,12 @@ import Search from 'Routes/Search';
 
 export default () => (
   <Router>
-    <>
+    <React.Fragment>
       <Route path="/" exact component={Home} />
       <Route path="/tv" component={TV} />
       <Route path="/tv/popular" render={() => <h4>Popular Show</h4>} />
       <Route path="/search" component={Search} />
-    </>
+    </React.Fragment>
   </Router>
 );
 ```
