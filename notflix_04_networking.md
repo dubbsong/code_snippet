@@ -81,7 +81,7 @@ const api = axios.create({
   }
 });
 
-api.get('tv/popular');
+api.get('movie/now_playing');
 
 export default api;
 ```
@@ -94,13 +94,16 @@ export default api;
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from 'Components/App';
-import './api';
+import './api';	// 테스트 후 제거
 
 ReactDOM.render(<App />, document.getElementById('root'));
 ```
 
-> 1. 개발자 도구 > Network > `popular?api_key=…` 확인
-> 2. `import './api';` 제거
+> 개발자 도구의 Network에서 `now_playing?api_key=…`을 확인할 수 있다.
+>
+> 확인 후, `import './api'`를 제거한다.
+
+> **Note:** 콘솔에 `Unauthorized` 에러가 표시된다면, `$ yarn add axios@0.18.1`로 설치하고, 다시 `$ yarn start` 한다.
 
 <br>
 
@@ -119,10 +122,10 @@ const api = axios.create({
   }
 });
 
-export const moviesApi = {
+export const movieApi = {
   nowPlaying: () => api.get('movie/now_playing'),
-  upcoming: () => api.get('movie/upcoming'),
-  popular: () => api.get('movie/popular')
+  popular: () => api.get('movie/popular'),
+  upcoming: () => api.get('movie/upcoming')
 };
 
 export const tvApi = {
@@ -138,23 +141,24 @@ export const tvApi = {
 
 ```markdown
 # NOTFLIX
-Learning React and ES6 by building a Movie Discovery App.
+Learning React and ES6 by building a Movie App.
 
-## Screens
-- [] Home
-- [] TV
-- [] Search
-- [] Detail
+## Todo
+[] Home
+[] TV
+[] Search
+[] Detail
 
 ## API Verbs
-- [x] Now playing (Movie)
-- [x] Upcoming (Movie)
-- [x] Top Rated (TV)
-- [x] Popular (TV, Movie)
-- [x] Airing Today (TV)
-- [] TV Show Detail
-- [] Movie Detail
-- [] Search (TV, Movie)
+[x] Now Playing (Movie)
+[x] Popular (Movie)
+[x] Upcoming (Movie)
+[x] Top Rated (TV)
+[x] Popular (TV)
+[x] Airing Today (TV)
+[] Movie Detail
+[] TV Detail
+[] Search (Movie, TV)
 ```
 
 <br>
@@ -174,36 +178,40 @@ const api = axios.create({
   }
 });
 
-export const moviesApi = {
+export const movieApi = {
   nowPlaying: () => api.get('movie/now_playing'),
-  upcoming: () => api.get('movie/upcoming'),
   popular: () => api.get('movie/popular'),
-  movieDetail: id => api.get(`movie/${id}`, {
-    params: {
-      append_to_response: 'videos'
-    }
-  }),
-  search: term => api.get('search/movie', {
-    params: {
-      query: encodeURIComponent(term)
-    }
-  })
+  upcoming: () => api.get('movie/upcoming'),
+  movieDetail: id =>
+    api.get(`movie/${id}`, {
+      params: {
+        append_to_response: 'videos'
+      }
+    }),
+  search: term =>
+    api.get('search/movie', {
+      params: {
+        query: encodeURIComponent(term)
+      }
+    })
 };
 
 export const tvApi = {
   topRated: () => api.get('tv/top_rated'),
   popular: () => api.get('tv/popular'),
   airingToday: () => api.get('tv/airing_today'),
-  showDetail: id => api.get(`tv/${id}`, {
-    params: {
-      append_to_response: 'videos'
-    }
-  }),
-  search: term => api.get('search/tv', {
-    params: {
-      query: encodeURIComponent(term)
-    }
-  })
+  tvDetail: id =>
+    api.get(`tv/${id}`, {
+      params: {
+        append_to_response: 'videos'
+      }
+    }),
+  search: term =>
+    api.get('search/tv', {
+      params: {
+        query: encodeURIComponent(term)
+      }
+    })
 };
 ```
 
@@ -240,7 +248,7 @@ Learning React and ES6 by building a Movie Discovery App.
 $ cd notflix
 $ git status
 $ git add .
-$ git commit -m 'Set Networking'
+$ git commit -m 'Set API Networking'
 $ git push origin master
 ```
 
