@@ -16,32 +16,11 @@ $ yarn add styled-reset
 
 #### vscode-styled-components 설치
 
-- VSCode 내 마켓에서 설치 후, 백틱 내에서 CSS 자동완성 기능이 동작한다.
+- VSCode 마켓에서 `vscode-styled-components`를 설치하면, 백틱 내에서 CSS 자동완성 기능이 동작한다.
 
 <br>
 
-#### 구조 변경
-
-- App.js
-
-```react
-import React, { Component } from 'react';
-import Router from 'Components/Router';
-
-class App extends Component {
-  render() {
-    return (
-      <React.Fragment>
-        <Router />
-      </React.Fragment>
-    );
-  }
-}
-
-export default App;
-```
-
-<br>
+#### 코드 수정
 
 - Nav.js
 
@@ -77,6 +56,8 @@ export default () => (
 
 <br>
 
+#### 구조 변경
+
 - Router.js
 
 ```react
@@ -105,6 +86,27 @@ export default () => (
     </React.Fragment>
   </Router>
 );
+```
+
+<br>
+
+- App.js
+
+```react
+import React, { Component } from 'react';
+import Router from 'Components/Router';
+
+class App extends Component {
+  render() {
+    return (
+      <React.Fragment>
+        <Router />
+      </React.Fragment>
+    );
+  }
+}
+
+export default App;
 ```
 
 <br>
@@ -189,7 +191,7 @@ const Nav = styled.nav`
   left: 0;
   width: 100%;
   height: 50px;
-  background-color: rgba(30, 32, 34, 0.8);
+  background-color: #1e2022;
   box-shadow: 0 1px 5px 2px rgba(0, 0, 0, 0.8);
   z-index: 10;
 `;
@@ -211,21 +213,7 @@ const SLink = styled(Link)`
   height: 50px;
 `;
 
-export default () => (
-  <Nav>
-    <List>
-      <Item>
-        <SLink to="/">Movies</SLink>
-      </Item>
-      <Item>
-        <SLink to="/tv">TV</SLink>
-      </Item>
-      <Item>
-        <SLink to="/search">Search</SLink>
-      </Item>
-    </List>
-  </Nav>
-);
+...
 ```
 
 <br>

@@ -55,6 +55,8 @@ Learning React and ES6 by building a Movie App.
 $ yarn add axios
 ```
 
+> **Note:** 나중에 `Unauthorized` 에러가 발생하므로, `$ yarn add axios@0.18.1`로 설치하고, 다시 `$ yarn start` 한다.
+
 <br>
 
 #### 파일 생성
@@ -103,11 +105,9 @@ ReactDOM.render(<App />, document.getElementById('root'));
 >
 > 확인 후, `import './api'`를 제거한다.
 
-> **Note:** 콘솔에 `Unauthorized` 에러가 표시된다면, `$ yarn add axios@0.18.1`로 설치하고, 다시 `$ yarn start` 한다.
-
 <br>
 
-#### 코드 수정
+#### 코드 추가 (for Movie, TV API)
 
 - api.js
 
@@ -163,35 +163,27 @@ Learning React and ES6 by building a Movie App.
 
 <br>
 
-#### 코드 추가
+#### 코드 추가 (for Search, Detail API)
 
 - api.js
 
 ```react
-import axios from 'axios';
-
-const api = axios.create({
-  baseURL: 'https://api.themoviedb.org/3/',
-  params: {
-    api_key: 'b1aff257ceb0cbcdd236cef217694a61',
-    language: 'en-US'
-  }
-});
+...
 
 export const movieApi = {
   nowPlaying: () => api.get('movie/now_playing'),
   popular: () => api.get('movie/popular'),
   upcoming: () => api.get('movie/upcoming'),
-  movieDetail: id =>
-    api.get(`movie/${id}`, {
-      params: {
-        append_to_response: 'videos'
-      }
-    }),
   search: term =>
     api.get('search/movie', {
       params: {
         query: encodeURIComponent(term)
+      }
+    }),
+  movieDetail: id =>
+    api.get(`movie/${id}`, {
+      params: {
+        append_to_response: 'videos'
       }
     })
 };
@@ -200,16 +192,16 @@ export const tvApi = {
   topRated: () => api.get('tv/top_rated'),
   popular: () => api.get('tv/popular'),
   airingToday: () => api.get('tv/airing_today'),
-  tvDetail: id =>
-    api.get(`tv/${id}`, {
-      params: {
-        append_to_response: 'videos'
-      }
-    }),
   search: term =>
     api.get('search/tv', {
       params: {
         query: encodeURIComponent(term)
+      }
+    }),
+  tvDetail: id =>
+    api.get(`tv/${id}`, {
+      params: {
+        append_to_response: 'videos'
       }
     })
 };
@@ -221,23 +213,24 @@ export const tvApi = {
 
 ```markdown
 # NOTFLIX
-Learning React and ES6 by building a Movie Discovery App.
+Learning React and ES6 by building a Movie App.
 
-## Screens
-- [] Home
-- [] TV
-- [] Search
-- [] Detail
+## Todo
+[] Home
+[] TV
+[] Search
+[] Detail
 
 ## API Verbs
-- [x] Now playing (Movie)
-- [x] Upcoming (Movie)
-- [x] Top Rated (TV)
-- [x] Popular (TV, Movie)
-- [x] Airing Today (TV)
-- [x] TV Show Detail
-- [x] Movie Detail
-- [x] Search (TV, Movie)
+[x] Now Playing (Movie)
+[x] Popular (Movie)
+[x] Upcoming (Movie)
+[x] Top Rated (TV)
+[x] Popular (TV)
+[x] Airing Today (TV)
+[x] Search (Movie, TV)
+[x] Movie Detail (Movie)
+[x] TV Detail (TV)
 ```
 
 <br>
