@@ -99,17 +99,15 @@ import Router from 'Components/Router';
 class App extends Component {
   render() {
     return (
-      <>
+      <React.Fragment>
         <Router />
-      </>
+      </React.Fragment>
     );
   }
 }
 
 export default App;
 ```
-
-<br>
 
 > `localhost:3000`: Home
 >
@@ -121,25 +119,25 @@ export default App;
 
 <br>
 
-#### 파일 생성
+#### 파일 생성 (Nav.js)
 
 ```bash
 $ cd src
 $ cd Components
-$ touch Header.js
+$ touch Nav.js
 ```
 
 <br>
 
 #### 코드 추가
 
-- Header.js
+- Nav.js
 
 ```react
 import React from 'react';
 
 export default () => (
-  <header>
+  <nav>
     <ul>
       <li>
         <a href="/">Movies</a>
@@ -151,7 +149,7 @@ export default () => (
         <a href="/search">Search</a>
       </li>
     </ul>
-  </header>
+  </nav>
 );
 ```
 
@@ -162,15 +160,15 @@ export default () => (
 ```react
 import React, { Component } from 'react';
 import Router from 'Components/Router';
-import Header from 'Components/Header';
+import Nav from 'Components/Nav';
 
 class App extends Component {
   render() {
     return (
-      <>
-        <Header />
+      <React.Fragment>
+        <Nav />
         <Router />
-      </>
+      </React.Fragment>
     );
   }
 }
@@ -178,7 +176,7 @@ class App extends Component {
 export default App;
 ```
 
-> Header의 각 a를 클릭해서 페이지를 이동할 수 있다.
+> Nav의 각 Movies, TV, Search를 클릭해서 페이지를 이동할 수 있다.
 
 <br>
 
@@ -188,7 +186,12 @@ export default App;
 
 ```react
 import React from 'react';
-import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+  Redirect,
+  Switch
+} from 'react-router-dom';
 import Home from 'Routes/Home';
 import TV from 'Routes/TV';
 import Search from 'Routes/Search';
@@ -198,7 +201,6 @@ export default () => (
     <Switch>
       <Route path="/" exact component={Home} />
       <Route path="/tv" component={TV} />
-      <Route path="/tv/popular" render={() => <h4>Popular Show</h4>} />
       <Route path="/search" component={Search} />
       <Redirect from="*" to="/" />
     </Switch>
@@ -206,7 +208,19 @@ export default () => (
 );
 ```
 
-> `localhost:3000` 뒤에 `/asdfjlas;df`와 같이 아무거나 입력해도, Home으로 Redirect 한다.
+> `localhost:3000` 뒤에 `/asdfjlas;df`와 같이 무작위 입력을 하면, Home으로 Redirect 한다.
+
+<br>
+
+#### Commit
+
+```bash
+$ cd notflix
+$ git status
+$ git add .
+$ git commit -m 'Set Router'
+$ git push origin master
+```
 
 ------
 

@@ -2,32 +2,36 @@
 
 ```bash
 src
-	├─ Components
-	│			├─ App.js
-	│			├─ Router.js
-	│			├─ Header.js
-	│			├─ GlobalStyle.js
-	│			├─ Poster.js
-	│			├─ Loader.js
-	│			├─ Section.js
-	│			└─ Message.js
-	├─ Routes
-	│			├─ Home
-	│			│		├─ index.js
-	│			│		├─ HomeContainer.js
-	│			│		└─ HomePresenter.js
-	│			├─ TV
-	│			│		├─ index.js
-	│			│		├─ TVContainer.js
-	│			│		└─ TVPresenter.js
-	│			├─ Search
-	│			│		├─ index.js
-	│			│		├─ SearchContainer.js
-	│			│		└─ SearchPresenter.js
-	│			└─ Detail
-	├─ assets
-	│			└─ noPoster.png
-	└─ index.js
+  ├─ Components
+  │   ├─ App.js
+  │   ├─ Router.js
+  │   ├─ Nav.js
+  │   ├─ GlobalStyle.js
+  │   ├─ Poster.js
+  │   ├─ Loader.js
+  │   ├─ Section.js
+  │   └─ Message.js
+  ├─ Routes
+  │   ├─ Home
+  │   │   ├─ index.js
+  │   │   ├─ HomeContainer.js
+  │   │   └─ HomePresenter.js
+  │   ├─ TV
+  │   │   ├─ index.js
+  │   │   ├─ TVContainer.js
+  │   │   └─ TVPresenter.js
+  │   ├─ Search
+  │   │   ├─ index.js
+  │   │   ├─ SearchContainer.js
+  │   │   └─ SearchPresenter.js
+  │   └─ Detail
+  │       ├─ index.js
+  │       ├─ DetailContainer.js
+  │       └─ DetailPresenter.js
+  ├─ assets
+  │   └─ noPoster.png
+  ├─ api.js
+  └─ index.js
 ```
 
 <br>
@@ -193,6 +197,18 @@ ReactDOM.render(<App />, document.getElementById('root'));
 > 다시 `$ yarn start`
 >
 > `.env` 내의 `NODE_PATH=src`로 인해, `import App from 'Components/App'`이 동작한다.
+
+<br>
+
+#### Commit
+
+```bash
+$ cd notflix
+$ git status
+$ git add .
+$ git commit -m 'Set Basics'
+$ git push origin master
+```
 
 ------
 

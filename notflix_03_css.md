@@ -14,14 +14,13 @@ $ yarn add styled-reset
 
 <br>
 
-#### VSCode styled-components 설치
+#### vscode-styled-components 설치
 
-- `vscode-styled-components` 설치
-  - 설치 후 백틱 내에서 CSS 자동완성
+- VSCode 내 마켓에서 설치 후, 백틱 내에서 CSS 자동완성 기능이 동작한다.
 
 <br>
 
-#### 코드 수정 (구조 변경)
+#### 구조 변경
 
 - App.js
 
@@ -29,12 +28,12 @@ $ yarn add styled-reset
 import React, { Component } from 'react';
 import Router from 'Components/Router';
 
-class App extends Components {
+class App extends Component {
   render() {
     return (
-      <>
+      <React.Fragment>
         <Router />
-      </>
+      </React.Fragment>
     );
   }
 }
@@ -44,14 +43,14 @@ export default App;
 
 <br>
 
-- Header.js
+- Nav.js
 
 ```react
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-const Header = styled.header``;
+const Nav = styled.nav``;
 
 const List = styled.ul``;
 
@@ -60,7 +59,7 @@ const Item = styled.li``;
 const SLink = styled(Link)``;
 
 export default () => (
-  <Header>
+  <Nav>
     <List>
       <Item>
         <SLink to="/">Movies</SLink>
@@ -72,7 +71,7 @@ export default () => (
         <SLink to="/search">Search</SLink>
       </Item>
     </List>
-  </Header>
+  </Nav>
 );
 ```
 
@@ -82,69 +81,74 @@ export default () => (
 
 ```react
 import React from 'react';
-import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+  Redirect,
+  Switch
+} from 'react-router-dom';
+import Nav from 'Components/Nav';
 import Home from 'Routes/Home';
 import TV from 'Routes/TV';
 import Search from 'Routes/Search';
-import Header from 'Components/Header';
 
 export default () => (
   <Router>
-    <>
-      <Header />
+    <React.Fragment>
+      <Nav />
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/tv" component={TV} />
         <Route path="/search" component={Search} />
         <Redirect from="*" to="/" />
       </Switch>
-    </>
+    </React.Fragment>
   </Router>
 );
 ```
 
 <br>
 
-#### 파일 생성
+#### 파일 생성 (GlobalStyle.js)
 
 ```bash
 $ cd src
 $ cd Components
-$ touch GlobalStyles.js
+$ touch GlobalStyle.js
 ```
 
 <br>
 
 #### 코드 추가
 
-- GlobalStyles.js
+- GlobalStyle.js
 
 ```react
 import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
 
-const globalStyles = createGlobalStyle`
-	${reset}
+const globalStyle = createGlobalStyle`
+  ${reset}
 
-	* {
-		box-sizing: border-box;
-	}
+  * {
+    box-sizing: border-box;
+  }
 
-	body {
-		font-family: -apple-system, ..., sans-serif;
-		font-size: 16px;
-		background-color: rgba(20, 20, 20, 1);
-		color: #ffffff;
-		padding-top: 50px;
-	}
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 16px;
+    background-color: #1e2022;
+    color: #f0f5f9;
+    padding-top: 50px;
+  }
 
-	a {
-		text-decoration: none;
-		color: inherit;
-	}
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
 `;
 
-export default globalStyles;
+export default globalStyle;
 ```
 
 <br>
@@ -154,15 +158,15 @@ export default globalStyles;
 ```react
 import React, { Component } from 'react';
 import Router from 'Components/Router';
-import GlobalStyles from 'Components/GlobalStyles';
+import GlobalStyle from 'Components/GlobalStyle';
 
 class App extends Component {
   render() {
     return (
-      <>
+      <React.Fragment>
         <Router />
-        <GlobalStyles />
-      </>
+        <GlobalStyle />
+      </React.Fragment>
     );
   }
 }
@@ -172,43 +176,43 @@ export default App;
 
 <br>
 
-- Header.js
+- Nav.js
 
 ```react
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-const Header = styled.header`
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 50px;
-	background-color: rgba(20, 20, 20, 0.8);
-	box-shadow: 0 1px 5px 2px rgba(0, 0, 0, 0.8);
-	z-index: 10;
+const Nav = styled.nav`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background-color: rgba(30, 32, 34, 0.8);
+  box-shadow: 0 1px 5px 2px rgba(0, 0, 0, 0.8);
+  z-index: 10;
 `;
 
 const List = styled.ul`
-	display: flex;
+  display: flex;
 `;
 
 const Item = styled.li`
-	text-align: center;
-	width: 80px;
-	height: 50px;
+  text-align: center;
+  width: 80px;
+  height: 50px;
 `;
 
 const SLink = styled(Link)`
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
 `;
 
 export default () => (
-  <Header>
+  <Nav>
     <List>
       <Item>
         <SLink to="/">Movies</SLink>
@@ -220,7 +224,7 @@ export default () => (
         <SLink to="/search">Search</SLink>
       </Item>
     </List>
-  </Header>
+  </Nav>
 );
 ```
 
@@ -228,45 +232,28 @@ export default () => (
 
 #### Underbar 설정
 
-- Header.js
+- Nav.js
 
 ```react
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 
-const Header = styled.header`
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 50px;
-	background-color: rgba(20, 20, 20, 0.8);
-	box-shadow: 0 1px 5px 2px rgba(0, 0, 0, 0.8);
-	z-index: 10;
-`;
-
-const List = styled.ul`
-	display: flex;
-`;
+...
 
 const Item = styled.li`
-	text-align: center;
-	width: 80px;
-	height: 50px;
-	border-bottom: 5px solid ${props => (props.current ? '#c9d6de' : 'transparent')};
-	transition: border-bottom 0.2s ease-in-out;
+  text-align: center;
+  width: 80px;
+  height: 50px;
+  border-bottom: 5px solid
+    ${props => (props.current ? '#c9d6de' : 'transparent')};
+  transition: border-bottom 0.2s ease-in-out;
 `;
 
-const SLink = styled(Link)`
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	height: 50px;
-`;
+...
 
 export default withRouter(({ location: { pathname } }) => (
-  <Header>
+  <Nav>
     <List>
       <Item current={pathname === '/'}>
         <SLink to="/">Movies</SLink>
@@ -278,8 +265,20 @@ export default withRouter(({ location: { pathname } }) => (
         <SLink to="/search">Search</SLink>
       </Item>
     </List>
-  </Header>
+  </Nav>
 ));
+```
+
+<br>
+
+#### Commit
+
+```bash
+$ cd notflix
+$ git status
+$ git add .
+$ git commit -m 'Set CSS'
+$ git push origin master
 ```
 
 ------
