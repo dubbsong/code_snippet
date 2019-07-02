@@ -7,9 +7,9 @@ src
   │   ├─ Router.js
   │   ├─ Nav.js
   │   ├─ GlobalStyle.js
-  │   ├─ Poster.js
-  │   ├─ Loader.js
   │   ├─ Section.js
+  │   ├─ Loader.js
+  │   ├─ Poster.js
   │   └─ Message.js
   ├─ Routes
   │   ├─ Home
