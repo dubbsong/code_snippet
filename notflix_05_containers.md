@@ -5,6 +5,7 @@
    - 주로 데이터를 가져오고, state를 관리하고, API 호출 등의 로직을 처리한다.
 2. `Presenter`
    - Only UI
+   - 데이터를 props로 받아 화면에 표시한다.
    - no state, 그냥 함수형 컴포넌트이다.
 
 <br>
