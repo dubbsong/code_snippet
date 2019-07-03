@@ -287,13 +287,9 @@ export default class extends React.Component {
       const nowPlaying = await movieApi.nowPlaying();
       console.log(nowPlaying);
     } catch {
-      this.setState({
-        error: "Can't find movie information."
-      });
+      this.setState({ error: "Can't find movie information." });
     } finally {
-      this.setState({
-        loading: false
-      });
+      this.setState({ loading: false });
     }
   }
   // try: 실행한다.
@@ -395,8 +391,6 @@ export default class extends React.Component {
 
 <br>
 
-
-
 #### 로직 작성 (TVContainer.js)
 
 - 콘솔에서 데이터 확인 (for setting state value)
@@ -416,9 +410,9 @@ export default class extends React.Component {
       const airingToday = await tvApi.airingToday();
       console.log(topRated, popular, airingToday);
     } catch {
-      ...
+      this.setState({ error: "Can't find tv information." });
     } finally {
-      ...
+      this.setState({ loading: false });
     }
   };
 
@@ -568,6 +562,7 @@ export default class extends React.Component {
 
   searchByTerm = async () => {
     const { searchTerm } = this.state;
+    
     this.setState({ loading: true });
 
     try {
@@ -712,6 +707,8 @@ export default class extends React.Component {
 ```
 
 > 테스트 후, 모든 `console.log(…);`를 제거한다.
+>
+> render()의 `console.log()`는 제거하지 않는다.
 
 <br>
 

@@ -253,16 +253,6 @@ import styled from 'styled-components';
 
 ...
 
-const Item = styled.li`
-  text-align: center;
-  width: 80px;
-  height: 50px;
-  border-bottom: 5px solid
-    ${props => (props.current ? '#c9d6de' : 'transparent')};
-`;
-
-...
-
 export default withRouter(props => (
   <Nav>
     {console.log(props)}
