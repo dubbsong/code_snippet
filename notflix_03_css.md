@@ -61,17 +61,10 @@ export default () => (
 - Router.js
 
 ```react
-import React from 'react';
-import {
-  BrowserRouter as Router,
-  Route,
-  Redirect,
-  Switch
-} from 'react-router-dom';
-import Nav from 'Components/Nav';
-import Home from 'Routes/Home';
-import TV from 'Routes/TV';
-import Search from 'Routes/Search';
+...
+import {...} from 'react-router-dom';
+import Nav from './Nav';
+...
 
 export default () => (
   <Router>
@@ -79,8 +72,8 @@ export default () => (
       <Nav />
       <Switch>
         <Route path="/" exact component={Home} />
-        <Route path="/tv" component={TV} />
-        <Route path="/search" component={Search} />
+        <Route path="/tv" exact component={TV} />
+        <Route path="/search" exact component={Search} />
         <Redirect from="*" to="/" />
       </Switch>
     </React.Fragment>
@@ -94,7 +87,7 @@ export default () => (
 
 ```react
 import React, { Component } from 'react';
-import Router from 'Components/Router';
+import Router from './Router';
 
 class App extends Component {
   render() {
@@ -158,9 +151,8 @@ export default globalStyle;
 - App.js
 
 ```react
-import React, { Component } from 'react';
-import Router from 'Components/Router';
-import GlobalStyle from 'Components/GlobalStyle';
+...
+import GlobalStyle from './GlobalStyle';
 
 class App extends Component {
   render() {
@@ -173,7 +165,7 @@ class App extends Component {
   }
 }
 
-export default App;
+...
 ```
 
 <br>
@@ -181,9 +173,7 @@ export default App;
 - Nav.js
 
 ```react
-import React from 'react';
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+...
 
 const Nav = styled.nav`
   position: fixed;
@@ -218,15 +208,86 @@ const SLink = styled(Link)`
 
 <br>
 
-#### Underbar 설정
+#### Underbar 설정 (Nav.js)
 
-- Nav.js
+- underbar 확인 (on TV)
 
 ```react
-import React from 'react';
+...
+
+const Item = styled.li`
+  text-align: center;
+  width: 80px;
+  height: 50px;
+  border-bottom: 5px solid
+    ${props => (props.current ? '#c9d6de' : 'transparent')};
+`;
+
+...
+
+export default () => (
+  <Nav>
+    <List>
+      <Item current={false}>
+        <SLink to="/">Movies</SLink>
+      </Item>
+      <Item current={true}>
+        <SLink to="/tv">TV</SLink>
+      </Item>
+      <Item current={false}>
+        <SLink to="/search">Search</SLink>
+      </Item>
+    </List>
+  </Nav>
+);
+```
+
+<br>
+
+- pathname 확인
+
+```react
+...
 import { Link, withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 
+...
+
+const Item = styled.li`
+  text-align: center;
+  width: 80px;
+  height: 50px;
+  border-bottom: 5px solid
+    ${props => (props.current ? '#c9d6de' : 'transparent')};
+`;
+
+...
+
+export default withRouter(props => (
+  <Nav>
+    {console.log(props)}
+    <List>
+      <Item current={true}>
+        <SLink to="/">Movies</SLink>
+      </Item>
+      <Item current={true}>
+        <SLink to="/tv">TV</SLink>
+      </Item>
+      <Item current={false}>
+        <SLink to="/search">Search</SLink>
+      </Item>
+    </List>
+  </Nav>
+));
+```
+
+> `location`에서 `pathname`을 확인할 수 있다.
+
+<br>
+
+- props 전달
+
+```react
 ...
 
 const Item = styled.li`

@@ -94,7 +94,7 @@ export default () => (
 
 ```react
 import React, { Component } from 'react';
-import Router from 'Components/Router';
+import Router from './Router';
 
 class App extends Component {
   render() {
@@ -159,8 +159,8 @@ export default () => (
 
 ```react
 import React, { Component } from 'react';
-import Router from 'Components/Router';
-import Nav from 'Components/Nav';
+import Router from './Router';
+import Nav from './Nav';
 
 class App extends Component {
   render() {
@@ -189,8 +189,8 @@ import React from 'react';
 import {
   BrowserRouter as Router,
   Route,
-  Redirect,
-  Switch
+  Switch,
+  Redirect
 } from 'react-router-dom';
 import Home from 'Routes/Home';
 import TV from 'Routes/TV';
@@ -200,8 +200,8 @@ export default () => (
   <Router>
     <Switch>
       <Route path="/" exact component={Home} />
-      <Route path="/tv" component={TV} />
-      <Route path="/search" component={Search} />
+      <Route path="/tv" exact component={TV} />
+      <Route path="/search" exact component={Search} />
       <Redirect from="*" to="/" />
     </Switch>
   </Router>

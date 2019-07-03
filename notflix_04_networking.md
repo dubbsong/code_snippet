@@ -42,9 +42,9 @@ Learning React and ES6 by building a Movie App.
 [] Top Rated (TV)
 [] Popular (TV)
 [] Airing Today (TV)
+[] Search (Movie, TV)
 [] Movie Detail
 [] TV Detail
-[] Search (Movie, TV)
 ```
 
 <br>
@@ -55,7 +55,7 @@ Learning React and ES6 by building a Movie App.
 $ yarn add axios
 ```
 
-> **Note:** 나중에 `Unauthorized` 에러가 발생하므로, `$ yarn add axios@0.18.1`로 설치하고, 다시 `$ yarn start` 한다.
+> 나중에 `Unauthorized` 에러가 발생하므로, `$ yarn add axios@0.18.1`로 설치한다.
 
 <br>
 
@@ -156,9 +156,9 @@ Learning React and ES6 by building a Movie App.
 [x] Top Rated (TV)
 [x] Popular (TV)
 [x] Airing Today (TV)
+[] Search (Movie, TV)
 [] Movie Detail
 [] TV Detail
-[] Search (Movie, TV)
 ```
 
 <br>
