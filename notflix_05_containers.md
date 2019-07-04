@@ -708,7 +708,7 @@ export default class extends React.Component {
 
 > 테스트 후, 모든 `console.log(…);`를 제거한다.
 >
-> render()의 `console.log()`는 제거하지 않는다.
+> render()의 `console.log(this.props);`는 아직 제거하지 않는다.
 
 <br>
 
@@ -803,11 +803,12 @@ import { movieApi, tvApi } from 'api';
 
 export default class extends React.Component {
   constructor(props) {
+    super(props);
+
     const {
       location: { pathname }
     } = props;
 
-    super(props);
     this.state = {
       result: null,
       loading: true,
