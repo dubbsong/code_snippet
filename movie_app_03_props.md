@@ -11,7 +11,7 @@ const movieTitles = [
   'Batman Begins',
   'Batman Dark Knight',
   'Batman Rises',
-  'The Intern'
+  'John Wick'
 ];
 
 class App extends Component {
@@ -159,7 +159,7 @@ class MovieCard extends Component {
 $ cd movie_app
 $ git status
 $ git add .
-$ git commit -m 'Add Props'
+$ git commit -m 'Set Props'
 $ git push origin master
 ```
 

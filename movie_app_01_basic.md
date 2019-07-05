@@ -115,9 +115,14 @@ export default App;
 # Movie App
 Learning React and ES6 by building a Movie App.
 
-# Todo
-[] test
-[] test
+## Todo
+[] Add Components
+[] Set Props
+[] Set Maping
+[] Set PropTypes
+[] Test Lifecycle
+[] Set State
+[] 
 ```
 
 <br>
