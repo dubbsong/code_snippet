@@ -1,0 +1,62 @@
+#### maping
+
+###### 배열 데이터 통합 / props 설정 / key 설정
+
+- App.js
+
+```react
+...
+
+const movieData = [
+  {
+    title: 'Batman Begins',
+    poster: 'https://dummyimage.com/150x200/ff7373/fff'
+  },
+  {
+    title: 'Batman Dark Knight',
+    poster: 'https://dummyimage.com/150x200/ffc952/fff'
+  },
+  {
+    title: 'Batman Rises',
+    poster: 'https://dummyimage.com/150x200/47b8e0/fff'
+  },
+  {
+    title: 'The Intern',
+    poster: 'https://dummyimage.com/150x200/34314c/fff'
+  }
+];
+
+class App extends Component {
+  render() {
+    return (
+      <div>
+        {movieData.map((movie, index) => {
+          return (
+            <MovieCard title={movie.title} poster={movie.poster} key={index} />
+          );
+        })}
+      </div>
+    );
+  }
+}
+
+...
+```
+
+> `key` 설정을 하지 않으면, `Warning: Each child in a list should have a unique "key" prop.` 에러가 발생한다.
+
+<br>
+
+#### Commit
+
+```bash
+$ cd movie_app
+$ git status
+$ git add .
+$ git commit -m 'Modify data and Set maping'
+$ git push origin master
+```
+
+<br>
+
+<br>
