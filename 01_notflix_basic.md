@@ -210,8 +210,6 @@ $ git commit -m 'Set Basics'
 $ git push origin master
 ```
 
-------
-
 <br>
 
 <br>
