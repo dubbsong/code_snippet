@@ -53,7 +53,7 @@ class App extends Component {
 $ cd movie_app
 $ git status
 $ git add .
-$ git commit -m 'Modify data and Set maping'
+$ git commit -m 'Set Maping'
 $ git push origin master
 ```
 

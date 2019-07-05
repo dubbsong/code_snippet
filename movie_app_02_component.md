@@ -132,7 +132,7 @@ class App extends Component {
 $ cd movie_app
 $ git status
 $ git add .
-$ git commit -m 'Add MovieCard and MoviePoster Component'
+$ git commit -m 'Add Components'
 $ git push origin master
 ```
 

@@ -159,7 +159,7 @@ class MovieCard extends Component {
 $ cd movie_app
 $ git status
 $ git add .
-$ git commit -m 'Add title and poster Props'
+$ git commit -m 'Add Props'
 $ git push origin master
 ```
 
