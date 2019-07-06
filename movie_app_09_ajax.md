@@ -58,9 +58,12 @@
 
 #### Movie DB
 
-- [YTS](https://yts.lt/api)에서 `https://yts.lt/api/v2/list_movies.json`를 확인할 수 있다.
-- `sort_by=download_count`를 추가해준다.
-- 크롬에서 `https://yts.lt/api/v2/list_movies.json?sort_by=download_count`를 입력하고, JSON 데이터를 확인한다.
+1. https://yts.lt/api 이동
+2. HTTP GET `https://yts.lt/api/v2/list_movies.json` 확인
+3. Parameter `sort_by` 확인
+4. Type `download_count` 확인
+5. JSON data `https://yts.lt/api/v2/list_movies.json?sort_by=download_count` 확인
+6. Response `movies`(array) 확인
 
 <br>
 
@@ -86,7 +89,7 @@ class App extends Component {
 
 > 1. 개발자 도구
 > 2. `Network` 탭
-> 3. `list_movies.json?sort_by=download_count` API 확인
+> 3. `list_movies.json?sort_by=download_count` API status 확인
 
 <br>
 
@@ -112,9 +115,11 @@ class App extends Component {
 ...
 ```
 
-> Console 탭에서 `Response`를 확인할 수 있다.
+> Console 탭에서 `Response {...}`를 확인할 수 있다.
 >
-> `ReadableStream`은 바이트(010101…)로 구성되었다는 것을 의미한다. 고로 JSON으로 변경해야 한다.
+> body의 `ReadableStream`은 바이트(010101…)로 구성되었다는 것을 의미한다.
+>
+> 고로 JSON으로 변경해야 한다.
 
 <br>
 
@@ -123,15 +128,44 @@ class App extends Component {
 - App.js
 
 ```react
-componentDidMount() {
-  fetch('https://yts.lt/api/v2/list_movies.json?sort_by=download_count')
-  	.then(response => response.json())
-  	.then(json => console.log(json))
-  	...
+...
+
+class App extends Component {
+  ...
+
+  componentDidMount() {
+    fetch('https://yts.lt/api/v2/list_movies.json?sort_by=download_count')
+      .then(response => response.json())
+      .then(json => console.log(json))
+      .catch(err => console.log(err));
+  }
+
+  ...
 }
+
+...
 ```
 
-> Console 탭에서 `data`를 확인할 수 있다.
+```react
+...
+
+class App extends Component {
+  ...
+
+  componentDidMount() {
+    fetch('https://yts.lt/api/v2/list_movies.json?sort_by=download_count')
+      .then(response => response.json())
+      .then(json => json.data.movies)
+      .catch(err => console.log(err));
+  }
+
+  ...
+}
+
+...
+```
+
+> Console 탭에서 `data: movies: Array(20)`을 확인할 수 있다.
 
 <br>
 
@@ -150,12 +184,12 @@ class App extends Component {
   }
 
   _renderMovies = () => {
-    const movies = this.state.movies.map(movie => {
+    const movies = this.state.movieData.map(movie => {
       return (
         <MovieCard
-          title={movie.title}
-          poster={movie.medium_cover_image}
           key={movie.id}
+          poster={movie.medium_cover_image}
+          title={movie.title}
         />
       );
     });
@@ -163,9 +197,9 @@ class App extends Component {
   };
 
   _getMovies = async () => {
-    const movies = await this._callApi();
+    const movieData = await this._callApi();
     this.setState({
-      movies: movies
+      movieData: movieData
     });
   };
 
@@ -179,18 +213,24 @@ class App extends Component {
   };
 
   render() {
-    return <div>{this.state.movies ? this._renderMovies() : 'Loading'}</div>;
+    return (
+      <div>
+        {this.state.movieData ? this._renderMovies() : 'Loading'}
+      </div>
+    );
   }
 }
 
 ...
 ```
 
-> `fetch` 앞에 `return`을 추가한다.
+> `Warning: Failed prop type: The prop 'poster' is…` 에러가 발생한다.
 >
-> `this.state.movieData`를 `this.state.movies`로 변경한다.
+> `poster={movie.medium_cover_image}`로 변경하면 에러가 해결된다.
 >
 > `key={movie.id}`로 변경한다.
+>
+> `fetch` 앞에 `return`을 추가한다.
 
 <br>
 

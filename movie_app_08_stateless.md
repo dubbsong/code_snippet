@@ -1,33 +1,22 @@
 #### 함수형 컴포넌트
 
-- MoviePoster.js
-
-```react
-import React from 'react';
-...
-
-function MoviePoster({ poster }) {
-  return <img src={poster} alt="" />;
-}
-
-...
-```
-
-<br>
-
 - MovieCard.js
 
 ```react
 import React from 'react';
 ...
 
-function MovieCard({ title, poster }) {
+function MovieCard({ poster, title }) {
   return (
     <div>
       <MoviePoster poster={poster} />
       <h2>{title}</h2>
     </div>
   );
+}
+
+function MoviePoster({ poster }) {
+  return <img src={poster} alt="" />;
 }
 
 ...

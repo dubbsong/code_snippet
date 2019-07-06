@@ -4,24 +4,17 @@
 
 ```react
 _renderMovies = () => {
-  const movies = this.state.movies.map(movie => {
+  const movies = this.state.movieData.map(movie => {
     console.log(movie);
-    ...
+    return (
+      ...
+    );
   })
 }
 ```
 
-> 필요한 것:
+> `id`, `title_english`, `medium_cover_image`, `genres`, `synopsis`가 필요하다.
 >
-> `id`
->
-> `title_english`
->
-> `medium_cover_image`
->
-> `genres`
->
-> `synopsis`
 
 <br>
 
