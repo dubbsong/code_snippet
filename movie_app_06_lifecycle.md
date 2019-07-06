@@ -13,23 +13,17 @@
 
 class App extends Component {
   componentWillMount() {
-    console.log('Will mount');	// 테스트 후 제거
+    console.log('Will mount');	// 테스트 후 제거한다.
   }
 
   componentDidMount() {
-    console.log('Did mount');	// 테스트 후 제거
+    console.log('Did mount');	// 테스트 후 제거한다.
   }
 
   render() {
-    console.log('Did render');	// 테스트 후 제거
+    console.log('Did render');	// 테스트 후 제거한다.
     return (
-      <div>
-        {movieData.map((movie, index) => {
-          return (
-            <MovieCard title={movie.title} poster={movie.poster} key={index} />
-          );
-        })}
-      </div>
+      ...
     );
   }
 }

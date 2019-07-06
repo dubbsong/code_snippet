@@ -50,49 +50,27 @@ class App extends Component {
 
 <br>
 
-#### MoviePoster 컴포넌트 연결
-
-- 파일 생성
-
-```bash
-$ cd src
-$ touch MoviePoster.js
-$ touch MoviePoster.css
-```
-
-<br>
-
-- MoviePoster.js
-
-```react
-import React, { Component } from 'react';
-import './MoviePoster.css';
-
-class MoviePoster extends Component {
-  render() {
-    return <img src="https://dummyimage.com/150x200/ff7373/fff" alt="" />;
-  }
-}
-
-export default MoviePoster;
-```
-
-<br>
+#### 컴포넌트 생성 (MoviePoster)
 
 - MovieCard.js
 
 ```react
 ...
-import MoviePoster from './MoviePoster';
 
 class MovieCard extends Component {
   render() {
     return (
       <div>
         <MoviePoster />
-        <h2>Dummy Title</h2>
+        <h2>All good?</h2>
       </div>
     );
+  }
+}
+
+class MoviePoster extends Component {
+  render() {
+    return <img src="https://dummyimage.com/150x200/ff7373/fff" alt="" />;
   }
 }
 

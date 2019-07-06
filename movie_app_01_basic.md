@@ -7,9 +7,7 @@ src
   ├─ App.js
   ├─ App.css
   ├─ MovieCard.js
-  ├─ MovieCard.css
-  ├─ MoviePoster.js
-  └─ MoviePoster.css
+  └─ MovieCard.css
 ```
 
 <br>
@@ -116,13 +114,9 @@ export default App;
 Learning React and ES6 by building a Movie App.
 
 ## Todo
-[] Add Components
-[] Set Props
-[] Set Maping
-[] Set PropTypes
-[] Test Lifecycle
-[] Set State
-[] 
+[] MovieCard Component
+[] MoviePoster Component
+[] MovieGenre Component
 ```
 
 <br>

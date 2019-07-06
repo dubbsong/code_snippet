@@ -114,22 +114,6 @@ class App extends Component {
 
 <br>
 
-- MoviePoster.js
-
-```react
-...
-
-class MoviePoster extends Component {
-  render() {
-    return <img src={this.props.poster} alt="" />;
-  }
-}
-
-...
-```
-
-<br>
-
 - MovieCard.js
 
 ```react
@@ -143,6 +127,12 @@ class MovieCard extends Component {
         ...
       </div>
     );
+  }
+}
+
+class MoviePoster extends Component {
+  render() {
+    return <img src={this.props.poster} alt="" />;
   }
 }
 

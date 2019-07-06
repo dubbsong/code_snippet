@@ -21,7 +21,7 @@ const movieData = [
     poster: 'https://dummyimage.com/150x200/47b8e0/fff'
   },
   {
-    title: 'The Intern',
+    title: 'John Wick',
     poster: 'https://dummyimage.com/150x200/34314c/fff'
   }
 ];
@@ -32,7 +32,11 @@ class App extends Component {
       <div>
         {movieData.map((movie, index) => {
           return (
-            <MovieCard title={movie.title} poster={movie.poster} key={index} />
+            <MovieCard
+              key={index}
+              poster={movie.poster}
+              title={movie.title}
+            />
           );
         })}
       </div>

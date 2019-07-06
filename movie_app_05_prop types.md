@@ -14,29 +14,12 @@ $ yarn add prop-types
 ...
 import PropTypes from 'prop-types';
 
-class MovieCard extends Component {
-  ...
-}
+...
 
 MovieCard.propTypes = {
   title: PropTypes.string.isRequired,
   poster: PropTypes.string.isRequired
 };
-
-...
-```
-
-<br>
-
-- MoviePoster.js
-
-```react
-...
-import PropTypes from 'prop-types';
-
-class MoviePoster extends Component {
-  ...
-}
 
 MoviePoster.propTypes = {
   poster: PropTypes.string.isRequired
