@@ -14,7 +14,6 @@ _renderMovies = () => {
 ```
 
 > `id`, `title_english`, `medium_cover_image`, `genres`, `synopsis`가 필요하다.
->
 
 <br>
 
@@ -29,13 +28,13 @@ class App extends Component {
   ...
 
   _renderMovies = () => {
-    const movies = this.state.movies.map(movie => {
+    const movies = this.state.movieData.map(movie => {
       console.log(movie);
       return (
         <MovieCard
           key={movie.id}
           poster={movie.medium_cover_image}
-          title={movie.title_english}
+          title={movie.title}
           genres={movie.genres}
           synopsis={movie.synopsis}
         />
@@ -57,13 +56,13 @@ class App extends Component {
 ```react
 ...
 
-function MovieCard({ title, poster, genres, synopsis }) {
+function MovieCard({ poster, title, genres, synopsis }) {
   return (
     <div className="Movie__Card">
-      <div className="Movie__Columm">
+      <div className="Movie__Column">
         <MoviePoster poster={poster} alt={title} />
       </div>
-      <div className="Movie__Columm">
+      <div className="Movie__Column">
         <h2>{title}</h2>
         <div className="Movie__Genres">
           {genres.map((genre, index) => (
@@ -76,38 +75,27 @@ function MovieCard({ title, poster, genres, synopsis }) {
   );
 }
 
+function MoviePoster({ poster, alt }) {
+  return <img src={poster} alt={alt} className="Movie__Poster" />;
+}
+
 function MovieGenre({ genre }) {
-  return <span className="Movie__Genre">{genre} </span>;
+  return <span className="Movie__Genre">{genre}</span>;
 }
 
 MovieCard.propTypes = {
-  poster: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
+  ...
   genres: PropTypes.array.isRequired,
   synopsis: PropTypes.string.isRequired
 };
 
-MovieGenre.propTypes = {
-  genre: PropTypes.string.isRequired
+MoviePoster.propTypes = {
+  ...
+  alt: PropTypes.string.isRequired
 };
 
-...
-```
-
-<br>
-
-- MoviePoster.js
-
-```react
-...
-
-function MoviePoster({ poster, alt }) {
-  return <img src={poster} alt={alt} title={alt} className="Movie__Poster" />;
-}
-
-MoviePoster.propTypes = {
-  poster: PropTypes.string.isRequired,
-  alt: PropTypes.string.isRequired
+MovieGenre.propTypes = {
+  genre: PropTypes.string.isRequired
 };
 
 ...

@@ -17,8 +17,8 @@ import PropTypes from 'prop-types';
 ...
 
 MovieCard.propTypes = {
-  title: PropTypes.string.isRequired,
-  poster: PropTypes.string.isRequired
+  poster: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired
 };
 
 MoviePoster.propTypes = {
