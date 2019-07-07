@@ -89,7 +89,7 @@ import './App.css';
 class App extends Component {
   render() {
     return (
-      <div>
+      <div className="App">
         <h2>What's up?</h2>
       </div>
     );
@@ -97,6 +97,19 @@ class App extends Component {
 }
 
 export default App;
+```
+
+<br>
+
+- App.css
+
+```css
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
 ```
 
 > 화면에 `What's up?`이 표시된다.

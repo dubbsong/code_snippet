@@ -90,6 +90,7 @@ class App extends Component {
 > 1. 개발자 도구
 > 2. `Network` 탭
 > 3. `list_movies.json?sort_by=download_count` API status 확인
+> 4. `data: movies: [{…}, {…}, ...]` 확인
 
 <br>
 
@@ -146,6 +147,12 @@ class App extends Component {
 ...
 ```
 
+> `data: movies: Array(20)` 확인
+>
+> `id`, `medium_cover_image`, `title_english`, `genres (array)`, `synopsis`가 필요하다.
+
+<br>
+
 ```react
 ...
 
@@ -165,8 +172,6 @@ class App extends Component {
 ...
 ```
 
-> Console 탭에서 `data: movies: Array(20)`을 확인할 수 있다.
-
 <br>
 
 #### Async / Await 추가
@@ -174,10 +179,12 @@ class App extends Component {
 - App.js
 
 ```react
-...
+import React, { Component } from 'react';
+import './App.css';
+import MovieCard from './MovieCard';
 
 class App extends Component {
-  ...
+  state = {};
 
   componentDidMount() {
     this._getMovies();
@@ -189,7 +196,7 @@ class App extends Component {
         <MovieCard
           key={movie.id}
           poster={movie.medium_cover_image}
-          title={movie.title}
+          title={movie.title_english}
         />
       );
     });
@@ -198,26 +205,23 @@ class App extends Component {
 
   async _getMovies() {
     const movieData = await this._callApi();
+
     this.setState({
       movieData: movieData
     });
-  };
+  }
 
-  _callApi = () => {
+  _callApi() {
     return fetch(
       'https://yts.lt/api/v2/list_movies.json?sort_by=download_count'
     )
       .then(response => response.json())
       .then(json => json.data.movies)
       .catch(err => console.log(err));
-  };
+  }
 
   render() {
-    return (
-      <div>
-        {this.state.movieData ? this._renderMovies() : 'Loading'}
-      </div>
-    );
+    ...
   }
 }
 
@@ -231,6 +235,18 @@ class App extends Component {
 > `key={movie.id}`로 변경한다.
 >
 > `fetch` 앞에 `return`을 추가한다.
+
+<br>
+
+#### title 길이 수정
+
+- MovieCard.js
+
+```react
+<h2>
+  {title.length > 15 ? `${title.substring(0, 15)}...` : title}
+</h2>
+```
 
 <br>
 

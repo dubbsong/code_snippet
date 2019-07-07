@@ -17,7 +17,7 @@ const movieTitles = [
 class App extends Component {
   render() {
     return (
-      <div>
+      <div className="App">
         <MovieCard title={movieTitles[0]} />
         <MovieCard title={movieTitles[1]} />
         <MovieCard title={movieTitles[2]} />
@@ -39,9 +39,12 @@ class App extends Component {
 
 class MovieCard extends Component {
   render() {
-    console.log(this.props);	// 확인 후 제거한다.
+    console.log(this.props);
     return (
-      ...
+      <div className="Movie__Card">
+        <MoviePoster />
+        <h2>All good?</h2>
+      </div>
     );
   }
 }
@@ -51,7 +54,6 @@ class MovieCard extends Component {
 
 > 콘솔에서 props 데이터를 확인할 수 있다.
 >
-> `console.log(this.props);`를 제거한다.
 
 <br>
 
@@ -64,8 +66,9 @@ class MovieCard extends Component {
 
 class MovieCard extends Component {
   render() {
+    console.log(this.props);	// 확인 후 제거
     return (
-      <div>
+      <div className="Movie__Card">
         <MoviePoster />
         <h2>{this.props.title}</h2>
       </div>
@@ -77,10 +80,12 @@ class MovieCard extends Component {
 ```
 
 > title이 각각 할당된다.
+>
+> `console.log(this.props);`를 제거한다.
 
 <br>
 
-#### poster 설정
+#### poster 설정 (moviePosters 데이터 추가)
 
 ###### 배열 데이터 / props 설정 / 콘솔 확인
 
@@ -99,7 +104,7 @@ const moviePosters = [
 class App extends Component {
   render() {
     return (
-      <div>
+      <div className="App">
         <MovieCard title={movieTitles[0]} poster={moviePosters[0]} />
         <MovieCard title={movieTitles[1]} poster={moviePosters[1]} />
         <MovieCard title={movieTitles[2]} poster={moviePosters[2]} />
@@ -122,7 +127,7 @@ class App extends Component {
 class MovieCard extends Component {
   render() {
     return (
-      <div>
+      <div className="Movie__Card">
         <MoviePoster poster={this.props.poster} />
         ...
       </div>

@@ -1,58 +1,3 @@
-#### react-lines-ellipsis 설치 (for …)
-
-```bash
-$ yarn add react-lines-ellipsis
-```
-
-<br>
-
-- Usage
-
-```react
-import LinesEllipsis from 'react-lines-ellipsis';
-
-<LinesEllipsis
-  text={props}
-  maxLine='3'
-  ellipsis='...'
-  trimRight
-  basedOn='letters'
-/>
-```
-
-> [react-lines-ellipsis](https://www.npmjs.com/package/react-lines-ellipsis) 참조
-
-<br>
-
-- MovieCard.js
-
-```react
-...
-import LinesEllipsis from 'react-lines-ellipsis';
-
-function MovieCard({ poster, title, genres, synopsis }) {
-  return (
-    <div className="Movie__Card">
-      ...
-        <div className="Movie__Synopsis">
-          <LinesEllipsis
-            text={synopsis}
-            maxLine="5"
-            ellipsis="..."
-            trimRight
-            basedOn="letters"
-          />
-        </div>
-      ...
-    </div>
-  );
-}
-
-...
-```
-
-<br>
-
 #### CSS
 
 - index.css
@@ -91,6 +36,8 @@ html,
   height: 100%;
 }
 ```
+
+> `text-align: center;` 제거
 
 <br>
 
@@ -178,18 +125,61 @@ html,
 
 <br>
 
-#### CSS (for Loading)
+#### LinesEllipsis 설치
 
-- App.js
+```bash
+$ yarn add react-lines-ellipsis
+```
+
+<br>
+
+- Usage
 
 ```react
-render() {
+import LinesEllipsis from 'react-lines-ellipsis';
+
+<LinesEllipsis
+  text={props}
+  maxLine='3'
+  ellipsis='...'
+  trimRight
+  basedOn='letters'
+/>
+```
+
+> [react-lines-ellipsis](https://www.npmjs.com/package/react-lines-ellipsis) 참조
+
+<br>
+
+#### LinesEllipsis 추가
+
+- MovieCard.js
+
+```react
+...
+import LinesEllipsis from 'react-lines-ellipsis';
+
+function MovieCard({ poster, title, genres, synopsis }) {
   return (
-    <div className={this.state.movieData ? 'App' : 'App--loading'}>
-      {this.state.movieData ? this._renderMovies() : 'Loading'}
+    <div className="Movie__Card">
+      ...
+      <div className="Movie__Column">
+        ...
+        <div className="Movie__Synopsis">
+          <LinesEllipsis
+            text={synopsis}
+            maxLine="5"
+            ellipsis="..."
+            trimRight
+            basedOn="letters"
+          />
+        </div>
+      </div>
     </div>
   );
 }
+
+...
 ```
 
 <br>

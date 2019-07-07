@@ -18,7 +18,11 @@ import './MovieCard.css';
 
 class MovieCard extends Component {
   render() {
-    return <h2>All good?</h2>;
+    return (
+      <div className="Movie__Card">
+        <h2>All good?</h2>
+      </div>
+    );
   }
 }
 
@@ -36,7 +40,7 @@ import MovieCard from './MovieCard';
 class App extends Component {
   render() {
     return (
-      <div>
+      <div className="App">
         <MovieCard />
       </div>
     );
@@ -45,8 +49,6 @@ class App extends Component {
 
 ...
 ```
-
-<br>
 
 > 화면에 `All good?`이 표시된다.
 
@@ -111,31 +113,9 @@ class App extends Component {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  font-size: 14px;
+  text-align: center;
   padding: 50px;
-}
-
-.App-loading {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   height: 100%;
-}
-```
-
-<br>
-
-- MovieCard.css
-
-```css
-.Movie__Card {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: flex-start;
-  width: 20%;
-  padding: 20px;
-  box-shadow: 0 8px 38px rgba(133, 133, 133, 0.3), 0 5px 12px rgba(133, 133, 133, 0.22);
 }
 ```
 

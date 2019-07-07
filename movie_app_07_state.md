@@ -22,10 +22,11 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        {this.state.greeting}
-        ...
+      <div className="App">
+        {movieData.map((movie, index) => {
+          ...
         })}
+        {this.state.greeting}
       </div>
     );
   }
@@ -85,15 +86,9 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className="App">
         {this.state.movieData.map((movie, index) => {
-          return (
-            <MovieCard
-              key={index}
-              poster={movie.poster}
-              title={movie.title}
-            />
-          );
+          ...
         })}
       </div>
     );
@@ -147,11 +142,7 @@ class App extends Component {
   _renderMovies = () => {
     const movies = this.state.movieData.map((movie, index) => {
       return (
-        <MovieCard
-          key={index}
-          poster={movie.poster}
-          title={movie.title}
-        />
+        <MovieCard key={index} poster={movie.poster} title={movie.title} />
       );
     });
     return movies;
@@ -159,14 +150,32 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        {this.state.movieData ? this._renderMovies() : 'Loading'}
+      <div className={this.state.movieData ? 'App' : 'App__Loading'}>
+        {this.state.movieData ? this._renderMovies() : 'Loading...'}
       </div>
     );
   }
 }
 
 ...
+```
+
+<br>
+
+- App.css
+
+```css
+.App {
+  ...
+}
+
+.App__Loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 20px;
+}
 ```
 
 > 먼저 `Loading`이 2초 동안 표시되고, 그 후에 `movieData`가 표시된다.

@@ -34,7 +34,7 @@ class App extends Component {
         <MovieCard
           key={movie.id}
           poster={movie.medium_cover_image}
-          title={movie.title}
+          title={movie.title_english}
           genres={movie.genres}
           synopsis={movie.synopsis}
         />
@@ -44,7 +44,6 @@ class App extends Component {
   };
 
   ...
-}
 
 ...
 ```
@@ -60,11 +59,11 @@ function MovieCard({ poster, title, genres, synopsis }) {
   return (
     <div className="Movie__Card">
       <div className="Movie__Column">
-        <MoviePoster poster={poster} alt={title} />
+        <MoviePoster poster={poster} />
       </div>
       <div className="Movie__Column">
-        <h2>{title}</h2>
-        <div className="Movie__Genres">
+        <h2>{title.length > 15 ? `${title.substring(0, 15)}...` : title}</h2>
+        <div className="Movie__Genre">
           {genres.map((genre, index) => (
             <MovieGenre genre={genre} key={index} />
           ))}
@@ -75,24 +74,15 @@ function MovieCard({ poster, title, genres, synopsis }) {
   );
 }
 
-function MoviePoster({ poster, alt }) {
-  return <img src={poster} alt={alt} className="Movie__Poster" />;
+function MoviePoster({ poster }) {
+  return <img src={poster} alt="" className="Movie__Poster" />;
 }
 
 function MovieGenre({ genre }) {
   return <span className="Movie__Genre">{genre}</span>;
 }
 
-MovieCard.propTypes = {
-  ...
-  genres: PropTypes.array.isRequired,
-  synopsis: PropTypes.string.isRequired
-};
-
-MoviePoster.propTypes = {
-  ...
-  alt: PropTypes.string.isRequired
-};
+...
 
 MovieGenre.propTypes = {
   genre: PropTypes.string.isRequired

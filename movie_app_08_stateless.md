@@ -1,4 +1,4 @@
-#### 함수형 컴포넌트
+#### 함수형 컴포넌트 (stateless)
 
 - MovieCard.js
 
@@ -8,7 +8,7 @@ import React from 'react';
 
 function MovieCard({ poster, title }) {
   return (
-    <div>
+    <div className="Movie__Card">
       <MoviePoster poster={poster} />
       <h2>{title}</h2>
     </div>

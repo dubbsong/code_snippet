@@ -11,17 +11,19 @@
 ```react
 ...
 
+const movieData = [...];
+
 class App extends Component {
   componentWillMount() {
-    console.log('Will mount');	// 테스트 후 제거한다.
+    console.log('Will mount');	// 테스트 후 제거
   }
 
   componentDidMount() {
-    console.log('Did mount');	// 테스트 후 제거한다.
+    console.log('Did mount');	// 테스트 후 제거
   }
 
   render() {
-    console.log('Did render');	// 테스트 후 제거한다.
+    console.log('Did renter');	// 테스트 후 제거
     return (
       ...
     );
