@@ -37,6 +37,12 @@ class App extends Component {
 
 > `What's up?`이 2초 후에 `All good?`으로 변경된다.
 
+> `greeting: "What's up?"` 제거
+>
+> `greeting: 'All good?'` 제거
+>
+> `{this.state.greeting}` 제거
+
 <br>
 
 #### state 설정

@@ -185,10 +185,27 @@ class App extends Component {
   state = {};
 
   componentDidMount() {
-    this._getMovies();
+    this.getMovies();
   }
 
-  _renderMovies() {
+  async getMovies() {
+    const movieData = await this.callApi();
+
+    this.setState({
+      movieData: movieData
+    });
+  }
+
+  callApi() {
+    return fetch(
+      'https://yts.lt/api/v2/list_movies.json?sort_by=download_count'
+    )
+      .then(response => response.json())
+      .then(json => json.data.movies)
+      .catch(err => console.log(err));
+  }
+
+  renderMovies() {
     const movies = this.state.movieData.map(movie => {
       return (
         <MovieCard
@@ -201,36 +218,20 @@ class App extends Component {
     return movies;
   }
 
-  async _getMovies() {
-    const movieData = await this._callApi();
-
-    this.setState({
-      movieData: movieData
-    });
+  render() {
+    ...
   }
-
-  _callApi() {
-    return fetch(
-      'https://yts.lt/api/v2/list_movies.json?sort_by=download_count'
-    )
-      .then(response => response.json())
-      .then(json => json.data.movies)
-      .catch(err => console.log(err));
-  }
-
-  ...
 }
 
 ...
 ```
 
-> `Warning: Failed prop type: The prop 'poster' is…` 에러가 발생한다.
->
-> `poster={movie.medium_cover_image}`로 변경하면 에러가 해결된다.
->
-> `key={movie.id}`로 변경한다.
->
-> `fetch` 앞에 `return`을 추가한다.
+> 1. render()
+> 2. cdm()
+> 3. getMovies()
+> 4. callApi()
+> 5. render()
+> 6. renderMovies()
 
 <br>
 

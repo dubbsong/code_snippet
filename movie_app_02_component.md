@@ -113,7 +113,6 @@ class App extends Component {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  text-align: center;
   padding: 50px;
 }
 ```
