@@ -45,14 +45,25 @@ class App extends Component {
 
 <br>
 
-#### Commit
+#### README.md
 
-```bash
-$ cd movie_app
-$ git status
-$ git add .
-$ git commit -m 'Test Lifecycle'
-$ git push origin master
+```markdown
+# Movie App
+Learning React and ES6 by building a Movie App.
+
+
+## Todo
+- [x] Add Components
+- [x] Set Props
+- [x] Set Maping
+- [x] Set PropTypes
+- [x] Test Lifecycle
+- [] Set State
+- [] Set Stateless Component
+- [] AJAX Networking
+- [] Update Component
+- [] Styling CSS
+- [] Deploying
 ```
 
 <br>

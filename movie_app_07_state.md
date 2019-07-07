@@ -117,36 +117,19 @@ class App extends Component {
   componentDidMount() {
     setTimeout(() => {
       this.setState({
-        movieData: [
-          {
-            title: 'Batman Begins',
-            poster: 'https://dummyimage.com/150x200/ff7373/fff'
-          },
-          {
-            title: 'Batman Dark Knight',
-            poster: 'https://dummyimage.com/150x200/ffc952/fff'
-          },
-          {
-            title: 'Batman Rises',
-            poster: 'https://dummyimage.com/150x200/47b8e0/fff'
-          },
-          {
-            title: 'John Wick',
-            poster: 'https://dummyimage.com/150x200/34314c/fff'
-          }
-        ]
+        movieData: [...]
       });
     }, 2000);
   }
 
-  _renderMovies = () => {
+  _renderMovies() {
     const movies = this.state.movieData.map((movie, index) => {
       return (
         <MovieCard key={index} poster={movie.poster} title={movie.title} />
       );
     });
     return movies;
-  };
+  }
 
   render() {
     return (
@@ -179,6 +162,29 @@ class App extends Component {
 ```
 
 > 먼저 `Loading`이 2초 동안 표시되고, 그 후에 `movieData`가 표시된다.
+
+<br>
+
+#### README.md
+
+```markdown
+# Movie App
+Learning React and ES6 by building a Movie App.
+
+
+## Todo
+- [x] Add Components
+- [x] Set Props
+- [x] Set Maping
+- [x] Set PropTypes
+- [x] Test Lifecycle
+- [x] Set State
+- [] Set Stateless Component
+- [] AJAX Networking
+- [] Update Component
+- [] Styling CSS
+- [] Deploying
+```
 
 <br>
 

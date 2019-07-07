@@ -24,13 +24,36 @@ function MoviePoster({ poster }) {
 
 <br>
 
+#### README.md
+
+```markdown
+# Movie App
+Learning React and ES6 by building a Movie App.
+
+
+## Todo
+- [x] Add Components
+- [x] Set Props
+- [x] Set Maping
+- [x] Set PropTypes
+- [x] Test Lifecycle
+- [x] Set State
+- [x] Set Stateless Component
+- [] AJAX Networking
+- [] Update Component
+- [] Styling CSS
+- [] Deploying
+```
+
+<br>
+
 #### Commit
 
 ```bash
 $ cd movie_app
 $ git status
 $ git add .
-$ git commit -m 'Modify Functional Components'
+$ git commit -m 'Set Stateless Component'
 $ git push origin master
 ```
 

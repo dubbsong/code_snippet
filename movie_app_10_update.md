@@ -3,14 +3,29 @@
 - App.js
 
 ```react
-_renderMovies = () => {
-  const movies = this.state.movieData.map(movie => {
-    console.log(movie);
-    return (
-      ...
-    );
-  })
+...
+
+class App extends Component {
+  ...
+
+  _renderMovies() {
+    const movies = this.state.movieData.map(movie => {
+      console.log(movie);
+      return (
+        <MovieCard
+          key={movie.id}
+          poster={movie.medium_cover_image}
+          title={movie.title_english}
+        />
+      );
+    });
+    return movies;
+  }
+
+  ...
 }
+
+...
 ```
 
 > `id`, `title_english`, `medium_cover_image`, `genres`, `synopsis`가 필요하다.
@@ -27,9 +42,9 @@ _renderMovies = () => {
 class App extends Component {
   ...
 
-  _renderMovies = () => {
+  _renderMovies() {
     const movies = this.state.movieData.map(movie => {
-      console.log(movie);
+      console.log(movie);	// 데이터 확인 후 제거
       return (
         <MovieCard
           key={movie.id}
@@ -41,9 +56,10 @@ class App extends Component {
       );
     });
     return movies;
-  };
+  }
 
   ...
+}
 
 ...
 ```
@@ -82,6 +98,13 @@ function MovieGenre({ genre }) {
   return <span className="Movie__Genre">{genre}</span>;
 }
 
+MovieCard.propTypes = {
+  poster: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  genres: PropTypes.array.isRequired,
+  synopsis: PropTypes.string.isRequired
+}
+
 ...
 
 MovieGenre.propTypes = {
@@ -89,6 +112,29 @@ MovieGenre.propTypes = {
 };
 
 ...
+```
+
+<br>
+
+#### README.md
+
+```markdown
+# Movie App
+Learning React and ES6 by building a Movie App.
+
+
+## Todo
+- [x] Add Components
+- [x] Set Props
+- [x] Set Maping
+- [x] Set PropTypes
+- [x] Test Lifecycle
+- [x] Set State
+- [x] Set Stateless Component
+- [x] Set AJAX Networking
+- [x] Update Component
+- [] Styling CSS
+- [] Deploying
 ```
 
 <br>

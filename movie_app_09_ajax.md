@@ -179,9 +179,7 @@ class App extends Component {
 - App.js
 
 ```react
-import React, { Component } from 'react';
-import './App.css';
-import MovieCard from './MovieCard';
+...
 
 class App extends Component {
   state = {};
@@ -190,7 +188,7 @@ class App extends Component {
     this._getMovies();
   }
 
-  _renderMovies = () => {
+  _renderMovies() {
     const movies = this.state.movieData.map(movie => {
       return (
         <MovieCard
@@ -201,7 +199,7 @@ class App extends Component {
       );
     });
     return movies;
-  };
+  }
 
   async _getMovies() {
     const movieData = await this._callApi();
@@ -220,9 +218,7 @@ class App extends Component {
       .catch(err => console.log(err));
   }
 
-  render() {
-    ...
-  }
+  ...
 }
 
 ...
@@ -250,13 +246,36 @@ class App extends Component {
 
 <br>
 
+#### README.md
+
+```markdown
+# Movie App
+Learning React and ES6 by building a Movie App.
+
+
+## Todo
+- [x] Add Components
+- [x] Set Props
+- [x] Set Maping
+- [x] Set PropTypes
+- [x] Test Lifecycle
+- [x] Set State
+- [x] Set Stateless Component
+- [x] Set AJAX Networking
+- [] Update Component
+- [] Styling CSS
+- [] Deploying
+```
+
+<br>
+
 #### Commit
 
 ```bash
 $ cd movie_app
 $ git status
 $ git add .
-$ git commit -m 'Set AJAX'
+$ git commit -m 'Set AJAX Networking'
 $ git push origin master
 ```
 

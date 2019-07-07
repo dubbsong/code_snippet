@@ -27,7 +27,7 @@ $ yarn build
 ```js
 {
   ...
-  "http://dubbsong.github.io/movie_app"
+  "homepage": "http://dubbsong.github.io/movie_app"
 }
 ```
 
@@ -68,9 +68,8 @@ $ yarn run deploy
 
 > Username과 Password를 입력한다.
 >
-> 약 10분 내에 배포된다.
+> 약 2-3분 내에 `https://dubbsong.github.io/test_app`으로 배포된다.
 
 <br>
 
 <br>
-
