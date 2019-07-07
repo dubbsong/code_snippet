@@ -115,11 +115,33 @@ class App extends Component {
   justify-content: space-around;
   text-align: center;
   padding: 50px;
-  height: 100%;
 }
 ```
 
 > 4개의 `<MovieCard />` 컴포넌트가 화면에 표시된다.
+
+<br>
+
+#### README.md
+
+```markdown
+# Movie App
+Learning React and ES6 by building a Movie App.
+
+
+## Todo
+- [x] Add Components
+- [] Set Props
+- [] Maping
+- [] Set PropTypes
+- [] Test Lifecycle
+- [] Set State
+- [] Set Stateless Component
+- [] AJAX Networking
+- [] Update Component
+- [] Styling CSS
+- [] Deploying
+```
 
 <br>
 
