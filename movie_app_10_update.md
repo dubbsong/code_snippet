@@ -63,7 +63,7 @@ function MovieCard({ poster, title, genres, synopsis }) {
       </div>
       <div className="Movie__Column">
         <h2>{title.length > 15 ? `${title.substring(0, 15)}...` : title}</h2>
-        <div className="Movie__Genre">
+        <div className="Movie__Genres">
           {genres.map((genre, index) => (
             <MovieGenre genre={genre} key={index} />
           ))}
