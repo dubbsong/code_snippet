@@ -46,6 +46,8 @@ class App extends Component {
 ...
 ```
 
+<br>
+
 > 화면에 `All good?`이 표시된다.
 
 <br>
@@ -60,7 +62,7 @@ class App extends Component {
 class MovieCard extends Component {
   render() {
     return (
-      <div>
+      <div className="Movie__Card">
         <MoviePoster />
         <h2>All good?</h2>
       </div>
@@ -87,7 +89,7 @@ class MoviePoster extends Component {
 class App extends Component {
   render() {
     return (
-      <div>
+      <div className="App">
         <MovieCard />
         <MovieCard />
         <MovieCard />
@@ -98,6 +100,43 @@ class App extends Component {
 }
 
 ...
+```
+
+<br>
+
+- App.css
+
+```css
+.App {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  font-size: 14px;
+  padding: 50px;
+}
+
+.App-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+```
+
+<br>
+
+- MovieCard.css
+
+```css
+.Movie__Card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 20%;
+  padding: 20px;
+  box-shadow: 0 8px 38px rgba(133, 133, 133, 0.3), 0 5px 12px rgba(133, 133, 133, 0.22);
+}
 ```
 
 > 4개의 `<MovieCard />` 컴포넌트가 화면에 표시된다.
