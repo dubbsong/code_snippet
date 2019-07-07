@@ -33,11 +33,8 @@ $ code .
 #### React 실행
 
 ```bash
-$ cd movie_app
 $ yarn start
 ```
-
-> 정상적으로 작동한다.
 
 <br>
 
@@ -55,14 +52,6 @@ $ yarn start
 
 ```html
 <title>Movie App</title>
-```
-
-<br>
-
-- App.css
-
-```css
-/* 모든 코드 제거 */
 ```
 
 <br>
@@ -97,6 +86,22 @@ class App extends Component {
 }
 
 export default App;
+```
+
+<br>
+
+- index.css
+
+```css
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  height: 100%;
+  margin: 0;
+}
+
+/* html, #root {
+  height: 100%;
+} */
 ```
 
 <br>
