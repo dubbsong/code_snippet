@@ -75,7 +75,7 @@
 ...
 
 class App extends Component {
-  ...
+  state = {};
 
   componentDidMount() {
     fetch('https://yts.lt/api/v2/list_movies.json?sort_by=download_count');
@@ -102,7 +102,7 @@ class App extends Component {
 ...
 
 class App extends Component {
-  ...
+  state = {};
 
   componentDidMount() {
     fetch('https://yts.lt/api/v2/list_movies.json?sort_by=download_count')
@@ -132,7 +132,7 @@ class App extends Component {
 ...
 
 class App extends Component {
-  ...
+  state = {};
 
   componentDidMount() {
     fetch('https://yts.lt/api/v2/list_movies.json?sort_by=download_count')
@@ -157,7 +157,7 @@ class App extends Component {
 ...
 
 class App extends Component {
-  ...
+  state = {};
 
   componentDidMount() {
     fetch('https://yts.lt/api/v2/list_movies.json?sort_by=download_count')
@@ -179,7 +179,9 @@ class App extends Component {
 - App.js
 
 ```react
-...
+import React, { Component } from 'react';
+import './App.css';
+import MovieCard from './MovieCard';
 
 class App extends Component {
   state = {};
@@ -209,9 +211,9 @@ class App extends Component {
     const movies = this.state.movieData.map(movie => {
       return (
         <MovieCard
-          key={movie.id}
           poster={movie.medium_cover_image}
           title={movie.title_english}
+          key={movie.id}
         />
       );
     });

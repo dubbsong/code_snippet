@@ -10,9 +10,13 @@ class App extends Component {
 
   renderMovies() {
     const movies = this.state.movieData.map(movie => {
-      console.log(movie);	// 데이터 확인
+      console.log(movie);	// 데이터 확인 후
       return (
-        ...
+        <MovieCard
+          poster={movie.medium_cover_image}
+          title={movie.title_english}
+          key={movie.id}
+        />
       );
     });
     return movies;
@@ -28,7 +32,9 @@ class App extends Component {
 
 <br>
 
-#### 데이터 가져오기 & PropTypes 설정 & HTML 작성
+#### props 연결
+
+###### genres, synopsis 추가
 
 - App.js
 
@@ -40,11 +46,10 @@ class App extends Component {
 
   renderMovies() {
     const movies = this.state.movieData.map(movie => {
+      console.log(movie);	// 데이터 확인 후 제거
       return (
         <MovieCard
-          key={movie.id}
-          poster={movie.medium_cover_image}
-          title={movie.title_english}
+          ...
           genres={movie.genres}
           synopsis={movie.synopsis}
         />
@@ -59,6 +64,8 @@ class App extends Component {
 ...
 ```
 
+> `console.log(movie);`를 제거한다.
+
 <br>
 
 - MovieCard.js
@@ -70,27 +77,15 @@ function MovieCard({ poster, title, genres, synopsis }) {
   return (
     <div className="Movie__Card">
       <div className="Movie__Column">
-        <MoviePoster poster={poster} />
+        <img src={poster} alt="" className="Movie__Poster" />
       </div>
       <div className="Movie__Column">
         <h2>{title.length > 15 ? `${title.substring(0, 15)}...` : title}</h2>
-        <div className="Movie__Genres">
-          {genres.map((genre, index) => (
-            <MovieGenre genre={genre} key={index} />
-          ))}
-        </div>
+        <p className="Movie__Genres">{genres}</p>
         <p className="Movie__Synopsis">{synopsis}</p>
       </div>
     </div>
   );
-}
-
-function MoviePoster({ poster }) {
-  return <img src={poster} alt="" className="Movie__Poster" />;
-}
-
-function MovieGenre({ genre }) {
-  return <span className="Movie__Genre">{genre}</span>;
 }
 
 MovieCard.propTypes = {
@@ -98,12 +93,6 @@ MovieCard.propTypes = {
   title: PropTypes.string.isRequired,
   genres: PropTypes.array.isRequired,
   synopsis: PropTypes.string.isRequired
-}
-
-...
-
-MovieGenre.propTypes = {
-  genre: PropTypes.string.isRequired
 };
 
 ...

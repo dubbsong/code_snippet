@@ -1,8 +1,8 @@
-#### Test lifecycle
+#### Test lifecycle methods
 
-1. `componentWillMount()`
-2. `render()`
-3. `componentDidMount()`
+1. `componentWillMount()` 메소드
+2. `render()` 메소드
+3. `componentDidMount()` 메소드
 
 <br>
 
@@ -11,19 +11,17 @@
 ```react
 ...
 
-const movieData = [...];
-
 class App extends Component {
   componentWillMount() {
-    console.log('Will mount');	// 테스트 후 제거
+    console.log('Will mount');	// 확인 후 제거
   }
 
   componentDidMount() {
-    console.log('Did mount');	// 테스트 후 제거
+    console.log('Did mount');	// 확인 후 제거
   }
 
   render() {
-    console.log('Did renter');	// 테스트 후 제거
+    console.log('Did render');	// 확인 후 제거
     return (
       ...
     );
@@ -33,7 +31,7 @@ class App extends Component {
 ...
 ```
 
-> Console:
+> Console tab:
 >
 > `Will mount`
 >
@@ -41,7 +39,7 @@ class App extends Component {
 >
 > `Did mount`
 
-> 테스트 후 `console.log(…);`를 제거한다.
+> `console.log('...');`를 제거한다.
 
 <br>
 

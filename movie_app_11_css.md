@@ -14,30 +14,13 @@
 
 ```css
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   margin: 0;
 }
 ```
 
-<br>
-
-- App.css
-
-```css
-.App {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  padding: 50px;
-  font-size: 14px;
-  height: 100%;
-}
-
-.App__Loading {
-  ...
-}
-```
+> `text-align: center;` 제거
 
 <br>
 

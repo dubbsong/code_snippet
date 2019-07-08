@@ -18,17 +18,9 @@ class MovieCard extends Component {
   ...
 }
 
-class MoviePoster extends Component {
-  ...
-}
-
 MovieCard.propTypes = {
   poster: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired
-};
-
-MoviePoster.propTypes = {
-  poster: PropTypes.string.isRequired
 };
 
 ...

@@ -9,14 +9,10 @@ import React from 'react';
 function MovieCard({ poster, title }) {
   return (
     <div className="Movie__Card">
-      <MoviePoster poster={poster} />
+      <img src={poster} alt="" />
       <h2>{title}</h2>
     </div>
   );
-}
-
-function MoviePoster({ poster }) {
-  return <img src={poster} alt="" />;
 }
 
 ...

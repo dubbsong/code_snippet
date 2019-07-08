@@ -1,6 +1,6 @@
-#### state 설정
+#### state 01
 
-###### change greeting after 2s
+###### Change greeting after 2s
 
 - App.js
 
@@ -9,7 +9,7 @@
 
 class App extends Component {
   state = {
-    greeting: "What's up?"
+    greeting: 'Wassup?'
   };
 
   componentDidMount() {
@@ -23,9 +23,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {movieData.map((movie, index) => {
-          ...
-        })}
+        ...
         {this.state.greeting}
       </div>
     );
@@ -35,9 +33,9 @@ class App extends Component {
 ...
 ```
 
-> `What's up?`이 2초 후에 `All good?`으로 변경된다.
+> `Wassup`이 2초 후에 `All good?`으로 변경된다.
 
-> `greeting: "What's up?"` 제거
+> `greeting: 'Wassup?'` 제거
 >
 > `greeting: 'All good?'` 제거
 >
@@ -45,9 +43,9 @@ class App extends Component {
 
 <br>
 
-#### state 설정
+#### state 02
 
-###### move data in state / add other data after 2s
+###### Add other data after 2s
 
 - App.js
 
@@ -83,7 +81,7 @@ class App extends Component {
           ...this.state.movieData,
           {
             title: 'John Wick: Reload',
-            poster: 'https://dummyimage.com/150x200/c6e5d9/fff'
+            poster: 'https://dummyimage.com/150x200/998ac5/fff'
           }
         ]
       });
@@ -108,9 +106,9 @@ class App extends Component {
 
 <br>
 
-#### state 설정
+#### state 03
 
-###### add loading
+###### Add Loading
 
 - App.js
 
@@ -123,15 +121,36 @@ class App extends Component {
   componentDidMount() {
     setTimeout(() => {
       this.setState({
-        movieData: [...]
+        movieData: [
+          {
+            title: 'Batman Begins',
+            poster: 'https://dummyimage.com/150x200/ff7373/fff'
+          },
+          {
+            title: 'Batman Dark Knight',
+            poster: 'https://dummyimage.com/150x200/ffc952/fff'
+          },
+          {
+            title: 'Batman Rises',
+            poster: 'https://dummyimage.com/150x200/47b8e0/fff'
+          },
+          {
+            title: 'John Wick',
+            poster: 'https://dummyimage.com/150x200/34314c/fff'
+          }
+        ]
       });
     }, 2000);
   }
 
-  _renderMovies() {
+  renderMovies() {
     const movies = this.state.movieData.map((movie, index) => {
       return (
-        <MovieCard key={index} poster={movie.poster} title={movie.title} />
+        <MovieCard
+          poster={movie.poster}
+          title={movie.title}
+          key={index}
+        />
       );
     });
     return movies;
@@ -139,8 +158,8 @@ class App extends Component {
 
   render() {
     return (
-      <div className={this.state.movieData ? 'App' : 'App__Loading'}>
-        {this.state.movieData ? this._renderMovies() : 'Loading...'}
+      <div className={this.state.movieData ? 'App' : 'App_Loading'}>
+        {this.state.movieData ? this.renderMovies() : 'Loading...'}
       </div>
     );
   }
@@ -162,8 +181,9 @@ class App extends Component {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 60vh;
   font-size: 20px;
+  color: #b4b5bd;
 }
 ```
 

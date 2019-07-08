@@ -33,9 +33,9 @@ class App extends Component {
         {movieData.map((movie, index) => {
           return (
             <MovieCard
-              key={index}
               poster={movie.poster}
               title={movie.title}
+              key={index}
             />
           );
         })}
@@ -47,7 +47,7 @@ class App extends Component {
 ...
 ```
 
-> `key` 설정을 하지 않으면, `Warning: Each child in a list should have a unique "key" prop.` 에러가 발생한다.
+> 이전과 동일하게 정상적으로 표시된다.
 
 <br>
 
