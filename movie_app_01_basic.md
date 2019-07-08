@@ -102,15 +102,17 @@ export default App;
 
 ```css
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   height: 100%;
   margin: 0;
+  text-align: center;
 }
 
-/* html, #root {
+html,
+#root {
   height: 100%;
-} */
+}
 ```
 
 > 화면에 `What's up?`이 표시된다.

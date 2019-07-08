@@ -112,6 +112,8 @@ class App extends Component {
 ```
 
 > 4개의 `<MovieCard />` 컴포넌트가 화면에 표시된다.
+>
+> 모바일 크기도 확인한다.
 
 <br>
 
