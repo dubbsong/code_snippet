@@ -32,9 +32,7 @@ body {
 ```css
 .Movie__Card {
   width: 40%;
-  /* background-color: #998ac5; */
-  box-shadow: 0 8px 38px rgba(133, 133, 133, 0.3),
-    0 5px 12px rgba(133, 133, 133, 0.22);
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
   padding: 0 20px;
   margin-bottom: 50px;
   display: flex;
@@ -58,19 +56,12 @@ body {
   max-width: 100%;
   position: relative;
   top: -20px;
-  box-shadow: -10px 19px 38px rgba(83, 83, 83, 0.3),
-    10px 15px 12px rgba(80, 80, 80, 0.22);
+  box-shadow: -10px 20px 40px rgba(0, 0, 0, 0.2),
+    10px 15px 15px rgba(0, 0, 0, 0.2);
 }
 
 .Movie__Genres {
-  display: flex;
-  flex-wrap: wrap;
   margin-bottom: 20px;
-}
-
-.Movie__Genre {
-  color: #b4b5bd;
-  margin-right: 10px;
 }
 
 .Movie__Synopsis {
