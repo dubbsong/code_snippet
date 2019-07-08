@@ -56,6 +56,14 @@ $ yarn start
 
 <br>
 
+- App.css
+
+```css
+/* 모든 코드 제거 */
+```
+
+<br>
+
 - index.js
 
 ```react
@@ -121,7 +129,7 @@ Learning React and ES6 by building a Movie App.
 
 
 ## Todo
-- [] Add Components
+- [] Add Component
 - [] Set Props
 - [] Set Maping
 - [] Set PropTypes
@@ -131,6 +139,7 @@ Learning React and ES6 by building a Movie App.
 - [] Set AJAX Networking
 - [] Update Component
 - [] Styling CSS
+- [] Refactoring
 - [] Deploying
 ```
 

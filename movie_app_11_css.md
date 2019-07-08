@@ -18,10 +18,6 @@ body {
   height: 100%;
   margin: 0;
 }
-
-/* html, #root {
-  height: 100%;
-} */
 ```
 
 <br>
@@ -33,21 +29,15 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  font-size: 14px;
   padding: 50px;
+  font-size: 14px;
   height: 100%;
 }
 
 .App__Loading {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  font-size: 20px;
+  ...
 }
 ```
-
-> `text-align: center;` 제거
 
 <br>
 
@@ -189,7 +179,7 @@ Learning React and ES6 by building a Movie App.
 
 
 ## Todo
-- [x] Add Components
+- [x] Add Component
 - [x] Set Props
 - [x] Set Maping
 - [x] Set PropTypes
@@ -199,6 +189,7 @@ Learning React and ES6 by building a Movie App.
 - [x] Set AJAX Networking
 - [x] Update Component
 - [x] Styling CSS
+- [] Refactoring
 - [] Deploying
 ```
 

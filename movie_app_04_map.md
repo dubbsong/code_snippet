@@ -59,7 +59,7 @@ Learning React and ES6 by building a Movie App.
 
 
 ## Todo
-- [x] Add Components
+- [x] Add Component
 - [x] Set Props
 - [x] Set Maping
 - [] Set PropTypes
@@ -69,6 +69,7 @@ Learning React and ES6 by building a Movie App.
 - [] Set AJAX Networking
 - [] Update Component
 - [] Styling CSS
+- [] Refactoring
 - [] Deploying
 ```
 

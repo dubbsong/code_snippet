@@ -8,15 +8,11 @@
 class App extends Component {
   ...
 
-  _renderMovies() {
+  renderMovies() {
     const movies = this.state.movieData.map(movie => {
-      console.log(movie);
+      console.log(movie);	// 데이터 확인
       return (
-        <MovieCard
-          key={movie.id}
-          poster={movie.medium_cover_image}
-          title={movie.title_english}
-        />
+        ...
       );
     });
     return movies;
@@ -42,9 +38,8 @@ class App extends Component {
 class App extends Component {
   ...
 
-  _renderMovies() {
+  renderMovies() {
     const movies = this.state.movieData.map(movie => {
-      console.log(movie);	// 데이터 확인 후 제거
       return (
         <MovieCard
           key={movie.id}
@@ -124,7 +119,7 @@ Learning React and ES6 by building a Movie App.
 
 
 ## Todo
-- [x] Add Components
+- [x] Add Component
 - [x] Set Props
 - [x] Set Maping
 - [x] Set PropTypes
@@ -134,6 +129,7 @@ Learning React and ES6 by building a Movie App.
 - [x] Set AJAX Networking
 - [x] Update Component
 - [] Styling CSS
+- [] Refactoring
 - [] Deploying
 ```
 

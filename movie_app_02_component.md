@@ -20,7 +20,7 @@ class MovieCard extends Component {
   render() {
     return (
       <div className="Movie__Card">
-        <h2>All good?</h2>
+        <h2>Batman Begins</h2>
       </div>
     );
   }
@@ -50,11 +50,11 @@ class App extends Component {
 ...
 ```
 
-> 화면에 `All good?`이 표시된다.
+> 화면에 `Batman Begins`가 표시된다.
 
 <br>
 
-#### 컴포넌트 생성 (MoviePoster)
+#### 포스터 이미지 추가
 
 - MovieCard.js
 
@@ -65,16 +65,10 @@ class MovieCard extends Component {
   render() {
     return (
       <div className="Movie__Card">
-        <MoviePoster />
-        <h2>All good?</h2>
+        <img src="https://dummyimage.com/150x200/ff7373/fff" alt="" />
+        <h2>Batman Begins</h2>
       </div>
     );
-  }
-}
-
-class MoviePoster extends Component {
-  render() {
-    return <img src="https://dummyimage.com/150x200/ff7373/fff" alt="" />;
   }
 }
 
@@ -129,7 +123,7 @@ Learning React and ES6 by building a Movie App.
 
 
 ## Todo
-- [x] Add Components
+- [x] Add Component
 - [] Set Props
 - [] Set Maping
 - [] Set PropTypes
@@ -139,6 +133,7 @@ Learning React and ES6 by building a Movie App.
 - [] Set AJAX Networking
 - [] Update Component
 - [] Styling CSS
+- [] Refactoring
 - [] Deploying
 ```
 
@@ -150,7 +145,7 @@ Learning React and ES6 by building a Movie App.
 $ cd movie_app
 $ git status
 $ git add .
-$ git commit -m 'Add Components'
+$ git commit -m 'Add Component'
 $ git push origin master
 ```
 
