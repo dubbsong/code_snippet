@@ -10,13 +10,9 @@ class App extends Component {
 
   renderMovies() {
     const movies = this.state.movieData.map(movie => {
-      console.log(movie);	// 데이터 확인 후
+      console.log(movie);	// 데이터 확인
       return (
-        <MovieCard
-          poster={movie.medium_cover_image}
-          title={movie.title_english}
-          key={movie.id}
-        />
+        ...
       );
     });
     return movies;
