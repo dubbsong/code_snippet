@@ -18,6 +18,8 @@ function MovieCard({ poster, title }) {
 ...
 ```
 
+> 이전과 동일하게 정상 작동한다.
+
 <br>
 
 #### README.md
