@@ -114,7 +114,9 @@ ReactDOM.render(<App />, document.getElementById('root'));
 ```react
 import axios from 'axios';
 
-...
+const api = axios.create({
+  ...
+});
 
 export const movieApi = {
   nowPlaying: () => api.get('movie/now_playing'),
