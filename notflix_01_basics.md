@@ -137,7 +137,7 @@ Learning React and ES6 by building a Movie App.
 
 <br>
 
-#### 저장소 생성 (for commit)
+#### Repository 생성
 
 1. https://github.com 이동
 2. `Repositories` 탭 클릭
