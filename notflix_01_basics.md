@@ -38,7 +38,9 @@ src
 
 <br>
 
-#### 프로젝트 생성
+<br>
+
+#### 프로젝트 생성: `notflix`
 
 ```bash
 $ cd Documents
@@ -48,7 +50,7 @@ $ npx create-react-app notflix
 
 <br>
 
-#### VSCode 열기
+#### VSCode 실행
 
 ```bash
 $ cd notflix
@@ -159,7 +161,7 @@ $ git push -u origin master
 
 <br>
 
-#### 파일 생성
+#### 파일 생성: `.env`
 
 ```bash
 ~/Documents/deploying/notflix $ touch .env
@@ -179,7 +181,7 @@ NODE_PATH=src
 
 <br>
 
-#### 디렉토리 생성
+#### 디렉토리 생성: `Components`
 
 ```bash
 $ cd src
