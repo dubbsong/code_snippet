@@ -1,45 +1,3 @@
-#### 디렉토리 구조
-
-```bash
-src
-  ├─ Components
-  │   ├─ App.js
-  │   ├─ Router.js
-  │   ├─ Nav.js
-  │   ├─ GlobalStyle.js
-  │   ├─ Section.js
-  │   ├─ Loader.js
-  │   ├─ Message.js
-  │   └─ Poster.js
-  ├─ Routes
-  │   ├─ Movie
-  │   │   ├─ index.js
-  │   │   ├─ MovieContainer.js
-  │   │   └─ MoviePresenter.js
-  │   ├─ TV
-  │   │   ├─ index.js
-  │   │   ├─ TVContainer.js
-  │   │   └─ TVPresenter.js
-  │   ├─ Search
-  │   │   ├─ index.js
-  │   │   ├─ SearchContainer.js
-  │   │   └─ SearchPresenter.js
-  │   └─ Detail
-  │       ├─ index.js
-  │       ├─ DetailContainer.js
-  │       └─ DetailPresenter.js
-  ├─ assets
-  │   └─ img
-  │       ├─ logo.png
-  │       └─ noPoster.png
-  ├─ api.js
-  └─ index.js
-```
-
-<br>
-
-<br>
-
 #### 프로젝트 생성: `notflix`
 
 ```bash
@@ -124,8 +82,6 @@ $ yarn start
 
 #### README 작성
 
-- README.md
-
 ```markdown
 # NOTFLIX
 Learning React and ES6 by building a Movie App.
@@ -161,7 +117,7 @@ $ git push -u origin master
 
 <br>
 
-#### 파일 생성: `.env`
+#### 환경 변수(`env`ironment variable) 생성: `.env`
 
 ```bash
 ~/Documents/deploying/notflix $ touch .env
@@ -169,7 +125,7 @@ $ git push -u origin master
 
 <br>
 
-#### 코드 작성
+#### 환경 변수 설정
 
 - .env
 
@@ -190,13 +146,12 @@ $ mkdir Components
 
 <br>
 
-#### 파일 이동
+#### 컴포넌트 이동
 
 - `src/App.js` => `src/Components/App.js`
 
 ```bash
 src
-  ├─ index.js
   └─ Components
       └─ App.js
 ```
@@ -216,6 +171,19 @@ import App from 'Components/App';
 
 > 다시 `$ yarn start`
 >
+
+<br>
+
+<br>
+
+#### 디렉토리 구조
+
+```bash
+src
+  ├─ Components
+  │   └─ App.js
+  └─ index.js
+```
 
 <br>
 

@@ -26,7 +26,7 @@ $ touch GlobalStyle.js
 
 <br>
 
-#### 코드 추가
+#### CSS 초기화 & Global CSS 설정
 
 - GlobalStyle.js
 
@@ -82,7 +82,7 @@ class App extends Component {
 
 <br>
 
-#### 코드 수정
+#### 사용자 정의 컴포넌트로 변경
 
 - Nav.js
 
@@ -140,7 +140,7 @@ export default () => (
 
 <br>
 
-#### Nav Underbar 설정
+#### Underbar CSS 설정
 
 - pathname 확인
 
@@ -229,7 +229,7 @@ assets
 
 <br>
 
-#### 코드 추가
+#### logo 설정
 
 - Nav.js
 
@@ -277,7 +277,7 @@ $ yarn add @fortawesome/react-fontawesome
 
 <br>
 
-#### 아이콘 추가: `🔍`
+#### `Search`를 `🔍`로 변경
 
 - Nav.js
 
@@ -313,6 +313,30 @@ export default withRouter(({ location: { pathname } }) => (
 ```
 
 > `Search` 탭이 `🔍` 아이콘으로 변경된다.
+
+<br>
+
+<br>
+
+#### 디렉토리 구조
+
+```bash
+src
+  ├─ Components
+  │   ├─ App.js
+  │   ├─ Router.js
+  │   ├─ Nav.js
+  │   └─ GlobalStyle.js
+  ├─ Routes
+  │   ├─ Movie.js
+  │   ├─ TV.js
+  │   ├─ Search.js
+  │   └─ Detail.js
+  ├─ assets
+  │   └─ img
+  │       └─ logo.png
+  └─ index.js
+```
 
 <br>
 

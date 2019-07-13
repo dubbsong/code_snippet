@@ -67,7 +67,7 @@ $ touch Router.js
 
 <br>
 
-#### 코드 추가
+#### Route 설정
 
 - Router.js
 
@@ -161,7 +161,7 @@ $ touch Nav.js
 
 <br>
 
-#### 코드 추가
+#### Route 연결
 
 - Nav.js
 
@@ -204,6 +204,26 @@ export default () => (
     </React.Fragment>
   </Router>
 );
+```
+
+<br>
+
+<br>
+
+#### 디렉토리 구조
+
+```bash
+src
+  ├─ Components
+  │   ├─ App.js
+  │   ├─ Router.js
+  │   └─ Nav.js
+  ├─ Routes
+  │   ├─ Movie.js
+  │   ├─ TV.js
+  │   ├─ Search.js
+  │   └─ Detail.js
+  └─ index.js
 ```
 
 <br>
