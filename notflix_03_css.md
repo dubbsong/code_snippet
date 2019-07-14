@@ -169,7 +169,7 @@ export default withRouter(props => (
 ));
 ```
 
-> `location`에서 `pathname`을 확인할 수 있다.
+> Console 탭의 `location`에서 `pathname`을 확인할 수 있다.
 
 <br>
 
