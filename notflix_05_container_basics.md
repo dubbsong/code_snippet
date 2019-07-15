@@ -305,6 +305,10 @@ $ yarn start
 > `localhost:3000/tv`: TV Presenter
 >
 > `localhost:3000/search`: Search Presenter
+>
+> `localhost:3000/movie/121`: Detail Presenter
+>
+> `localhost:3000/show/121`: Detail Presenter
 
 <br>
 

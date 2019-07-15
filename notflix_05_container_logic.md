@@ -1,14 +1,20 @@
-#### 구문 참조
+#### try/catch/finally 문
+
+###### [w3schools](https://www.w3schools.com/jsref/jsref_try_catch.asp) 참조
+
+- try/catch/finally 문은, 코드를 실행하는 동안 코드 블록에서 발생할 수 있는 일부 또는 모든 에러를 처리한다.
 
 ```js
 try {
-  // 실행 코드
+  // 시도할 코드 블록
 } catch {
-  // 주로 error 처리
+  // 에러 처리를 위한 코드 블록
 } finally {
-  // 어쨌든 실행
+  // try/catch 결과에 상관없이 실행될 코드 블록
 }
 ```
+
+<br>
 
 <br>
 
@@ -90,6 +96,10 @@ export default class extends React.Component {
 ```
 
 > Console 탭에서 state의 3가지 변화를 확인할 수 있다.
+>
+> 1. 초기값
+> 2. 데이터 및 loading: true
+> 3. 데이터 및 loading: false
 
 <br>
 
@@ -126,7 +136,11 @@ export default class extends React.Component {
 
 > Console 탭에서 state의 3가지 변화를 확인할 수 있다.
 >
-> 테스트 후, `throw Error();`와 `console.log(this.state);`를 제거한다.
+> 1. 초기값
+> 2. loading: true와 "Can't find movie information."
+> 3. loading: false와 "Can't find movie information."
+
+> `throw Error();`와 `console.log(this.state);`를 제거한다.
 
 <br>
 
@@ -210,7 +224,11 @@ export default class extends React.Component {
 
 > Console 탭에서 state의 3가지 변화를 확인할 수 있다.
 >
-> 테스트 후, `console.log(this.state);`를 제거한다.
+> 1. 초기값
+> 2. 데이터 및 loading: true
+> 3. 데이터 및 loading: false
+
+> `console.log(this.state);`를 제거한다.
 
 <br>
 
@@ -265,7 +283,7 @@ export default class extends React.Component {
 }
 ```
 
-> Console 탭에서 `"code"`가 포함된 데이터를 확인할 수 있다.
+> Console 탭에서 `"code"`가 포함된 `movieResults`, `tvResults` 데이터를 확인할 수 있다.
 
 <br>
 
@@ -311,12 +329,12 @@ export default class extends React.Component {
 ```
 
 > Console 탭에서 `"code"`가 포함된 데이터를 확인할 수 있다.
+
+> `'code'`를 `''`로 변경한다.
 >
-> 테스트 후, `'code'`를 `''`로 변경한다.
+> `cdm`를 제거한다.
 >
-> 테스트 후, `cdm`를 제거한다.
->
-> 테스트 후, `console.log(this.state);`를 제거한다.
+> `console.log(this.state);`를 제거한다.
 
 <br>
 
@@ -346,37 +364,6 @@ export default class extends React.Component {
 > 탭 이동 시 에러가 발생하지만, 나중에 수정한다.
 
 <br>
-
-<br>
-
-#### Detail Route 추가
-
-- Router.js
-
-```react
-...
-import Detail from 'Routes/Detail';
-
-export default () => (
-  <Router>
-    <React.Fragment>
-      <Nav />
-      <Switch>
-        ...
-        <Route path="/movie/:id" component={Detail} />
-        <Route path="/show/:id" component={Detail} />
-        ...
-      </Switch>
-    </React.Fragment>
-  </Router>
-);
-```
-
-> `localhost:3000/movie/121`로 이동하면, `Detail Presenter`가 표시된다.
->
-> `localhost:3000/show/121`로 이동하면, `Detail Presenter`가 표시된다.
->
-> `localhost:3000/tv/121`로 이동하면, `TV Presenter`가 표시된다.
 
 <br>
 
@@ -430,7 +417,7 @@ export default class extends React.Component {
 }
 ```
 
-> 테스트 후, 모든 `console.log(…);`를 제거한다.
+> `console.log(…);`를 제거한다.
 >
 > render()의 `console.log(this.props);`는 아직 제거하지 않는다.
 
