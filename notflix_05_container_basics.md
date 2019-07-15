@@ -12,21 +12,6 @@
 
 <br>
 
-#### React 실행 종료
-
-- `control` \+ `C`
-
-<br>
-
-#### 파일 제거
-
-- src/Routes/Movie.js
-- src/Routes/TV.js
-- src/Routes/Detail.js
-- src/Routes/Search.js
-
-<br>
-
 #### 디렉토리 구조
 
 ```bash
@@ -59,6 +44,21 @@ src
   ├─ api.js
   └─ index.js
 ```
+
+<br>
+
+#### React 실행 종료
+
+- `control` \+ `C`
+
+<br>
+
+#### 파일 제거
+
+- src/Routes/Movie.js
+- src/Routes/TV.js
+- src/Routes/Detail.js
+- src/Routes/Search.js
 
 <br>
 

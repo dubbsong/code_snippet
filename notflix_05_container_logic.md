@@ -2,11 +2,11 @@
 
 ```js
 try {
-  run
-} catch {	// catch는 주로 error를 처리한다.
-  error
+  // 실행 코드
+} catch {
+  // 주로 error 처리
 } finally {
-  result anything
+  // 어쨌든 실행
 }
 ```
 

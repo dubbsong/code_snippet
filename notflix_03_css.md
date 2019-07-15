@@ -140,7 +140,7 @@ export default () => (
 
 <br>
 
-#### Underbar CSS 설정
+#### Underbar CSS 설정: `Nav`
 
 - pathname 확인
 

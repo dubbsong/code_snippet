@@ -77,6 +77,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Movie from 'Routes/Movie';
 import TV from 'Routes/TV';
 import Search from 'Routes/Search';
+import Detail from 'Routes/Detail'
 
 export default () => (
   <Router>
@@ -84,6 +85,8 @@ export default () => (
       <Route path="/" exact component={Movie} />
       <Route path="/tv" component={TV} />
       <Route path="/search" component={Search} />
+      <Route path="/movie/:id" component={Detail} />
+      <Route path="/show/:id" component={Detail} />
     </React.Fragment>
   </Router>
 );
@@ -115,6 +118,12 @@ export default App;
 > `localhost:3000/tv`: You will see tv shows
 >
 > `localhost:3000/search`: You will see search input
+>
+> `localhost:3000/movie/121`: You will see detail page
+>
+> `localhost:3000/show/121`: You will see detail page
+>
+> `localhost:3000/show/abc`: You will see detail page
 
 <br>
 
@@ -137,7 +146,7 @@ export default () => (
     <React.Fragment>
       <Switch>
         ...
-        <Route path="/search" component={Search} />
+        <Route path="/show/:id" component={Detail} />
         <Redirect from="*" to="/" />
       </Switch>
     </React.Fragment>
