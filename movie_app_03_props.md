@@ -1,4 +1,4 @@
-#### title 설정
+#### props 데이터 확인: `title`
 
 - App.js
 
@@ -52,7 +52,7 @@ class MovieCard extends Component {
 
 <br>
 
-#### props 전달
+#### props 전달: `title`
 
 - MovieCard.js
 
@@ -79,7 +79,7 @@ class MovieCard extends Component {
 
 <br>
 
-#### 포스터 이미지 설정
+#### props 전달: `poster`
 
 - App.js
 
@@ -139,6 +139,8 @@ export default MovieCard;
 > poster가 각각 할당된다.
 >
 > `console.log(this.props);`를 제거한다.
+
+<br>
 
 <br>
 
