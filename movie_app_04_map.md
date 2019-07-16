@@ -1,7 +1,5 @@
 #### maping
 
-###### 배열 데이터 통합 / props 설정 / key 설정
-
 - App.js
 
 ```react
@@ -48,6 +46,8 @@ class App extends Component {
 ```
 
 > 이전과 동일하게 정상적으로 표시된다.
+
+<br>
 
 <br>
 
