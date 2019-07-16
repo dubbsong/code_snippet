@@ -1,4 +1,4 @@
-#### MovieCard 컴포넌트 연결
+#### 컴포넌트 연결: `MovieCard`
 
 - 파일 생성
 
@@ -105,7 +105,7 @@ class App extends Component {
 ```css
 .App {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap;	/* for Mobile size */
   justify-content: space-around;
   padding: 50px;
 }
@@ -113,7 +113,9 @@ class App extends Component {
 
 > 4개의 `<MovieCard />` 컴포넌트가 화면에 표시된다.
 >
-> 모바일 크기도 확인한다.
+> 모바일 크기는 `flex-wrap: wrap;`으로 조작한다.
+
+<br>
 
 <br>
 

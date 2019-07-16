@@ -12,16 +12,17 @@ src
 
 <br>
 
-#### create-react-app 생성
+#### 프로젝트 생성
 
 ```bash
 $ cd Documents
+$ cd deploying
 $ npx create-react-app movie_app
 ```
 
 <br>
 
-#### VSCode 열기
+#### VSCode 실행
 
 ```bash
 $ cd movie_app
@@ -96,6 +97,8 @@ class App extends Component {
 export default App;
 ```
 
+> 화면에 `What's up?`이 표시된다.
+
 <br>
 
 - index.css
@@ -114,8 +117,6 @@ html,
   height: 100%;
 }
 ```
-
-> 화면에 `What's up?`이 표시된다.
 
 <br>
 
