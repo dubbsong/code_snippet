@@ -324,7 +324,40 @@ MovieCard.propTypes = {
 
 <br>
 
-#### state 변경: `Loading`
+#### state 변경 01: `greeting`
+
+- App.js
+
+```react
+class App extends Component {
+  state = {
+    greeting: 'Wassup?'
+  };
+  
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({
+        greeting: 'All good?'
+      });
+    }, 2000);
+  }
+  
+  render() {
+    return (
+      <div className="App">
+        ...
+        {this.state.greeting}
+      </div>
+    );
+  }
+}
+```
+
+> `Wassup?`이 2초 후에 `All good?`으로 변경된다.
+
+<br>
+
+#### state 변경 02: `Loading`
 
 - App.js
 
