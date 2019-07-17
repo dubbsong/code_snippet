@@ -2,7 +2,7 @@
 
 ```bash
 $ cd Documents
-$ cd deploying
+$ cd laboratory
 $ npx create-react-app movie_app
 ```
 
@@ -113,7 +113,7 @@ $ touch MovieCard.css
 
 <br>
 
-#### 코드 작성: `MovieCard`
+- MovieCard.js
 
 ```react
 import React, { Component } from 'react';
@@ -156,7 +156,7 @@ class App extends Component {
 ...
 ```
 
-> 화면에 이미지 \+ 제목이 표시된다.
+> 화면에 `더미 이미지`와 `텍스트`가 표시된다.
 
 <br>
 
@@ -270,7 +270,7 @@ class MovieCard extends Component {
 ...
 ```
 
-> 화면에 4개의 `MovieCard`가 표시된다.
+> 화면에 data의 개수만큼 `MovieCard`가 표시된다.
 >
 > `console.log(this.props);`를 제거한다.
 
@@ -329,6 +329,8 @@ MovieCard.propTypes = {
 - App.js
 
 ```react
+...
+
 class App extends Component {
   state = {
     greeting: 'Wassup?'
@@ -351,6 +353,8 @@ class App extends Component {
     );
   }
 }
+
+...
 ```
 
 > `Wassup?`이 2초 후에 `All good?`으로 변경된다.
@@ -518,7 +522,7 @@ class App extends Component {
 ...
 ```
 
-> Console 탭 `Response {…}`가 표시된다.
+> Console 탭에 `Response {…}`가 표시된다.
 >
 > `body`의 `ReadableStream`은 바이트(010101…)로 구성되었다는 것을 의미한다. 고로 JSON으로 변경해야 한다.
 
