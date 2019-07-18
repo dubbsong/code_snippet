@@ -106,6 +106,12 @@ ReactDOM.render(<App />, document.getElementById('root'));
 
 > 개발자 도구의 Network에서 `now_playing?api_key=…`을 확인할 수 있다.
 >
+> 1. 개발자 도구
+> 2. `Network` 탭
+> 3. `now_playing?api_key=b1aff257ceb0cbcdd236cef217694a61&language=en-US` 클릭
+> 4. `results`에서 데이터 확인
+>    - 20개의 데이터가 객체의 형태로 배열에 담겨 있다.
+
 > 확인 후, `import './api'`를 제거한다.
 
 <br>
