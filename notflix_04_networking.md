@@ -56,6 +56,10 @@ Learning React and ES6 by building a Movie App.
 $ yarn add axios@0.18.1
 ```
 
+> 최신 axios 설치는 `$ yarn add axios`이다.
+>
+> 하지만 최신 axios에 버그가 있어 `@0.18.1`을 사용한다.
+
 <br>
 
 #### 컴포넌트 생성: `api`
