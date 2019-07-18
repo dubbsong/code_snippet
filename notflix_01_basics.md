@@ -117,7 +117,7 @@ $ git push -u origin master
 
 <br>
 
-#### 환경 변수(`env`ironment variable) 생성: `.env`
+#### 환경 변수 (environment variable) 생성: `.env`
 
 ```bash
 ~/Documents/deploying/notflix $ touch .env
