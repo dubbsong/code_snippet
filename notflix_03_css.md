@@ -155,13 +155,13 @@ export default withRouter(props => (
   <Nav>
     {console.log(props)}
     <List>
-      <Item current={true}>
+      <Item>
         <SLink to="/">Movies</SLink>
       </Item>
-      <Item current={true}>
+      <Item>
         <SLink to="/tv">TV Shows</SLink>
       </Item>
-      <Item current={false}>
+      <Item>
         <SLink to="/search">Search</SLink>
       </Item>
     </List>
