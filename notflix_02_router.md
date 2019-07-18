@@ -27,7 +27,7 @@ $ touch Detail.js
 
 <br>
 
-#### 코드 추가
+#### 코드 추가: `only export`
 
 - Movie.js
 

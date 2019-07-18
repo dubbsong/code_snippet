@@ -26,7 +26,7 @@ $ touch GlobalStyle.js
 
 <br>
 
-#### CSS 초기화 & Global CSS 설정
+#### GlobalStyle & reset 설정
 
 - GlobalStyle.js
 
@@ -82,7 +82,7 @@ class App extends Component {
 
 <br>
 
-#### 사용자 정의 컴포넌트로 변경
+#### 사용자 정의 태그로 변경
 
 - Nav.js
 
