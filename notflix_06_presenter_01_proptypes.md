@@ -6,7 +6,7 @@ $ yarn add prop-types
 
 <br>
 
-#### PropTypes 설정
+#### prop-types 설정
 
 - MoviePresenter.js
 

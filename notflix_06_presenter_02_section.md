@@ -44,9 +44,7 @@ export default Section;
 #### 데이터 표시: `MoviePresenter`
 
 ```react
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
+...
 import Section from 'Components/Section';
 
 const Container = styled.div`
@@ -77,7 +75,7 @@ const MoviePresenter = ({ nowPlaying, popular, upcoming, loading, error }) =>
 ...
 ```
 
-> Section title과 movie title이 표시된다.
+> Section의 title과 movie의 title이 표시된다.
 
 <br>
 
