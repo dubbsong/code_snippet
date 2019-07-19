@@ -1,4 +1,4 @@
-#### 파일 생성
+#### 파일 생성: `Section`
 
 ```bash
 $ cd src 
@@ -8,7 +8,7 @@ $ touch Section.js
 
 <br>
 
-#### 코드 작성: `Section`
+- Section.js
 
 ```react
 import React from 'react';
@@ -56,17 +56,23 @@ const MoviePresenter = ({ nowPlaying, popular, upcoming, loading, error }) =>
     <Container>
       {nowPlaying && nowPlaying.length > 0 && (
         <Section title="Now Playing">
-          {nowPlaying.map(movie => movie.title)}
+          {nowPlaying.map(movie => (
+            <span key={movie.id}>{movie.title}</span>
+          ))}
         </Section>
       )}
       {popular && popular.length > 0 && (
         <Section title="Popular Movies">
-          {popular.map(movie => movie.title)}
+          {popular.map(movie => (
+            <span key={movie.id}>{movie.title}</span>
+          ))}
         </Section>
       )}
       {upcoming && upcoming.length > 0 && (
         <Section title="Upcoming Movies">
-          {upcoming.map(movie => movie.title)}
+          {upcoming.map(movie => (
+            <span key={movie.id}>{movie.title}</span>
+          ))}
         </Section>
       )}
     </Container>
@@ -122,17 +128,23 @@ const TVPresenter = ({ topRated, popular, airingToday, loading, error }) =>
     <Container>
       {topRated && topRated.length > 0 && (
         <Section title="Top Rated Shows">
-          {topRated.map(tv => tv.name)}
+          {topRated.map(tv => (
+            <span key={tv.id}>{tv.name}</span>
+          ))}
         </Section>
       )}
       {popular && popular.length > 0 && (
         <Section title="Popular Shows">
-          {popular.map(tv => tv.name)}
+          {popular.map(tv => (
+            <span key={tv.id}>{tv.name}</span>
+          ))}
         </Section>
       )}
       {airingToday && airingToday.length > 0 && (
         <Section title="Airing Today">
-          {airingToday.map(tv => tv.name)}
+          {airingToday.map(tv => (
+            <span key={tv.id}>{tv.name}</span>
+          ))}
         </Section>
       )}
     </Container>

@@ -1,4 +1,4 @@
-#### 파일 생성
+#### 파일 생성: `Loader`
 
 ```bash
 $ cd src
@@ -8,7 +8,7 @@ $ touch Loader.js
 
 <br>
 
-#### 코드 작성: `Loader`
+- Loader.js
 
 ```react
 import React from 'react';
@@ -44,7 +44,7 @@ import Loader from 'Components/Loader';
 
 ...
 
-const MoviePresenter = ({ nowPlaying, popular, upcoming, loading, error }) =>
+const MoviePresenter = ({...}) =>
   loading ? (
     <Loader />
   ) : (
@@ -64,7 +64,7 @@ import Loader from 'Components/Loader';
 
 ...
 
-const TVPresenter = ({ topRated, popular, airingToday, loading, error }) =>
+const TVPresenter = ({...}) =>
   loading ? (
     <Loader />
   ) : (
@@ -74,87 +74,11 @@ const TVPresenter = ({ topRated, popular, airingToday, loading, error }) =>
 ...
 ```
 
-> 이전보다 빨리 로딩된다.
+> Loading(⏰)을 확인할 수 있다.
 >
-> ⏰를 확인할 수 있다.
+> 이전보다 빨리 로딩된다.
 
 <br>
-
-#### span 삽입
-
-- MoviePresenter.js
-
-```react
-...
-
-const MoviePresenter = ({ ... }) =>
-  ...
-  ) : (
-    <Container>
-      {nowPlaying && nowPlaying.length > 0 && (
-        <Section title="Now Playing">
-          {nowPlaying.map(movie => (
-            <span key={movie.id}>{movie.title}</span>
-          ))}
-        </Section>
-      )}
-      {popular && popular.length > 0 && (
-        <Section title="Popular Movies">
-          {popular.map(movie => (
-            <span key={movie.id}>{movie.title}</span>
-          ))}
-        </Section>
-      )}
-      {upcoming && upcoming.length > 0 && (
-        <Section title="Upcoming Movies">
-          {upcoming.map(movie => (
-            <span key={movie.id}>{movie.title}</span>
-          ))}
-        </Section>
-      )}
-    </Container>
-  );
-
-...
-```
-
-<br>
-
-- TVPresenter.js
-
-```react
-...
-
-const TVPresenter = ({ ... }) =>
-  ...
-  ) : (
-    <Container>
-      {topRated && topRated.length > 0 && (
-        <Section title="Top Rated Shows">
-          {topRated.map(tv => (
-            <span key={tv.id}>{tv.name}</span>
-          ))}
-        </Section>
-      )}
-      {popular && popular.length > 0 && (
-        <Section title="Popular Shows">
-          {popular.map(tv => (
-            <span key={tv.id}>{tv.name}</span>
-          ))}
-        </Section>
-      )}
-      {airingToday && airingToday.length > 0 && (
-        <Section title="Airing Today">
-          {airingToday.map(tv => (
-            <span key={tv.id}>{tv.name}</span>
-          ))}
-        </Section>
-      )}
-    </Container>
-  );
-
-...
-```
 
 <br>
 
