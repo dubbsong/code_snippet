@@ -555,14 +555,13 @@ export default class extends React.Component {
       history: { push }
     } = this.props;
 
-    const { isMovie } = this.state;
-
     const parsedId = parseInt(id);
 
     if (isNaN(parsedId)) {
       return push('/');
     }
 
+    const { isMovie } = this.state;
     let result = null;
 
     try {
@@ -576,13 +575,13 @@ export default class extends React.Component {
     } finally {
       this.setState({ loading: false, result });
     }
-  }
+  };
 
   render() {
-    const { result, loading, error } = this.state;
+    const {...} = this.state;
     console.log(this.state);
 
-    return (...);
+    ...
   }
 }
 ```
@@ -597,7 +596,12 @@ export default class extends React.Component {
 ...
 
 export default class extends React.Component {
-  ...
+  constructor(props) {
+    ...
+  }
+
+  componentDidMount = async () => {
+    ...
 
     try {
       if (isMovie) {
@@ -612,11 +616,13 @@ export default class extends React.Component {
     } finally {
       ...
     }
-  }
+  };
 
   render() {
-    const {...} = this.state.
-    console.log(this.state);	// 테스트 후 제거
+    const {...} = this.state;
+    console.log(this.state); // 확인 후 제거
+
+    ...
   }
 }
 ```
@@ -633,7 +639,12 @@ export default class extends React.Component {
 ...
 
 export default class extends React.Component {
-  ...
+  constructor(props) {
+    ...
+  }
+
+  componentDidMount = async () => {
+    ...
 
     try {
       if (isMovie) {
@@ -646,11 +657,11 @@ export default class extends React.Component {
     } finally {
       ...
     }
-  }
+  };
 
   render() {
     const {...} = this.state;
-    console.log(result); // 테스트 후 제거
+    console.log(result); // 확인 후 제거
 
     ...
   }
