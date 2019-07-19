@@ -528,7 +528,7 @@ const DetailPresenter = ({...}) =>
           bgImage={
             result.poster_path
               ? `https://image.tmdb.org/t/p/original${result.poster_path}`
-              : require('../../assets/noPoster.png')
+              : require('../../assets/img/noPoster.png')
           }
         />
         <Data>
