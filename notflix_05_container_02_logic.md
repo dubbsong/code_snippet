@@ -32,13 +32,16 @@ export default class extends React.Component {
   async componentDidMount() {
     try {
       const nowPlaying = await movieApi.nowPlaying();
-      console.log(nowPlaying);
+      const popular = await movieApi.popular();
+      const upcoming = await movieApi.upcoming();
+
+      console.log(nowPlaying, popular, upcoming);
     } catch {
       this.setState({ error: "Can't find movie information." });
     } finally {
       this.setState({ loading: false });
     }
-  }
+  };
 
   render() {
     ...
@@ -46,9 +49,9 @@ export default class extends React.Component {
 }
 ```
 
-> Console 탭에서 `nowPlaying`의 데이터를 확인할 수 있다.
+> `Movies`를 클릭하면, Console 탭에서 `nowPlaying`, `popular`, `upcoming`의 데이터를 확인할 수 있다.
 >
-> `data`의 `results`가 필요하다.
+> `data`의 `results`에서 필요한 데이터를 확인할 수 있다.
 
 <br>
 
@@ -75,7 +78,7 @@ export default class extends React.Component {
       } = await movieApi.upcoming();
 
       this.setState({
-        nowPlaying: nowPlaying, // 단축이 가능하다.
+        nowPlaying: nowPlaying, // 단축 가능 (TVContainer에서 확인)
         popular: popular,
         upcoming: upcoming
       });
@@ -97,9 +100,6 @@ export default class extends React.Component {
 
 > Console 탭에서 state의 3가지 변화를 확인할 수 있다.
 >
-> 1. 초기값
-> 2. 데이터 및 loading: true
-> 3. 데이터 및 loading: false
 
 <br>
 
@@ -136,10 +136,6 @@ export default class extends React.Component {
 
 > Console 탭에서 state의 3가지 변화를 확인할 수 있다.
 >
-> 1. 초기값
-> 2. loading: true와 "Can't find movie information."
-> 3. loading: false와 "Can't find movie information."
-
 > `throw Error();`와 `console.log(this.state);`를 제거한다.
 
 <br>
@@ -155,12 +151,13 @@ import { tvApi } from 'api';
 export default class extends React.Component {
   state = {...};
 
-  // HomeContainer 부분과 동일한 문법이다.
+  // MovieContainer의 async cdm와 동일한 문법
   componentDidMount = async () => {
     try {
       const topRated = await tvApi.topRated();
       const popular = await tvApi.popular();
       const airingToday = await tvApi.airingToday();
+
       console.log(topRated, popular, airingToday);
     } catch {
       this.setState({ error: "Can't find tv information." });
@@ -169,12 +166,13 @@ export default class extends React.Component {
     }
   };
 
-  render() {...}
+  render() {
+    ...
+  }
 }
 ```
 
-> Console 탭에서 `topRated`, `popular`, `airingToday`의 데이터를 확인할 수 있다.
->
+> `TV Shows`를 클릭하면, Console 탭에서 `topRated`, `popular`, `airingToday`의 데이터를 확인할 수 있다.
 
 <br>
 
@@ -200,7 +198,7 @@ export default class extends React.Component {
         data: { results: airingToday }
       } = await tvApi.airingToday();
 
-      // HomeContainer 부분과 동일한 문법이다. (단축형)
+      // MovieContainer와 동일한 문법
       this.setState({
         topRated,
         popular,
@@ -215,19 +213,17 @@ export default class extends React.Component {
 
   render() {
     const {...} = this.state;
-    console.log(this.state);	// 테스트 후 제거
+    console.log(this.state); // 테스트 후 제거
 
-    return (...);
+    return (
+      ...
+    );
   }
 }
 ```
 
 > Console 탭에서 state의 3가지 변화를 확인할 수 있다.
 >
-> 1. 초기값
-> 2. 데이터 및 loading: true
-> 3. 데이터 및 loading: false
-
 > `console.log(this.state);`를 제거한다.
 
 <br>
@@ -242,12 +238,14 @@ import { movieApi, tvApi } from 'api';
 
 export default class extends React.Component {
   state = {
-    ...
-    searchTerm: 'code', // for test
-    ...
+    movieResults: null,
+    tvResults: null,
+    searchTerm: 'code', // 테스트를 위해 'code'를 입력
+    loading: false,
+    error: null
   };
 
-  // for test
+  // 테스트를 위해 cdm 작성
   componentDidMount() {
     this.handleSubmit();
   }
@@ -258,7 +256,7 @@ export default class extends React.Component {
     if (searchTerm !== '') {
       this.searchByTerm();
     }
-  }
+  };
 
   searchByTerm = async () => {
     const { searchTerm } = this.state;
@@ -266,14 +264,14 @@ export default class extends React.Component {
     try {
       const movieResults = await movieApi.search(searchTerm);
       const tvResults = await tvApi.search(searchTerm);
-      
+
       console.log(movieResults, tvResults);
     } catch {
       this.setState({ error: "Can't find results." });
     } finally {
       this.setState({ loading: false });
     }
-  }
+  };
 
   render() {
     ...
@@ -281,7 +279,7 @@ export default class extends React.Component {
 }
 ```
 
-> Console 탭에서 `"code"`가 포함된 `movieResults`, `tvResults` 데이터를 확인할 수 있다.
+> `🔍`를 클릭하면, Console 탭에서 `"code"`가 포함된 `movieResults`, `tvResults`의 데이터를 확인할 수 있다.
 
 <br>
 
@@ -291,9 +289,22 @@ export default class extends React.Component {
 ...
 
 export default class extends React.Component {
-  ...
+  state = {
+    ...
+    searchTerm: 'code', // 테스트 후 ''로 변경
+    ...
+  };
 
-  async searchByTerm() {
+  // 테스트 후 cdm 제거
+  componentDidMount() {
+    ...
+  }
+
+  handleSubmit = () => {
+    ...
+  };
+
+  searchByTerm = async () => {
     const { searchTerm } = this.state;
 
     try {
@@ -314,17 +325,20 @@ export default class extends React.Component {
     } finally {
       ...
     }
-  }
+  };
 
   render() {
     const {...} = this.state;
     console.log(this.state); // 확인 후 제거
 
-    ...
+    return (
+      ...
+    );
   }
 }
-
 ```
+
+> Console 탭에서 state의 3가지 변화를 확인할 수 있다.
 
 > `'code'`를 `''`로 변경한다.
 >
@@ -348,6 +362,7 @@ export default class extends React.Component {
     return (
       <SearchPresenter
         ...
+        error={error}
         handleSubmit={this.handleSubmit}
       />
     );
@@ -355,7 +370,7 @@ export default class extends React.Component {
 }
 ```
 
-> `searchTerm`을 업데이트하는 함수는 나중에 작성할 것이다.
+> `searchTerm`을 업데이트하는 함수는 나중에 작성한다.
 >
 > 탭 이동 시 에러가 발생하지만, 나중에 수정한다.
 
@@ -373,8 +388,10 @@ export default class extends React.Component {
 export default class extends React.Component {
   state = {...};
 
+  // Logic
+
   render() {
-    console.log(this.props);
+    console.log(this.props);	// for checking id
     ...
   }
 }
@@ -403,17 +420,20 @@ export default class extends React.Component {
     console.log(id); // 121
     console.log(typeof id); // string
     console.log(typeof parseInt(id)); // number
-    console.log(parseInt(id));	// 121
+    console.log(parseInt(id)); // 121
 
     // localhost:3000/movie/abc 입력
     console.log(parseInt(id)); // NaN
-  }
+  };
 
-  render() {...}
+  render() {
+    console.log(this.props);
+    ...
+  }
 }
 ```
 
-> `console.log(…);`를 제거한다.
+> cdm의 `console.log(…);`들을 제거한다.
 >
 > render()의 `console.log(this.props);`는 아직 제거하지 않는다.
 
@@ -440,13 +460,15 @@ export default class extends React.Component {
     if (isNaN(parsedId)) {
       return push('/'); // return을 추가해서 함수를 종료시킨다.
     }
-  }
+  };
 
-  ...
+  render() {
+    ...
+  }
 }
 ```
 
-> `/movie/abc` 또는 `/tv/abc`의 경우, `/`를 push해서 Home으로 Redirect 한다.
+> `/movie/abc` 또는 `/show/abc`의 경우, `/`를 push해서 Home으로 Redirect 한다.
 
 <br>
 
@@ -456,34 +478,29 @@ export default class extends React.Component {
 ...
 
 export default class extends React.Component {
-  state = {
-    ...
-  };
+  state = {...};
 
   componentDidMount = async () => {
     const {
-      ...
+      match: {
+        params: { id }
+      },
       history: { push },
       location: { pathname }
     } = this.props;
 
-    ...
-
-    if (isNaN(parsedId)) {
-      ...
-    }
-
     // pathname 확인
     this.isMovie = pathname.includes('/movie/');
-    console.log(this.isMovie);  // 테스트 후 제거
-  }
+    console.log(this.isMovie); // true
+
+    ...
+  };
 
   render() {
-    console.log(this.props);  // 테스트 후 제거
+    console.log(this.props); // 확인 후 제거
     ...
   }
 }
-
 ```
 
 > `localhost:3000/movie/121`을 입력하면, `location`에서 `pathname`을 확인할 수 있다.
@@ -491,14 +508,14 @@ export default class extends React.Component {
 > `localhost:3000/movie/121`의 경우, true를 반환한다.
 >
 > `localhost:3000/show/121`의 경우, false를 반환한다.
->
+
 > `console.log(this.isMovie);`를 제거한다.
 >
 > `console.log(this.props);`를 제거한다.
 
 <br>
 
-- 참조
+- For example:
 
 ```js
 const path = "/movie/8688";
