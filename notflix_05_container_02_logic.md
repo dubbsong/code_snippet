@@ -252,7 +252,7 @@ export default class extends React.Component {
     this.handleSubmit();
   }
 
-  handleSubmit() {
+  handleSubmit = () => {
     const { searchTerm } = this.state;
 
     if (searchTerm !== '') {
@@ -260,16 +260,14 @@ export default class extends React.Component {
     }
   }
 
-  async searchByTerm() {
+  searchByTerm = async () => {
     const { searchTerm } = this.state;
 
     try {
       const movieResults = await movieApi.search(searchTerm);
       const tvResults = await tvApi.search(searchTerm);
+      
       console.log(movieResults, tvResults);
-
-      // 검색을 했을 때, loading을 true로 변경한다.
-      this.setState({ loading: true });
     } catch {
       this.setState({ error: "Can't find results." });
     } finally {
@@ -327,8 +325,6 @@ export default class extends React.Component {
 }
 
 ```
-
-> Console 탭에서 `"code"`가 포함된 데이터를 확인할 수 있다.
 
 > `'code'`를 `''`로 변경한다.
 >
@@ -396,7 +392,7 @@ export default class extends React.Component {
 export default class extends React.Component {
   state = {...};
 
-  async componentDidMount() {
+  componentDidMount = async () => {
     const {
       match: {
         params: { id }
@@ -431,7 +427,7 @@ export default class extends React.Component {
 export default class extends React.Component {
   state = {...};
 
-  async componentDidMount() {
+  componentDidMount = async () => {
     const {
       match: {
         params: { id }
@@ -464,7 +460,7 @@ export default class extends React.Component {
     ...
   };
 
-  async componentDidMount() {
+  componentDidMount = async () => {
     const {
       ...
       history: { push },
@@ -534,7 +530,7 @@ export default class extends React.Component {
     };
   }
 
-  async componentDidMount() {
+  componentDidMount = async () => {
     const {
       match: {
         params: { id }

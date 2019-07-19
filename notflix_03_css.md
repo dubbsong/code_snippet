@@ -97,7 +97,6 @@ const Nav = styled.nav`
   left: 0;
   width: 100%;
   height: 70px;
-  background-color: #141414;
   box-shadow: 0 1px 10px 2px rgba(0, 0, 0, 0.8);
   z-index: 10;
 `;
@@ -239,7 +238,6 @@ import logo from 'assets/img/logo.png';
 
 const Nav = styled.nav`
   display: flex;
-  align-items: center;
   ...
   padding: 0 4%;
 `;

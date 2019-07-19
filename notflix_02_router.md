@@ -77,7 +77,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Movie from 'Routes/Movie';
 import TV from 'Routes/TV';
 import Search from 'Routes/Search';
-import Detail from 'Routes/Detail'
+import Detail from 'Routes/Detail';
 
 export default () => (
   <Router>
@@ -216,6 +216,8 @@ export default () => (
 ```
 
 > 클릭으로 페이지를 이동할 수 있게 된다.
+>
+> 하지만 클릭할 때마다 새로고침된다.
 
 <br>
 
