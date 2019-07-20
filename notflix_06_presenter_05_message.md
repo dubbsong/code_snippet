@@ -1,6 +1,4 @@
-#### 파일 생성:  `Message`
-
-- error & not found
+#### 파일 생성:  `Message` (for error / not found)
 
 ```bash
 $ cd src
@@ -18,12 +16,14 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Container = styled.div`
-  width: 100vw;
+  width: 100%;
   display: flex;
   justify-content: center;
+	margin-top: 50px;
 `;
 
 const Text = styled.span`
+	font-size: 16px;
   color: #e50914;
 `;
 

@@ -1,4 +1,4 @@
-#### input 생성 및 설정
+#### input 설정
 
 - SearchPresenter.js
 
@@ -6,7 +6,7 @@
 ...
 
 const Container = styled.div`
-  padding: 20px;
+  padding: 20px 0;
 `;
 
 const Form = styled.form`

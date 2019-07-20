@@ -24,9 +24,9 @@ const Image = styled.div``;
 
 const Rating = styled.span``;
 
-const Title = styled.span``;
+const Title = styled.h4``;
 
-const Year = styled.span``;
+const Year = styled.p``;
 
 const Poster = ({ id, imageUrl, rating, title, year, isMovie = false }) => (
   <Link to={isMovie ? `/movie/${id}` : `/show/${id}`}>
@@ -368,12 +368,11 @@ const ImageContainer = styled.div`
   }
 `;
 
-const Title = styled.span`
-  display: block;
+const Title = styled.h4`
   margin-bottom: 3px;
 `;
 
-const Year = styled.span`
+const Year = styled.p`
   font-size: 10px;
   color: rgba(255, 255, 255, 0.5);
 `;
