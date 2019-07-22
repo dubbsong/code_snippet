@@ -79,9 +79,7 @@ const MoviePresenter = ({ nowPlaying, loading, error }) =>
 ...
 
 const Container = styled.div`
-  :not(:last-child) {
-    margin-bottom: 50px;
-  }
+  margin-bottom: 50px;
 `;
 
 const Title = styled.h4`
