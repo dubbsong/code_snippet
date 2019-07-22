@@ -63,7 +63,7 @@ export default class extends React.Component {
 
 ###### 함수 생성: `updateTerm`
 
-- SearchContainer.js
+1. SearchContainer.js
 
 ```react
 ...
@@ -90,9 +90,7 @@ export default class extends React.Component {
 
 <br>
 
-###### 함수를 props로 전달
-
-- SearchPresenter.js
+2. SearchPresenter.js
 
 ```react
 ...

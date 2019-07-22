@@ -110,13 +110,17 @@ const Container = styled.div`
 `;
 
 const TVPresenter = ({ topRated, loading, error }) =>
-  loading ? null : (
+  loading ? (
+    <Loader />
+  ) : (
     <Container>
-      <Section title="Popular Shows">
-        {topRated.map(tv => (
-          <span key={tv.id}>{tv.name}</span>
-        ))}
-      </Section>
+      {topRated && topRated.length > 0 && (
+        <Section title="Top Rated Shows">
+          {topRated.map(tv => (
+            <span key={tv.id}>{tv.name}</span>
+          ))}
+        </Section>
+      )}
     </Container>
   );
 
