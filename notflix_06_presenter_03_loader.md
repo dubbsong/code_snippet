@@ -20,7 +20,7 @@ const Container = styled.div`
   font-size: 20px;
   width: 100%;
   height: 100vh;
-  margin-top: 80px;
+  margin-top: 200px;
 `;
 
 export default () => (
