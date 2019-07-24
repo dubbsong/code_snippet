@@ -249,7 +249,7 @@ export default () => (
 
 <br>
 
-###### Nav tab underbar 설정
+###### underbar 설정: `Nav`
 
 1. `pathname` props 확인
 
