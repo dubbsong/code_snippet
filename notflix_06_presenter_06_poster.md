@@ -438,7 +438,130 @@ const Poster = ({...}) => (
 - DetailPresenter.js
 
 ```react
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import Loader from '../../Components/Loader';
 
+const Container = styled.div`
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: calc(100vh - 50px);
+  padding: 20px;
+`;
+
+const Backdrop = styled.div`
+  position: absolute;
+  background-image: url(${props => props.bgImage});
+  background-size: cover;
+  background-position: center center;
+  width: 100%;
+  height: 100%;
+  filter: blur(3px);
+  opacity: 0.5;
+  z-index: 0;
+`;
+
+const LeftColumn = styled.div`
+  width: 40%;
+  text-align: center;
+  z-index: 1;
+`;
+
+const CoverImage = styled.div`
+  background-image: url(${props => props.bgImage});
+  background-size: cover;
+  background-position: center center;
+  width: 100%;
+  height: 100%;
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
+`;
+
+const RightColumn = styled.div`
+  width: 60%;
+  margin-left: 40px;
+  z-index: 1;
+`;
+
+const Title = styled.h4`
+  font-size: 32px;
+  margin-top: 20vh;
+`;
+
+const ItemContainer = styled.div`
+  margin: 20px 0;
+`;
+
+const Item = styled.span`
+  font-size: 14px;
+`;
+
+const Divider = styled.span`
+  margin: 0 10px;
+`;
+
+const Overview = styled.p`
+  width: 100%;
+  font-size: 16px;
+  line-height: 1.5;
+  opacity: 0.8;
+`;
+
+const DetailPresenter = ({ result, loading, error }) =>
+  loading ? (
+    <Loader />
+  ) : (
+    <Container>
+      <Backdrop
+        bgImage={`https://image.tmdb.org/t/p/original${result.backdrop_path}`}
+      />
+      <LeftColumn>
+        <CoverImage
+          bgImage={
+            result.poster_path
+              ? `https://image.tmdb.org/t/p/original${result.poster_path}`
+              : require('../../assets/img/noPoster.png')
+          }
+        />
+      </LeftColumn>
+      <RightColumn>
+        <Title>
+          {result.original_title ? result.original_title : result.original_name}
+        </Title>
+        <ItemContainer>
+          <Item>
+            {result.release_date
+              ? result.release_date.substring(0, 4)
+              : result.first_air_date.substring(0, 4)}
+          </Item>
+          <Divider>•</Divider>
+          <Item>
+            {result.runtime ? result.runtime : result.episode_run_time[0]} min
+          </Item>
+          <Divider>•</Divider>
+          <Item>
+            {result.genres &&
+              result.genres.map((genre, index) =>
+                index === result.genres.length - 1
+                  ? genre.name
+                  : `${genre.name} / `
+              )}
+          </Item>
+          <Divider>•</Divider>
+          <Item>
+            <span role="img" aria-label="rating">
+              ⭐️
+            </span>
+            {result.vote_average}/10
+          </Item>
+        </ItemContainer>
+        <Overview>{result.overview}</Overview>
+      </RightColumn>
+    </Container>
+  );
+
+...
 ```
 
 <br>
