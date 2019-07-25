@@ -253,7 +253,7 @@ export default () => (
 
 ###### underbar 설정: `Nav`
 
-1. `pathname` props 확인
+1. props 확인
 
 ```react
 ...
@@ -298,15 +298,13 @@ export default withRouter(({ location: { pathname } }) => (
     ...
     <List>
       <Item current={pathname === '/'}>
-        <SLink to="/">Movies</SLink>
+        ...
       </Item>
       <Item current={pathname === '/tv'}>
-        <SLink to="/tv">TV Shows</SLink>
+        ...
       </Item>
       <Item current={pathname === '/search'}>
-        <SLink to="/search">
-          <FontAwesomeIcon icon={faSearch} />
-        </SLink>
+        ...
       </Item>
     </List>
   </Nav>
