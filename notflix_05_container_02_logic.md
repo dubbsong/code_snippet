@@ -45,9 +45,9 @@ export default class extends React.Component {
 }
 ```
 
-> 1. Nav `Movies` 탭 클릭
-> 2. 개발자 도구 `Console` 탭 확인
-> 3. `data`의 `results`에서 필요한 데이터 확인
+> 1. Nav `Movies` 클릭
+> 2. 개발자 도구 `Console` 탭 클릭
+> 3. `data`의 `results` 확인 (20개)
 
 > `id`, `poster_path`, `vote_average`, `original_title`, `release_date`, `backdrop_path`, `genre_ids`, `overview`가 필요하다.
 
@@ -129,7 +129,9 @@ export default class extends React.Component {
 
 > `Console` 탭에서 state의 3가지 변화를 확인할 수 있다.
 >
-> `throw Error();`, `console.log(this.state);`를 제거한다.
+> `throw Error();`를 제거한다.
+>
+> `console.log(this.state);`를 제거한다.
 
 <br>
 
@@ -160,9 +162,9 @@ export default class extends React.Component {
 }
 ```
 
-> 1. Nav `TV Shows` 탭 클릭
-> 2. 개발자 도구 `Console` 탭 확인
-> 3. `data`의 `results`에서 필요한 데이터 확인
+> 1. Nav `TV Shows` 클릭
+> 2. 개발자 도구 `Console` 탭 클릭
+> 3. `data`의 `results` 확인 (20개)
 
 > `id`, `poster_path`, `vote_average`, `original_name`, `first_air_date`, `backdrop_path`, `genre_ids`, `overview`가 필요하다.
 
@@ -259,31 +261,30 @@ import { movieApi, tvApi } from '../../api';
 export default class extends React.Component {
   state = {
     ...
-    searchTerm: 'batman', // For test
+    searchWord: 'batman', // For test
     ...
   };
 
   // Logic
-  searchByTerm = async () => {
-    const { searchTerm } = this.state;
+  handleSubmit = () => {
+    const { searchWord } = this.state;
+
+    if (searchWord !== '') {
+      this.searchByWord();
+    }
+  };
+
+  searchByWord = async () => {
+    const { searchWord } = this.state;
 
     try {
-      const movieResults = await movieApi.search(searchTerm);
-      const tvResults = await tvApi.search(searchTerm);
-
+      const movieResults = await movieApi.search(searchWord);
+      const tvResults = await tvApi.search(searchWord);
       console.log(movieResults, tvResults);
     } catch {
       this.setState({ error: "Can't find results." });
     } finally {
       this.setState({ loading: false });
-    }
-  };
-
-  handleSubmit = () => {
-    const { searchTerm } = this.state;
-
-    if (searchTerm !== '') {
-      this.searchByTerm();
     }
   };
 
@@ -296,8 +297,8 @@ export default class extends React.Component {
 }
 ```
 
-> 1. Nav `🔍` 탭 클릭
-> 2. 개발자 도구 `Console` 탭 확인
+> 1. Nav `🔍` 클릭
+> 2. 개발자 도구 `Console` 탭 클릭
 > 3. `movieResults`, `tvResults` 데이터 확인
 
 <br>
@@ -310,22 +311,24 @@ export default class extends React.Component {
 export default class extends React.Component {
   state = {
     ...
-    searchTerm: 'batman', // 테스트 후 ''로 변경
+    searchWord: 'batman', // 테스트 후 ''로 변경
     ...
   };
 
   // Logic
-  searchByTerm = async () => {
-    const { searchTerm } = this.state;
+  ...
+
+  searchByWord = async () => {
+    ...
 
     try {
       const {
         data: { results: movieResults }
-      } = await movieApi.search(searchTerm);
+      } = await movieApi.search(searchWord);
 
       const {
         data: { results: tvResults }
-      } = await tvApi.search(searchTerm);
+      } = await tvApi.search(searchWord);
 
       this.setState({
         movieResults,
@@ -337,8 +340,6 @@ export default class extends React.Component {
       ...
     }
   };
-
-  ...
 
   // 테스트 후 제거
   componentDidMount() {
@@ -385,7 +386,7 @@ export default class extends React.Component {
 }
 ```
 
-> `searchTerm`을 업데이트하는 함수는 나중에 작성한다.
+> `searchWord`를 업데이트하는 함수는 나중에 작성한다.
 >
 > 탭 이동 시 에러가 발생하지만, 나중에 수정한다.
 
