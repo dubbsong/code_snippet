@@ -59,7 +59,6 @@ Poster.propTypes = {
 };
 
 export default Poster;
-
 ```
 
 <br>
