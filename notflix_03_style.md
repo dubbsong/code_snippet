@@ -44,7 +44,7 @@ const globalStyle = createGlobalStyle`
     font-size: 0.8rem;
     background-color: #141414;
     color: #ffffff;
-    padding: 80px 5%;
+    padding-top: 80px;
   }
 
   a {
