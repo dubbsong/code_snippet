@@ -252,7 +252,7 @@ const SearchPresenter = ({...}) => (
 ...
 ```
 
-> Nav `Search` 탭에서 `dhaksgqo`와 같이 존재하지 않는 것을 검색하면, `Nothing found`가 표시된다.
+> Nav `🔍`에서 `dhaksgqo`와 같이 존재하지 않는 것을 검색하면, `Nothing found`가 표시된다.
 
 <br>
 
@@ -299,7 +299,7 @@ Message.propTypes = {
 ```react
 {error && <Message text={error} color="#e50914"}
 {movieResults && movieResults.length === 0 && tvResults && tvResults.length === 0 && (
-  <Message text="Nothing found" color="e5e5e5" />
+  <Message text="Nothing found" color="#e5e5e5" />
 )}
 ```
 
