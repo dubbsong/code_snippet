@@ -205,8 +205,8 @@ export default () => (
 
 ```bash
 $ yarn add @fortawesome/fontawesome-svg-core
-$ yarn add @fortawesome/free-solid-svg-icons
 $ yarn add @fortawesome/react-fontawesome
+$ yarn add @fortawesome/free-solid-svg-icons
 ```
 
 <br>
@@ -224,6 +224,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 const Item = styled.li`
   ...
+
   :last-child {
     width: 50px;
   }
