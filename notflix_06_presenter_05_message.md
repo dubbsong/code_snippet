@@ -20,10 +20,10 @@ const Container = styled.div`
   justify-content: center;
   width: 100%;
   height: 100vh;
-  margin-top: 80px;
+  margin-top: 180px;
 `;
 
-const Text = styled.span`
+const Text = styled.h4`
   font-size: 20px;
   color: #e50914;
 `;
@@ -95,7 +95,7 @@ const MoviePresenter = ({...}) =>
 ...
 ```
 
-> Nav `Movies` 탭에 `Can't find movie information.`이 표시된다.
+> Nav `Movies`에 `Can't find movie information.`이 표시된다.
 >
 > `throw Error()`를 제거한다.
 
@@ -153,6 +153,10 @@ const TVPresenter = ({...}) =>
 ...
 ```
 
+> Nav `TV Shows`에 `Can't find tv information.`이 표시된다.
+>
+> `throw Error()`를 제거한다.
+
 <br>
 
 ###### Error: `Can't find results.`
@@ -166,7 +170,7 @@ export default class extends React.Component {
   ...
 
   // Logic
-  searchByTerm = async () => {
+  searchByWord = async () => {
     ...
 
     try {
@@ -191,10 +195,29 @@ export default class extends React.Component {
 2. SearchPresenter.js
 
 ```react
+...
+import Message from '../../Components/Message';
 
+...
+
+const SearchPresenter = ({...}) => (
+  <Container>
+    ...
+    {loading ? (
+      ...
+    ) : (
+      <React.Fragment>
+        ...
+        {error && <Message text={error} />}
+      </React.Fragment>
+    )}
+  </Container>
+);
+
+...
 ```
 
-> Nav `TV Shows` 탭에 `Can't find results`가 표시된다.
+> Nav `🔍`에 `Can't find results`가 표시된다.
 >
 > `throw Error()`를 제거한다.
 
