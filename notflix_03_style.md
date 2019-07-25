@@ -172,9 +172,10 @@ assets
 import logo from '../assets/img/logo.png';
 
 const Nav = styled.nav`
-  display: flex;
   ...
-  padding: 0 4%;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
 `;
 
 const Logo = styled.img`
