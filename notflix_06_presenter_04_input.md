@@ -23,7 +23,10 @@ const Input = styled.input`
 const SearchPresenter = ({...}) => (
   <Container>
     <Form onSubmit={handleSubmit}>
-      <Input value={searchTerm} placeholder="Search Movies or TV Shows" />
+      <Input
+        value={searchWord}
+        placeholder="Search Movies or TV Shows"
+      />
     </Form>
   </Container>
 );
@@ -47,6 +50,7 @@ const SearchPresenter = ({...}) => (
 export default class extends React.Component {
   ...
 
+  // Logic
   handleSubmit = event => {
     event.preventDefault();
 
@@ -61,7 +65,7 @@ export default class extends React.Component {
 
 <br>
 
-###### 함수 생성: `updateTerm`
+###### 함수 생성: `updateWord`
 
 1. SearchContainer.js
 
@@ -71,9 +75,12 @@ export default class extends React.Component {
 export default class extends React.Component {
   ...
 
-  updateTerm = event => {
+  // Logic
+  updateWord = event => {
     console.log(event);
   };
+
+  ...
 
   render() {
     ...
@@ -81,7 +88,7 @@ export default class extends React.Component {
     return (
       <SearchPresenter
         ...
-        updateTerm={this.updateTerm}
+        updateWord={this.updateWord}
       />
     );
   }
@@ -95,12 +102,16 @@ export default class extends React.Component {
 ```react
 ...
 
-const SearchPresenter = ({ ..., updateTerm }) => (
+const SearchPresenter = ({
+  ...
+  updateWord
+}) => (
   <Container>
     <Form onSubmit={...}>
       <Input
-        ...
-        onChange={updateTerm}
+        value={searchWord}
+        onChange={updateWord}
+        placeholder="Search Movies or TV Shows"
       />
     </Form>
   </Container>
@@ -108,7 +119,7 @@ const SearchPresenter = ({ ..., updateTerm }) => (
 
 SearchPresenter.propTypes = {
   ...
-  updateTerm: PropTypes.func.isRequired
+  updateWord: PropTypes.func.isRequired
 };
 
 ...
@@ -128,7 +139,7 @@ SearchPresenter.propTypes = {
 export default class extends React.Component {
   ...
 
-  updateTerm = event => {
+  updateWord = event => {
     // 1. Test (제거)
     const { target } = event;
     console.log(target);
@@ -141,7 +152,7 @@ export default class extends React.Component {
 
     // 3 Test (보존)
     this.setState({
-      searchTerm: value
+      searchWord: value
     });
   };
 
