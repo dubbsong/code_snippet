@@ -33,6 +33,8 @@ src
 
 <br>
 
+<br>
+
 ###### 디렉토리 생성
 
 ```bash
@@ -85,42 +87,6 @@ $ cd Detail
 $ touch index.js
 $ touch DetailContainer.js
 $ touch DetailPresenter.js
-```
-
-<br>
-
-###### 코드 작성: `index`
-
-- Movie/index.js
-
-```react
-import MovieContainer from './MovieContainer';
-
-export default MovieContainer;
-```
-
-- TV/index.js
-
-```react
-import TVContainer from './TVContainer';
-
-export default TVContainer;
-```
-
-- Search/index.js
-
-```react
-import SearchContainer from './SearchContainer';
-
-export default SearchContainer;
-```
-
-- Detail/index.js
-
-```react
-import DetailContainer from './DetailContainer';
-
-export default DetailContainer;
 ```
 
 <br>
@@ -225,7 +191,7 @@ export default class extends React.Component {
   state = {
     movieResults: null,
     tvResults: null,
-    searchTerm: '', // 사용자의 입력을 기다린다.
+    searchWord: '', // 사용자의 입력을 기다린다.
     loading: false, // 처음에 아무것도 로딩하지 않는다.
     error: null
   };
@@ -233,13 +199,13 @@ export default class extends React.Component {
   // Logic
 
   render() {
-    const { movieResults, tvResults, searchTerm, loading, error } = this.state;
+    const { movieResults, tvResults, searchWord, loading, error } = this.state;
 
     return (
       <SearchPresenter
         movieResults={movieResults}
         tvResults={tvResults}
-        searchTerm={searchTerm}
+        searchWord={searchWord}
         loading={loading}
         error={error}
       />
@@ -275,6 +241,42 @@ export default class extends React.Component {
     );
   }
 }
+```
+
+<br>
+
+###### 코드 작성: `index`
+
+- Movie/index.js
+
+```react
+import MovieContainer from './MovieContainer';
+
+export default MovieContainer;
+```
+
+- TV/index.js
+
+```react
+import TVContainer from './TVContainer';
+
+export default TVContainer;
+```
+
+- Search/index.js
+
+```react
+import SearchContainer from './SearchContainer';
+
+export default SearchContainer;
+```
+
+- Detail/index.js
+
+```react
+import DetailContainer from './DetailContainer';
+
+export default DetailContainer;
 ```
 
 <br>
