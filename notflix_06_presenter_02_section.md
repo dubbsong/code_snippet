@@ -51,7 +51,7 @@ const Container = styled.div`
   padding: 20px;
 `;
 
-const MoviePresenter = ({ nowPlaying, loading, error }) =>
+const MoviePresenter = ({...}) =>
   loading ? null : (
     <Container>
       {nowPlaying && nowPlaying.length > 0 && (
@@ -109,10 +109,8 @@ const Container = styled.div`
   padding: 20px;
 `;
 
-const TVPresenter = ({ topRated, loading, error }) =>
-  loading ? (
-    <Loader />
-  ) : (
+const TVPresenter = ({...}) =>
+  loading ? null : (
     <Container>
       {topRated && topRated.length > 0 && (
         <Section title="Top Rated Shows">
