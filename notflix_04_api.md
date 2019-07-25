@@ -95,9 +95,9 @@ import './api';	// 확인 후 제거
 ReactDOM.render(<App />, document.getElementById('root'));
 ```
 
-> 개발자 도구 `Network` 탭에서 `now_playing?api_key=b1aff257ceb0cbcdd236cef217694a61&language=en-US`를 확인할 수 있다.
->
-> `results`에서 20개의 데이터를 확인할 수 있다.
+> 1. 개발자 도구 `Network` 탭
+> 2. `now_playing?api_key=...` 클릭
+> 3. `results` 데이터 확인 (20개)
 >
 > `import './api';`를 제거한다.
 
@@ -164,10 +164,10 @@ Learning React and ES6 by building a Movie App.
 
 export const movieApi = {
   ...
-  search: term =>
+  search: word =>
     api.get('search/movie', {
       params: {
-        query: encodeURIComponent(term)
+        query: encodeURIComponent(word)
       }
     }),
   movieDetail: id => api.get(`movie/${id}`)
@@ -175,10 +175,10 @@ export const movieApi = {
 
 export const tvApi = {
   ...
-  search: term =>
+  search: word =>
     api.get('search/tv', {
       params: {
-        query: encodeURIComponent(term)
+        query: encodeURIComponent(word)
       }
     }),
   tvDetail: id => api.get(`tv/${id}`)
