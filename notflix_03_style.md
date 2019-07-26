@@ -176,6 +176,11 @@ const Nav = styled.nav`
   display: flex;
   align-items: center;
   padding: 0 20px;
+
+	@media (max-width: 768px) {
+		padding: 0 5px;
+		justify-content: space-between;
+	}
 `;
 
 const Logo = styled.img`

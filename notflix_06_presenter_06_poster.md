@@ -407,12 +407,20 @@ const Backdrop = styled.div`
   filter: blur(3px);
   z-index: 0;
   opacity: 0.5;
+
+  @media (max-width: 768px) {
+    height: calc(100vh - 80px);
+  }
 `;
 
 const LeftColumn = styled.div`
   position: relative;
   z-index: 1;
   width: 30%;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const CoverImage = styled.div`
@@ -429,12 +437,22 @@ const RightColumn = styled.div`
   z-index: 1;
   width: 70%;
   margin-left: 40px;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    margin: 0;
+  }
 `;
 
 const Title = styled.h4`
   font-size: 32px;
-  margin-top: 20vh;
+  margin-top: 50vh;
   text-shadow: 5px 5px 20px rgba(0, 0, 0, 0.8);
+
+  @media (max-width: 768px) {
+    font-size: 24px;
+    margin: 0;
+  }
 `;
 
 const ItemContainer = styled.div`
@@ -447,6 +465,10 @@ const Item = styled.span`
 
 const Divider = styled.span`
   margin: 0 10px;
+
+  @media (max-width: 768px) {
+    margin: 0 5px;
+  }
 `;
 
 const Overview = styled.p`
@@ -454,13 +476,28 @@ const Overview = styled.p`
   line-height: 1.5;
   opacity: 0.8;
   width: 80%;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 const DetailPresenter = ({ result, loading, error }) =>
   loading ? (
-    <Loader />
+    <React.Fragment>
+      <Helmet>
+        <title>Loading | NOTFLIX</title>
+      </Helmet>
+      <Loader />
+    </React.Fragment>
   ) : (
     <Container>
+      <Helmet>
+        <title>
+          {result.original_title ? result.original_title : result.original_name}{' '}
+          | NOTFLIX
+        </title>
+      </Helmet>
       <Backdrop
         bgImage={`https://image.tmdb.org/t/p/original${result.backdrop_path}`}
       />

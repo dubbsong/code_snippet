@@ -92,6 +92,10 @@ const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, 125px);
   grid-gap: 25px;
+
+	@media (max-width: 768px) {
+		grid-template-columns: auto;
+	}
 `;
 
 ...
