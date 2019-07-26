@@ -322,55 +322,9 @@ assets
 - Poster.js
 
 ```react
-import React from 'react';
-import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
+...
 
-const Container = styled.div`
-  font-size: 14px;
-`;
-
-const Image = styled.div`
-  background-image: url(${props => props.bgUrl});
-  background-size: cover;
-  background-position: center center;
-  height: 180px;
-  border-radius: 4px;
-  transition: opacity 0.2s linear;
-`;
-
-const Rating = styled.span`
-  position: absolute;
-  right: 5px;
-  bottom: 5px;
-  opacity: 0;
-  transition: opacity 0.2s linear;
-`;
-
-const ImageContainer = styled.div`
-  position: relative;
-  margin-bottom: 5px;
-  &:hover {
-    ${Image} {
-      opacity: 0.4;
-    }
-
-    ${Rating} {
-      opacity: 1;
-    }
-  }
-`;
-
-const Title = styled.h4`
-  margin-bottom: 3px;
-`;
-
-const Year = styled.p`
-  color: rgba(255, 255, 255, 0.5);
-`;
-
-const Poster = ({ id, imageUrl, rating, title, year, isMovie = false }) => (
+const Poster = ({...}) => (
   <Link to={isMovie ? `/movie/${id}` : `/show/${id}`}>
     <Container>
       <ImageContainer>
@@ -381,12 +335,7 @@ const Poster = ({ id, imageUrl, rating, title, year, isMovie = false }) => (
               : require('../assets/img/noPoster.png')
           }
         />
-        <Rating>
-          <span role="img" aria-label="rating">
-            ⭐️
-          </span>{' '}
-          {rating}/10
-        </Rating>
+        ...
       </ImageContainer>
       ...
     </Container>
@@ -408,9 +357,7 @@ const Poster = ({ id, imageUrl, rating, title, year, isMovie = false }) => (
 const Poster = ({...}) => (
   <Link to={...}>
     <Container>
-      <ImageContainer>
-        ...
-      </ImageContainer>
+      ...
       <Title>
         {title.length > 15 ? `${title.substring(0, 15)}...` : title}
       </Title>
@@ -437,17 +384,15 @@ const Poster = ({...}) => (
 - DetailPresenter.js
 
 ```react
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
+...
 import Loader from '../../Components/Loader';
 
 const Container = styled.div`
   position: relative;
-  display: flex;
   width: 100%;
-  height: calc(100vh - 50px);
-  padding: 20px;
+  height: calc(100vh - 80px);
+  padding: 40px;
+  display: flex;
 `;
 
 const Backdrop = styled.div`
@@ -457,15 +402,17 @@ const Backdrop = styled.div`
   background-position: center center;
   width: 100%;
   height: 100%;
+  top: 0;
+  left: 0;
   filter: blur(3px);
-  opacity: 0.5;
   z-index: 0;
+  opacity: 0.5;
 `;
 
 const LeftColumn = styled.div`
-  width: 40%;
-  text-align: center;
+  position: relative;
   z-index: 1;
+  width: 30%;
 `;
 
 const CoverImage = styled.div`
@@ -474,18 +421,20 @@ const CoverImage = styled.div`
   background-position: center center;
   width: 100%;
   height: 100%;
-  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.8);
 `;
 
 const RightColumn = styled.div`
-  width: 60%;
-  margin-left: 40px;
+  position: relative;
   z-index: 1;
+  width: 70%;
+  margin-left: 40px;
 `;
 
 const Title = styled.h4`
   font-size: 32px;
   margin-top: 20vh;
+  text-shadow: 5px 5px 20px rgba(0, 0, 0, 0.8);
 `;
 
 const ItemContainer = styled.div`
@@ -501,10 +450,10 @@ const Divider = styled.span`
 `;
 
 const Overview = styled.p`
-  width: 100%;
   font-size: 16px;
   line-height: 1.5;
   opacity: 0.8;
+  width: 80%;
 `;
 
 const DetailPresenter = ({ result, loading, error }) =>
@@ -536,7 +485,7 @@ const DetailPresenter = ({ result, loading, error }) =>
           </Item>
           <Divider>•</Divider>
           <Item>
-            {result.runtime ? result.runtime : result.episode_run_time[0]} min
+            {result.runtime ? result.runtime : result.episode_run_time} min
           </Item>
           <Divider>•</Divider>
           <Item>
@@ -551,7 +500,7 @@ const DetailPresenter = ({ result, loading, error }) =>
           <Item>
             <span role="img" aria-label="rating">
               ⭐️
-            </span>
+            </span>{' '}
             {result.vote_average}/10
           </Item>
         </ItemContainer>
