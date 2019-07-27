@@ -30,7 +30,7 @@ const Section = ({ title, children }) => (
 
 Section.propTypes = {
   title: PropTypes.string.isRequired,
-  cihldren: PropTypes.oneOfType([
+  children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node
   ])
