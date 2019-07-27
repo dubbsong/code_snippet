@@ -297,7 +297,7 @@ Message.propTypes = {
 - SearchPresenter.js
 
 ```react
-{error && <Message text={error} color="#e50914"}
+{error && <Message text={error} color="#e50914" />}
 {movieResults && movieResults.length === 0 && tvResults && tvResults.length === 0 && (
   <Message text="Nothing found" color="#e5e5e5" />
 )}
