@@ -57,7 +57,7 @@ const MoviePresenter = ({...}) =>
       {nowPlaying && nowPlaying.length > 0 && (
         <Section title="Now Playing">
           {nowPlaying.map(movie => (
-            <span key={movie.id}>{movie.title}</span>
+            <p key={movie.id}>{movie.title}</p>
           ))}
         </Section>
       )}
@@ -85,16 +85,17 @@ const Container = styled.div`
 const Title = styled.h4`
   font-size: 20px;
   font-weight: 600;
+	margin-bottom: 25px;
 `;
 
 const Grid = styled.div`
-  margin-top: 25px;
   display: grid;
   grid-template-columns: repeat(auto-fill, 125px);
   grid-gap: 25px;
 
 	@media (max-width: 768px) {
 		grid-template-columns: auto;
+		text-align: right;
 	}
 `;
 
@@ -119,7 +120,7 @@ const TVPresenter = ({...}) =>
       {topRated && topRated.length > 0 && (
         <Section title="Top Rated Shows">
           {topRated.map(tv => (
-            <span key={tv.id}>{tv.name}</span>
+            <p key={tv.id}>{tv.name}</p>
           ))}
         </Section>
       )}
