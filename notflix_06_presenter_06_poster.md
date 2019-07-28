@@ -225,7 +225,10 @@ const SearchPresenter = ({...}) => (
 const Image = styled.div`
   background-image: url(${props => props.bgUrl});
   background-size: cover;
+  background-position: center center;
   height: 180px;
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.8);
+	border-radius: 4px;
 `;
 
 ...
@@ -265,7 +268,8 @@ const Image = styled.div`
   background-size: cover;
   background-position: center center;
   height: 180px;
-  border-radius: 4px;
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.8);
+	border-radius: 4px;
   transition: opacity 0.2s linear;
 `;
 
