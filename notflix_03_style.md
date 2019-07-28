@@ -95,10 +95,10 @@ const Nav = styled.nav`
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 70px;
   background-color: #141414;
   box-shadow: 0 1px 10px 2px rgba(0, 0, 0, 0.8);
+  width: 100%;
+  height: 70px;
   z-index: 10;
 `;
 
@@ -177,15 +177,20 @@ const Nav = styled.nav`
   align-items: center;
   padding: 0 20px;
 
-	@media (max-width: 768px) {
-		padding: 0 5px;
-		justify-content: space-between;
-	}
+  @media (max-width: 768px) {
+    padding: 0 5px;
+    justify-content: space-between;
+  }
 `;
 
-const Logo = styled.img`
-  width: 120px;
-  height: 45px;
+...
+
+const Item = styled.li`
+  ...
+
+  @media (max-width: 768px) {
+    width: 60px;
+  }
 `;
 
 ...
@@ -228,10 +233,15 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 ...
 
 const Item = styled.li`
-  ...
-
+  width: 70px;
+  height: 70px;
   :last-child {
     width: 50px;
+  }
+	text-align: center;
+
+  @media (max-width: 768px) {
+    width: 60px;
   }
 `;
 
@@ -281,6 +291,12 @@ export default withRouter(props => (
 ```
 
 > `location`에서 `pathname`을 확인할 수 있다.
+>
+> 1. `Movies` 클릭: `pathname: "/"`
+>
+> 2. `TV Shows` 클릭: `pathname: "/tv"`
+>
+> 3. `🔍` 클릭: `pathname: "/search"`
 
 <br>
 
@@ -290,10 +306,19 @@ export default withRouter(props => (
 ...
 
 const Item = styled.li`
-  ...
+  width: 70px;
+  height: 70px;
+  :last-child {
+    width: 50px;
+  }
+  text-align: center;
   border-bottom: 2px solid
     ${props => (props.current ? '#e5e5e5' : 'transparent')};
   transition: border-bottom 0.2s ease-in-out;
+
+  @media (max-width: 768px) {
+    width: 60px;
+  }
 `;
 
 ...
