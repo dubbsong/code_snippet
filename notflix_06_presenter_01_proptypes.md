@@ -15,7 +15,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const MoviePresenter = ({ nowPlaying, loading, error }) => null;
+const MoviePresenter = ({ nowPlaying, loading, error }) =>
+  'Set MoviePresenter PropTypes';
 
 MoviePresenter.propTypes = {
   nowPlaying: PropTypes.array,
@@ -33,7 +34,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const TVPresenter = ({ topRated, loading, error }) => null;
+const TVPresenter = ({ topRated, loading, error }) =>
+  'Set TVPresenter PropTypes';
 
 TVPresenter.propTypes = {
   topRated: PropTypes.array,
@@ -58,7 +60,7 @@ const SearchPresenter = ({
   loading,
   error,
   handleSubmit
-}) => null;
+}) => 'Set SearchPresenter PropTypes';
 
 SearchPresenter.propTypes = {
   movieResults: PropTypes.array,
@@ -79,7 +81,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const DetailPresenter = ({ result, loading, error }) => null;
+const DetailPresenter = ({ result, loading, error }) =>
+  'Set DetailPresenter PropTypes';
 
 DetailPresenter.propTypes = {
   result: PropTypes.object,

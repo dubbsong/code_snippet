@@ -410,7 +410,7 @@ export default class extends React.Component {
 ```
 
 > 1. `localhost:3000/movie/272`로 이동
-> 2. `match`의 `params`에서 `id`, `path`, `url` 확인
+> 2. `match`의 `params`에서 `id` 확인
 
 <br>
 
@@ -470,6 +470,7 @@ export default class extends React.Component {
       history: { push }
     } = this.props;
 
+    // For Redirect
     const parsedId = parseInt(id);
 
     if (isNaN(parsedId)) {
@@ -510,11 +511,13 @@ export default class extends React.Component {
       history: { push },
       location: { pathname }
     } = this.props;
+    
+    // For Redirect
+    ...
 
+    // Check movie or show
     this.isMovie = pathname.includes('/movie/');
     console.log(this.isMovie); // 확인 후 제거
-
-    ...
   };
 
   render() {
@@ -555,7 +558,7 @@ export default class extends React.Component {
     };
   }
 
-  // Logic
+  // Logic (location 제거)
   componentDidMount = async () => {
     const {
       match: {
@@ -564,8 +567,10 @@ export default class extends React.Component {
       history: { push }
     } = this.props;
 
+    // For Redirect
     ...
 
+    // Check movie or show
     const { isMovie } = this.state;
     let result = null;
 
@@ -592,7 +597,7 @@ export default class extends React.Component {
 ```
 
 > 1. `localhost:3000/movie/272`로 이동
-> 2. `result` 확인
+> 2. `Console` 탭 확인
 
 <br>
 
@@ -623,18 +628,9 @@ export default class extends React.Component {
     }
   };
 
-  render() {
-    const {...} = this.state;
-    console.log(this.state); // 확인 후 제거
-
-    ...
-  }
+  ...
 }
 ```
-
-> `isMovie: true`를 확인할 수 있다.
->
-> `console.log(this.state);`를 제거한다.
 
 <br>
 
