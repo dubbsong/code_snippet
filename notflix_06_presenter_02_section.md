@@ -93,7 +93,7 @@ const Grid = styled.div`
   grid-template-columns: repeat(auto-fill, 125px);
   grid-gap: 25px;
 
-	@media (max-width: 768px) {
+	@media only screen and (max-width: 768px) {
 		grid-template-columns: auto;
 		text-align: right;
 	}

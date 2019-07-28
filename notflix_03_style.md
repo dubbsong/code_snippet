@@ -177,10 +177,10 @@ const Nav = styled.nav`
   align-items: center;
   padding: 0 20px;
 
-  @media (max-width: 768px) {
-    padding: 0 5px;
-    justify-content: space-between;
-  }
+  @media only screen and (max-width: 576px) {
+		padding: 0 5px;
+		justify-content: space-between;
+	}
 `;
 
 ...
@@ -188,7 +188,7 @@ const Nav = styled.nav`
 const Item = styled.li`
   ...
 
-  @media (max-width: 768px) {
+  @media only screen and (max-width: 576px) {
     width: 60px;
   }
 `;
