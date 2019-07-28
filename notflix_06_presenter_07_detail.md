@@ -52,7 +52,7 @@ const CoverImage = styled.div`
   background-position: center center;
   width: 100%;
   height: 100%;
-  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.8);
+  box-shadow: 5px 2px 20px rgba(0, 0, 0, 0.8);
 `;
 
 const RightColumn = styled.div`
@@ -70,7 +70,7 @@ const RightColumn = styled.div`
 const Title = styled.div`
   font-size: 32px;
   margin-top: 50vh;
-  text-shadow: 5px 5px 20px rgba(0, 0, 0, 0.8);
+  text-shadow: 5px 2px 20px rgba(0, 0, 0, 0.8);
 
   @media only screen and (max-width: 768px) {
     margin-top: 0;

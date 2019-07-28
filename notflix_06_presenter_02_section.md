@@ -79,7 +79,9 @@ const MoviePresenter = ({...}) =>
 ...
 
 const Container = styled.div`
-  margin-bottom: 50px;
+  :not(:last-child) {
+		margin-bottom: 50px;
+	}
 `;
 
 const Title = styled.h4`
