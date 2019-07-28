@@ -45,6 +45,8 @@ Learning React and ES6 by building a Movie App.
 
 <br>
 
+<br>
+
 ###### Axios 설치
 
 ```bash
@@ -125,7 +127,6 @@ export const movieApi = {
 export const tvApi = {
   topRated: () => api.get('tv/top_rated')
 };
-
 ```
 
 <br>
