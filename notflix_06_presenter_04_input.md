@@ -6,7 +6,7 @@
 ...
 
 const Container = styled.div`
-  padding: 20px 0;
+  padding: 20px;
 `;
 
 const Form = styled.form`
