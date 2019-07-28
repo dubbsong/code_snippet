@@ -18,9 +18,8 @@ import styled from 'styled-components';
 const Container = styled.div`
   display: flex;
   justify-content: center;
-  width: 100%;
-  height: 100vh;
   margin-top: 180px;
+  width: 100%;
 `;
 
 const Text = styled.h4`
@@ -217,7 +216,7 @@ const SearchPresenter = ({...}) => (
 ...
 ```
 
-> Nav `🔍`에 `Can't find results`가 표시된다.
+> Nav `🔍`에 `banman`을 입력하면, `Can't find results`가 표시된다.
 >
 > `throw Error()`를 제거한다.
 
@@ -253,6 +252,8 @@ const SearchPresenter = ({...}) => (
 ```
 
 > Nav `🔍`에서 `dhaksgqo`와 같이 존재하지 않는 것을 검색하면, `Nothing found`가 표시된다.
+
+<br>
 
 <br>
 
