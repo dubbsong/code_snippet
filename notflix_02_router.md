@@ -153,7 +153,7 @@ export default () => (
 );
 ```
 
-> `localhost:3000` 뒤에 `/an;wkr;dnl`와 같이 무작위 입력을 하면, `/`로 Redirect 한다.
+> localhost:3000`/anything`과 같이, 설정하지 않은 경로를 입력하면 `/`로 Redirect 한다.
 
 <br>
 
@@ -215,7 +215,7 @@ export default () => (
 );
 ```
 
-> 각 탭을 클릭해서 페이지 이동이 가능하다.
+> 각 `<a> 태그`를 클릭해서 페이지 이동이 가능하다.
 >
 > 하지만 클릭할 때마다 `refresh` 된다.
 
