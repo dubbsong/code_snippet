@@ -183,6 +183,11 @@ const Nav = styled.nav`
 	}
 `;
 
+const Logo = styled.img`
+  width: 120px;
+  height: 45px;
+`;
+
 ...
 
 const Item = styled.li`
