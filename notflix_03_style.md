@@ -41,7 +41,7 @@ const globalStyle = createGlobalStyle`
 
   body {
     font-family: 'Ubuntu', sans-serif;
-    font-size: 0.8rem;
+    font-size: 12px;
     background-color: #141414;
     color: #ffffff;
     padding-top: 70px;
@@ -239,15 +239,10 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 const Item = styled.li`
   width: 70px;
-  height: 70px;
-  :last-child {
+	:last-child {
     width: 50px;
   }
-	text-align: center;
-
-  @media (max-width: 768px) {
-    width: 60px;
-  }
+  ...
 `;
 
 ...
@@ -311,12 +306,7 @@ export default withRouter(props => (
 ...
 
 const Item = styled.li`
-  width: 70px;
-  height: 70px;
-  :last-child {
-    width: 50px;
-  }
-  text-align: center;
+  ...
   border-bottom: 2px solid
     ${props => (props.current ? '#e5e5e5' : 'transparent')};
   transition: border-bottom 0.2s ease-in-out;
