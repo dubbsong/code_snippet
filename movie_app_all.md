@@ -169,18 +169,22 @@ class App extends Component {
 
 const data = [
   {
+    id: 4,
     cover_img: 'https://dummyimage.com/150x200/ff7373/fff',
     title_english: 'Batman Begins'
   },
   {
+    id: 8, 
     cover_img: 'https://dummyimage.com/150x200/ffc952/fff',
     title_english: 'Batman Dark Knight'
   },
   {
+    id: 2,
     cover_img: 'https://dummyimage.com/150x200/47b8e0/fff',
     title_english: 'Batman Rises'
   },
   {
+    id: 6
     cover_img: 'https://dummyimage.com/150x200/34314c/fff',
     title_english: 'John Wick'
   }
@@ -206,12 +210,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {data.map((movie, index) => {
+        {data.map(movie => {
           return (
             <MovieCard
               poster={movie.cover_img}
               title={movie.title_english}
-              key={index}
+              key={movie.id}
             />
           );
         })}
@@ -379,18 +383,22 @@ class App extends Component {
       this.setState({
         data: [
           {
+            id: 4,
             cover_img: 'https://dummyimage.com/150x200/ff7373/fff',
             title_english: 'Batman Begins'
           },
           {
+            id: 8,
             cover_img: 'https://dummyimage.com/150x200/ffc952/fff',
             title_english: 'Batman Dark Knight'
           },
           {
+            id: 2,
             cover_img: 'https://dummyimage.com/150x200/47b8e0/fff',
             title_english: 'Batman Rises'
           },
           {
+            id: 6,
             cover_img: 'https://dummyimage.com/150x200/34314c/fff',
             title_english: 'John Wick'
           }
@@ -401,12 +409,12 @@ class App extends Component {
 
   renderMovies = () => {
     console.log('Did renderMovies');	// 확인 후 제거
-    const movies = this.state.data.map((movie, index) => {
+    const movies = this.state.data.map(movie => {
       return (
         <MovieCard
           poster={movie.cover_img}
           title={movie.title_english}
-          key={index}
+          key={movie.id}
         />
       );
     });
@@ -524,7 +532,7 @@ class App extends Component {
 
 > Console 탭에 `Response {…}`가 표시된다.
 >
-> `body`의 `ReadableStream`은 바이트(010101…)로 구성되었다는 것을 의미한다. 고로 JSON으로 변경해야 한다.
+> `body`의 `ReadableStream`은 바이트(010101…)로 구성되었다는 것을 의미한다. 고로 `JSON`으로 변경해야 한다.
 
 <br>
 
@@ -590,19 +598,21 @@ import './App.css';
 import MovieCard from './MovieCard';
 
 class App extends Component {
-  state = {};
+  state = {
+    movieData: null
+  };
 
   componentDidMount() {
     this.getMovies();
   }
 
-  async getMovies() {
-    const data = await this.callApi();
+  getMovies = async () => {
+    const movieData = await this.callApi();
 
     this.setState({
-      data: data
+      movieData: movieData
     });
-  }
+  };
 
   callApi = () => {
     return fetch(
@@ -614,7 +624,7 @@ class App extends Component {
   };
 
   renderMovies = () => {
-    const movies = this.state.data.map(movie => {
+    const movies = this.state.movieData.map(movie => {
       return (
         <MovieCard
           poster={movie.medium_cover_image}
@@ -626,10 +636,16 @@ class App extends Component {
     return movies;
   };
 
-  ...
+  render() {
+    return (
+      <div className="App">
+        {this.state.movieData ? this.renderMovies() : 'Loading...'}
+      </div>
+    );
+  }
 }
 
-...
+export default App;
 ```
 
 > 화면에 포스터와 타이틀이 표시된다.
@@ -647,7 +663,7 @@ class App extends Component {
   ...
 
   renderMovies = () => {
-    const movies = this.state.data.map(movie => {
+    const movies = this.state.movieData.map(movie => {
       console.log(movie);	// 데이터 확인
       return (
         ...
@@ -677,7 +693,7 @@ class App extends Component {
   ...
 
   renderMovies = () => {
-    const movies = this.state.data.map(movie => {
+    const movies = this.state.movieData.map(movie => {
       console.log(movie);	// 확인 후 제거
       return (
         <MovieCard
@@ -804,7 +820,6 @@ MovieCard.propTypes = {
   .Movie__Poster {
     width: 100%;
     top: 0;
-    left: 0;
   }
 }
 ```
@@ -834,7 +849,7 @@ function MovieCard({ ... }) {
     <div className="Movie__Card">
       ...
         ...
-        <p className="Movie__Synopsis">
+        <div className="Movie__Synopsis">
           <LinesEllipsis
             text={synopsis}
             maxLine="5"
@@ -842,7 +857,7 @@ function MovieCard({ ... }) {
             trimRight
             basedOn="letters"
           />
-        </p>
+        </div>
       ...
     </div>
   );
