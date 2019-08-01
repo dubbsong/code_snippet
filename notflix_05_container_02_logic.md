@@ -596,6 +596,8 @@ export default class extends React.Component {
 }
 ```
 
+> `this.isMovie = pathname.includes('/movie/');`를 제거한다.
+
 > 1. `localhost:3000/movie/272`로 이동
 > 2. `Console` 탭 확인
 
