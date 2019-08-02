@@ -251,8 +251,7 @@ export default () => (
 - App.js
 
 ```react
-import React, { Component } from 'react';
-import GlobalStyle from './GlobalStyle';
+...
 import Router from './Router';
 
 class App extends Component {
@@ -266,7 +265,7 @@ class App extends Component {
   }
 }
 
-export default App;
+...
 ```
 
 > `localhost:3000`: Movies Area
@@ -284,3 +283,4 @@ export default App;
 <br>
 
 <br>
+
