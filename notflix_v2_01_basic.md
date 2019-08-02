@@ -16,6 +16,30 @@ $ code .
 
 <br>
 
+###### README 작성
+
+```markdown
+# NOTFLIX
+Learning React and ES6 by building a Movie App.
+
+## TODO
+- [] Movie
+- [] TV
+- [] Search
+- [] Detail
+```
+
+<br>
+
+###### favicon 추가
+
+```bash
+public
+  └─ favicon.ico
+```
+
+<br>
+
 ###### 코드 추가
 
 - index.html
@@ -24,6 +48,7 @@ $ code .
 ...
 <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 <title>Notflix</title>
+...
 ```
 
 <br>
@@ -35,18 +60,6 @@ $ code .
 - src/index.css
 - src/logo.svg
 - src/serviceWorker.js
-
-<br>
-
-###### 현재 디렉토리
-
-```bash
-src
-  ├─ index.js
-  └─ App.js
-```
-
-<br>
 
 <br>
 
@@ -84,8 +97,6 @@ src
   └─ Components
       └─ App.js
 ```
-
-> `App.js`를 `Components`로 이동시킨다.
 
 <br>
 
@@ -130,23 +141,6 @@ $ yarn start
 ```
 
 > 화면에 `오많배`가 표시된다.
-
-<br>
-
-<br>
-
-###### README 작성
-
-```markdown
-# NOTFLIX
-Learning React and ES6 by building a Movie App.
-
-## TODO
-- [] Movie
-- [] TV
-- [] Search
-- [] Detail
-```
 
 <br>
 
