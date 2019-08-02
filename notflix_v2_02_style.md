@@ -29,7 +29,7 @@ $ touch GlobalStyle.js
 - App.js
 
 ```react
-import React, { Component } from 'react';
+...
 import GlobalStyle from './GlobalStyle';
 
 class App extends Component {
@@ -43,7 +43,7 @@ class App extends Component {
   }
 }
 
-export default App;
+...
 ```
 
 <br>
