@@ -38,6 +38,18 @@ const globalStyle = createGlobalStyle`
 
 <br>
 
+###### 이미지 추가: `movie_bg.jpg`
+
+```bash
+assets
+  └─ img
+      └─ movie_bg.jpg
+```
+
+<br>
+
+###### 배경 이미지 설정
+
 - MoviePresenter.js
 
 ```react
@@ -58,16 +70,36 @@ export default MoviePresenter;
 ```react
 import React from 'react';
 import styled from 'styled-components';
-import bg from 'assets/img/header_bg.jpg';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlay } from '@fortawesome/free-solid-svg-icons';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import bg from 'assets/img/movie_bg.jpg';
 
 const Header = styled.header`
   background-image: url(${bg});
   background-size: cover;
   background-position: top center;
   height: 80vh;
+`;
+
+export default () => (
+  <Header>
+    <h4>오많배</h4>
+  </Header>
+);
+```
+
+<br>
+
+###### Header content 설정
+
+- Header.js
+
+```react
+...
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlay } from '@fortawesome/free-solid-svg-icons';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
+
+const Header = styled.header`
+  ...
   position: relative;
 `;
 

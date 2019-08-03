@@ -10,24 +10,6 @@ $ touch Nav.js
 
 ###### Nav 설정
 
-- Router.js
-
-```react
-...
-import Nav from './Nav';
-
-export default () => (
-  <Router>
-    <React.Fragment>
-      <Nav />
-      <Switch>
-        ...
-      </Switch>
-    </React.Fragment>
-  </Router>
-);
-```
-
 - Nav.js
 
 ```react
@@ -57,6 +39,24 @@ export default () => (
       </Item>
     </List>
   </Nav>
+);
+```
+
+- Router.js
+
+```react
+...
+import Nav from './Nav';
+
+export default () => (
+  <Router>
+    <React.Fragment>
+      <Nav />
+      <Switch>
+        ...
+      </Switch>
+    </React.Fragment>
+  </Router>
 );
 ```
 
