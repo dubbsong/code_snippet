@@ -222,17 +222,14 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 ...
 
 const Item = styled.li`
-  width: 68px;
-  height: 68px;
-  text-align: center;
-  margin-left: 8px;
+  ...
 
   &:last-child {
     width: 50px;
   }
 
   @media (max-width: 576px) {
-    margin: 0;
+    ...
   }
 `;
 
@@ -284,27 +281,17 @@ export default withRouter(props => (
 ...
 
 const Item = styled.li`
-  width: 68px;
-  height: 68px;
-  text-align: center;
-  margin-left: 8px;
-
-  &:last-child {
-    width: 50px;
-  }
+  ...
 
   color: ${props => props.current ? '#ffffff' : '#b3b3b3'};
 
   @media (max-width: 576px) {
-    margin: 0;
+    ...
   }
 `;
 
 const SLink = styled(Link)`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 68px;
+  ...
   transition: color 0.2s ease-in-out;
 
   &:hover {
