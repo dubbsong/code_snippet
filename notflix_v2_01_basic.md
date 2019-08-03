@@ -20,11 +20,16 @@ $ code .
 
 ```markdown
 # NOTFLIX
-Learning React and ES6 by building a Movie App.
+- Learning React and ES6 by building a Movie App.
 
-## TODO
-- [] Movie
-- [] TV
+## Used
+- ReactJS
+- Container & Presenter Pattern
+- Styled Components
+
+## Todo
+- [] Movies
+- [] TV Shows
 - [] Search
 - [] Detail
 ```
