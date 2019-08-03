@@ -9,12 +9,6 @@
 
 <br>
 
-###### react-router-dom 설치
-
-```bash
-$ yarn add react-router-dom
-```
-
 <br>
 
 ###### 디렉토리 생성: `Routes`
@@ -203,6 +197,14 @@ export default DetailContainer;
 
 <br>
 
+###### react-router-dom 설치
+
+```bash
+$ yarn add react-router-dom
+```
+
+<br>
+
 ###### 컴포넌트 생성: `Router`
 
 ```bash
@@ -283,4 +285,3 @@ class App extends Component {
 <br>
 
 <br>
-
