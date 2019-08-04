@@ -366,17 +366,9 @@ export default class extends React.Component {
 
 > 1. `localhost:3000/movie/272`로 이동
 > 2. `match` / `params` / `id: "272"` 확인
-> 3. `location` / `pathname` 확인
+> 3. `location` / `pathname: "/movie/272"` 확인
 
-2. 데이터 타입 확인
-
-```react
-
-```
-
-> 
-
-3. movie or show 확인
+2. `id` 데이터 타입 확인 \& `id` 설정
 
 ```react
 ...
@@ -387,9 +379,51 @@ export default class extends React.Component {
   // Logic
   componentDidMount = async () => {
     const {
+      match: {
+        params: { id }
+      }
+    } = this.props;
+
+    // For test
+    console.log(id);                  // 272
+    console.log(typeof id);           // string
+    console.log(typeof parseInt(id)); // number
+    console.log(parseInt(id));        // 272
+
+    // Set id
+    const parsedId = parseInt(id);
+  };
+
+  ...
+}
+```
+
+> 1. `localhost:3000/movie/272` 이동
+> 2. `Console` 탭에서 각 출력 확인
+>
+> `For test` 제거
+
+3. `Movie` or `show` 확인
+
+```react
+...
+
+export default class extends React.Component {
+  ...
+
+  // Logic
+  componentDidMount = async () => {
+    const {
+      match: {
+        params: { id }
+      },
       location: { pathname }
     } = this.props;
 
+    // Set id
+    ...
+
+    // Check movie or show
     this.isMovie = pathname.includes('/movie/');
     console.log(this.isMovie); // 확인 후 제거
   };
@@ -410,19 +444,130 @@ export default class extends React.Component {
 >
 > `console.log(this.props);` 제거
 
-4. constructor 설정
+4. constructor 설정 \& 로직 작성
 
 ```react
+...
+import { movieApi, tvApi } from 'api';
 
+export default class extends React.Component {
+  constructor(props) {
+    super(props);
+
+    const {
+      location: { pathname }
+    } = props;
+
+    this.state = {
+      loading: true,
+      result: null,
+      error: null,
+      isMovie: pathname.includes('/movie/')
+    };
+  }
+
+  // Logic
+  componentDidMount = async () => {
+    const {
+      match: {
+        params: { id }
+      }
+    } = this.props;
+
+    const parsedId = parseInt(id);
+    let result = null;
+
+    try {
+      if (this.state.isMovie) {
+        result = await movieApi.movieDetail(parsedId);
+      } else {
+        result = await tvApi.tvDetail(parsedId);
+      }
+    } catch {
+      this.setState({ error: "Can't find anything." });
+    } finally {
+      this.setState({ loading: false, result });
+    }
+  };
+
+  render() {
+    console.log(this.state);
+
+    ...
+  }
+}
 ```
 
-> 
+> `Console` 탭에서 `result` 확인
+>
+> `Check movie or show` 제거
+
+5. result 덮어쓰기
+
+```react
+...
+
+export default class extends React.Component {
+  ...
+
+  // Logic
+  componentDidMount = async () => {
+    ...
+
+    try {
+      if (this.state.isMovie) {
+        const request = await movieApi.movieDetail(parsedId);
+        result = request.data;
+      } else {
+        const request = await tvApi.tvDetail(parsedId);
+        result = request.data;
+      }
+    } catch {
+      ...
+    } finally {
+      ...
+    }
+  };
+
+  ...
+}
+```
+
+6. Better than before
+
+```react
+...
+
+export default class extends React.Component {
+  ...
+
+  // Logic
+  componentDidMount = async () => {
+    ...
+
+    try {
+      if (this.state.isMovie) {
+        ({ data: result } = await movieApi.movieDetail(parsedId));
+      } else {
+        ({ data: result } = await tvApi.tvDetail(parsedId));
+      }
+    } catch {
+      ...
+    } finally {
+      ...
+    }
+  };
+
+  render() {
+    console.log(this.state); // 확인 후 제거
+
+    ...
+  }
+}
+```
+
+> `console.log(result);` 제거
 
 <br>
 
-
-
-
-
-
-
+<br>
