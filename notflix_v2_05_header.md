@@ -1,14 +1,15 @@
-###### 컴포넌트 생성: `Header`
+###### 컴포넌트 생성: `HeaderMovie` / `HeaderTV`
 
 ```bash
 $ cd src
 $ cd Components
-$ touch Header.js
+$ touch HeaderMovie.js
+$ touch HeaderTV.js
 ```
 
 <br>
 
-###### Header 설정
+###### HeaderMovie 설정
 
 - GlobalStyle.js
 
@@ -38,12 +39,13 @@ const globalStyle = createGlobalStyle`
 
 <br>
 
-###### 이미지 추가: `movie_bg.jpg`
+###### 이미지 추가: `movie_bg.jpg` / `tv_bg.webp`
 
 ```bash
 assets
   └─ img
-      └─ movie_bg.jpg
+      ├─ movie_bg.jpg
+      └─ tv_bg.webp
 ```
 
 <br>
@@ -54,18 +56,29 @@ assets
 
 ```react
 import React from 'react';
-import Header from 'Components/Header';
+import HeaderMovie from 'Components/HeaderMovie';
 
 function MoviePresenter() {
-  return <Header />;
+  return <HeaderMovie />;
 }
 
 export default MoviePresenter;
 ```
 
-<br>
+- TVPresenter.js
 
-- Header.js
+```react
+import React from 'react';
+import HeaderTV from 'Components/HeaderTV';
+
+function TVPresenter() {
+  return <HeaderTV />;
+}
+
+export default TVPresenter;
+```
+
+- HeaderMovie.js
 
 ```react
 import React from 'react';
@@ -86,11 +99,97 @@ export default () => (
 );
 ```
 
+- HeaderTV.js
+
+```react
+import React from 'react';
+import styled from 'styled-components';
+import bg from 'assets/img/tv_bg.webp';
+
+const Header = styled.header`
+  background-image: url(${bg});
+  background-size: cover;
+  background-position: top center;
+  height: 80vh;
+`;
+
+export default () => (
+  <Header>
+    <h4>오많배</h4>
+  </Header>
+);
+```
+
 <br>
 
-###### Header content 설정
+###### Header 구조 설정
 
-- Header.js
+- HeaderMovie.js
+
+```react
+...
+
+const Content = styled.div``;
+
+const Title = styled.h2``;
+
+const Button = styled.button``;
+
+const Summary = styled.p``;
+
+const Gradient = styled.div``;
+
+export default () => (
+  <Header>
+    <Content>
+      <Title>The Dark Knight</Title>
+      <Button>Play</Button>
+      <Button>My List</Button>
+      <Summary>
+        A city swarms with fear. And a twisted, cackling madman will shatter the very notion of a hero. Why so serious?
+      </Summary>
+    </Content>
+    <Gradient />
+  </Header>
+);
+```
+
+- HeaderTV.js
+
+```react
+...
+
+const Content = styled.div``;
+
+const Title = styled.h2``;
+
+const Button = styled.button``;
+
+const Summary = styled.p``;
+
+const Gradient = styled.div``;
+
+export default () => (
+  <Header>
+    <Content>
+      <Title>Money Heist</Title>
+      <Button>Play</Button>
+      <Button>My List</Button>
+      <Summary>
+        Eight thieves take hostages and lock themselves in the Royal Mint of Spain as a criminal mastermind manipulates the police to carry out his plan.
+      </Summary>
+    </Content>
+    <Gradient />
+  </Header>
+);
+```
+
+<br>
+
+###### Header CSS 설정
+
+- HeaderMovie.js
+- HeaderTV.js
 
 ```react
 ...
@@ -175,18 +274,14 @@ const Gradient = styled.div`
 export default () => (
   <Header>
     <Content>
-      <Title>The Dark Knight</Title>
+      ...
       <Button>
         <FontAwesomeIcon icon={faPlay} /> Play
       </Button>
       <Button>
         <FontAwesomeIcon icon={faPlus} /> My List
       </Button>
-      <Summary>
-        Batman raises the stakes in his war on crime. With the help of Lt. Jim
-        Gordon and District Attorney Harvey Dent, Batman sets out to dismantle
-        the remaining criminal organizations that plague the streets.
-      </Summary>
+      ...
     </Content>
     <Gradient />
   </Header>
@@ -196,4 +291,3 @@ export default () => (
 <br>
 
 <br>
-
