@@ -58,9 +58,9 @@ assets
 import React from 'react';
 import HeaderMovie from 'Components/HeaderMovie';
 
-function MoviePresenter() {
-  return <HeaderMovie />;
-}
+MoviePresenter = () => (
+  <HeaderMovie />
+);
 
 export default MoviePresenter;
 ```
@@ -71,9 +71,9 @@ export default MoviePresenter;
 import React from 'react';
 import HeaderTV from 'Components/HeaderTV';
 
-function TVPresenter() {
-  return <HeaderTV />;
-}
+TVPresenter = () => (
+  <HeaderTV />
+);
 
 export default TVPresenter;
 ```
