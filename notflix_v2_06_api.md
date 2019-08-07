@@ -73,9 +73,11 @@ import './api'; // 확인 후 제거
 ...
 ```
 
-> 개발자 도구 `Network` 탭에서 `now_playing` 데이터를 확인할 수 있다.
+> 개발자 도구 `Network` 탭에서 `now_playing` 데이터 확인
 >
-> `import './api';`를 제거한다.
+> `import './api';` 제거
+
+<br>
 
 <br>
 
@@ -96,7 +98,7 @@ const api = axios.create({
 
 export const movieApi = {
   nowPlaying: () => api.get('movie/now_playing'),
-  popular: () => api.get('movie/popular'),
+  topRated: () => api.get('movie/top_rated'),
   search: word =>
     api.get('search/movie', {
       params: {
