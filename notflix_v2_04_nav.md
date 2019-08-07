@@ -170,7 +170,7 @@ const Logo = styled.img`
 
 const List = styled.ul`
   ...
-  padding-left: 20px;
+  margin-left: 10px;
 `;
 
 const Item = styled.li`
@@ -228,9 +228,7 @@ const Item = styled.li`
     width: 50px;
   }
 
-  @media (max-width: 576px) {
-    ...
-  }
+  @media (max-width: 576px) {...}
 `;
 
 ...
@@ -285,9 +283,7 @@ const Item = styled.li`
 
   color: ${props => props.current ? '#ffffff' : '#b3b3b3'};
 
-  @media (max-width: 576px) {
-    ...
-  }
+  @media (max-width: 576px) {...}
 `;
 
 const SLink = styled(Link)`

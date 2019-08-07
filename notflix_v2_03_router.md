@@ -209,7 +209,7 @@ $ yarn add react-router-dom
 
 ```bash
 $ cd src
-$ Components
+$ cd Components
 $ touch Router.js
 ```
 

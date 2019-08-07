@@ -51,7 +51,7 @@ public
 
 ```html
 ...
-<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Blinker&display=swap" rel="stylesheet">
 <title>Notflix</title>
 ...
 ```

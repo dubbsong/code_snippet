@@ -62,7 +62,7 @@ const globalStyle = createGlobalStyle`
   }
 
   body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Blinker', sans-serif;
     font-size: 14px;
     background-color: #141414;
     color: #ffffff;
