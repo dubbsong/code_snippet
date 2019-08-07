@@ -9,7 +9,7 @@ export default class extends React.Component {
   state = {
     loading: true,
     nowPlaying: null,
-    popular: null,
+    topRated: null,
     error: null
   };
 
@@ -20,7 +20,7 @@ export default class extends React.Component {
       <MoviePresenter
         loading={this.state.loading}
         nowPlaying={this.state.nowPlaying}
-        popular={this.state.popular}
+        topRated={this.state.topRated}
         error={this.state.error}
       />
     );
@@ -94,7 +94,7 @@ export default class extends React.Component {
 export default class extends React.Component {
   state = {
     loading: true,
-    result: null,
+    detailResult: null,
     error: null
   };
 
@@ -104,7 +104,7 @@ export default class extends React.Component {
     return (
       <DetailPresenter
         loading={this.state.loading}
-        result={this.state.result}
+        detailResult={this.state.detailResult}
         error={this.state.error}
       />
     );
