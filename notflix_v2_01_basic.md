@@ -26,6 +26,7 @@ $ code .
 - ReactJS
 - Container & Presenter Pattern
 - Styled Components
+- TMDB API
 
 ## Todo
 - [] Movies
