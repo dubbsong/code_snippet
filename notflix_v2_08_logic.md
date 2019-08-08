@@ -13,8 +13,8 @@ export default class extends React.Component {
   async componentDidMount() {
     try {
       const nowPlaying = await movieApi.nowPlaying();
-      const popular = await movieApi.popular();
-      console.log(nowPlaying, popular);
+      const topRated = await movieApi.topRated();
+      console.log(nowPlaying, topRated);
     } catch {
       this.setState({ error: "Can't find movie information." });
     } finally {
@@ -28,7 +28,7 @@ export default class extends React.Component {
 
 > 1. `Movies` 클릭
 > 2. 개발자 도구 `Console` 탭 클릭
-> 3. `nowPlaying`, `popular` 확인
+> 3. `nowPlaying`, `topRated` 확인
 
 2. state 설정
    - [구조 분해 할당](https://github.com/dubbsong/code_snippet/blob/master/es6_02_destructuring%20assignment.md) 사용
@@ -45,14 +45,13 @@ export default class extends React.Component {
       const {
         data: { results: nowPlaying }
       } = await movieApi.nowPlaying();
-
       const {
-        data: { results: popular }
-      } = await movieApi.popular();
+        data: { results: topRated }
+      } = await movieApi.topRated();
 
       this.setState({
         nowPlaying: nowPlaying,
-        popular: popular
+        topRated: topRated
       });
     } catch {
       ...
@@ -300,7 +299,11 @@ export default class extends React.Component {
     }
   };
 
-  ...
+  handleSubmit = () => {
+    if (this.state.searchWord !== '') {
+      this.searchByWord();
+    }
+  };
 
   // 확인 후 제거
   componentDidMount() {...}
