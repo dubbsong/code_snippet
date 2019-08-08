@@ -9,6 +9,16 @@ $ touch Poster.js
 
 <br>
 
+###### 이미지 추가: `logo_sm.png`
+
+```bash
+assets
+  └─ img
+      └─ logo_sm.png
+```
+
+<br>
+
 ###### 코드 작성
 
 - Section.js
@@ -17,6 +27,11 @@ $ touch Poster.js
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+
+const Container = styled.div`
+  padding: 0 4%;
+  margin-bottom: 20px;
+`;
 
 const Title = styled.h4`
   font-size: 20px;
@@ -36,10 +51,10 @@ const Carousel = styled.div`
 `;
 
 const Section = ({ title, children }) => (
-  <React.Fragment>
+  <Container>
     <Title>{title}</Title>
     <Carousel>{children}</Carousel>
-  </React.Fragment>
+  </Container>
 );
 
 Section.propTypes = {
@@ -78,11 +93,21 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import logo from 'assets/img/logo_sm.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlayCircle } from '@fortawesome/free-solid-svg-icons';
-import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
-import { faThumbsDown } from '@fortawesome/free-solid-svg-icons';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import {
+  faPlayCircle,
+  faThumbsUp,
+  faThumbsDown,
+  faPlus
+} from '@fortawesome/free-solid-svg-icons';
+
+const Logo = styled.img`
+  width: 20px;
+  position: absolute;
+  top: 8px;
+  left: 3px;
+`;
 
 const Image = styled.div`
   background-image: url(${props => props.bgUrl});
@@ -92,11 +117,16 @@ const Image = styled.div`
   height: var(--height);
 `;
 
-const Content = styled.div`
+const HoverContent = styled.div`
   opacity: 0;
+
+  @media (max-width: 768px) {
+    opacity: 1;
+  }
 `;
 
 const ImageContainer = styled.div`
+  position: relative;
   padding: 0 2px;
   transition: 0.2s all;
 
@@ -108,7 +138,7 @@ const ImageContainer = styled.div`
       opacity: 0.4;
     }
 
-    ${Content} {
+    ${HoverContent} {
       opacity: 1;
     }
   }
@@ -122,7 +152,7 @@ const LeftContent = styled.div`
 
 const Title = styled.h4`
   font-size: 14px;
-  margin: 5px 0;
+  margin: 10px 0 5px 0;
   text-shadow: 5px 5px 10px #000000;
 `;
 
@@ -139,15 +169,17 @@ const RightContent = styled.div`
 const StyledIcon = styled(FontAwesomeIcon)`
   display: block;
   margin-top: 8px;
+  font-size: 12px;
 `;
 
 const Poster = ({ id, imageUrl, title, year, isMovie = false }) => (
   <Link to={isMovie ? `/movie/${id}` : `/show/${id}`}>
     <ImageContainer>
+      <Logo src={logo} alt="" />
       <Image bgUrl={`https://image.tmdb.org/t/p/w300${imageUrl}`} />
-      <Content>
+      <HoverContent>
         <LeftContent>
-          <FontAwesomeIcon icon={faPlayCircle} />
+          <FontAwesomeIcon icon={faPlayCircle} size="2x" />
           <Title>
             {title.length > 30 ? `${title.substring(0, 30)}...` : title}
           </Title>
@@ -158,7 +190,7 @@ const Poster = ({ id, imageUrl, title, year, isMovie = false }) => (
           <StyledIcon icon={faThumbsDown} />
           <StyledIcon icon={faPlus} />
         </RightContent>
-      </Content>
+      </HoverContent>
     </ImageContainer>
   </Link>
 );
@@ -184,48 +216,41 @@ export default Poster;
 import React from 'react';
 import HeaderMovie from 'Components/HeaderMovie';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import Section from 'Components/Section';
 import Poster from 'Components/Poster';
-
-const Container = styled.div`
-  padding: 0 4%;
-`;
 
 const MoviePresenter = ({ loading, nowPlaying, topRated, error }) =>
   loading ? null : (
     <React.Fragment>
       <HeaderMovie />
-      <Container>
-        {nowPlaying && nowPlaying.length > 0 && (
-          <Section title="Now Playing">
-            {nowPlaying.map(movie => (
-              <Poster
-                id={movie.id}
-                imageUrl={movie.poster_path}
-                title={movie.title}
-                year={movie.release_date}
-                isMovie={true}
-                key={movie.id}
-              />
-            ))}
-          </Section>
-        )}
-        {topRated && topRated.length > 0 && (
-          <Section title="Top Rated">
-            {topRated.map(movie => (
-              <Poster
-                id={movie.id}
-                imageUrl={movie.poster_path}
-                title={movie.title}
-                year={movie.release_date}
-                isMovie={true}
-                key={movie.id}
-              />
-            ))}
-          </Section>
-        )}
-      </Container>
+      {nowPlaying && nowPlaying.length > 0 && (
+        <Section title="Now Playing">
+          {nowPlaying.map(movie => (
+            <Poster
+              id={movie.id}
+              imageUrl={movie.poster_path}
+              title={movie.title}
+              year={movie.release_date}
+              isMovie={true}
+              key={movie.id}
+            />
+          ))}
+        </Section>
+      )}
+      {topRated && topRated.length > 0 && (
+        <Section title="Top Rated">
+          {topRated.map(movie => (
+            <Poster
+              id={movie.id}
+              imageUrl={movie.poster_path}
+              title={movie.title}
+              year={movie.release_date}
+              isMovie={true}
+              key={movie.id}
+            />
+          ))}
+        </Section>
+      )}
     </React.Fragment>
   );
 
@@ -245,48 +270,42 @@ export default MoviePresenter;
 import React from 'react';
 import HeaderTV from 'Components/HeaderTV';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import Section from 'Components/Section';
 import Poster from 'Components/Poster';
-
-const Container = styled.div`
-  padding: 0 4%;
-`;
 
 const TVPresenter = ({ loading, topRated, popular, error }) =>
   loading ? null : (
     <React.Fragment>
       <HeaderTV />
-      <Container>
-        {topRated && topRated.length > 0 && (
-          <Section title="Top Rated">
-            {topRated.map(tv => (
-              <Poster
-                id={tv.id}
-                imageUrl={tv.poster_path}
-                title={tv.name}
-                year={tv.first_air_date}
-                isMovie={true}
-                key={tv.id}
-              />
-            ))}
-          </Section>
-        )}
-        {popular && popular.length > 0 && (
-          <Section title="Popular">
-            {popular.map(tv => (
-              <Poster
-                id={tv.id}
-                imageUrl={tv.poster_path}
-                title={tv.name}
-                year={tv.first_air_date}
-                isMovie={true}
-                key={tv.id}
-              />
-            ))}
-          </Section>
-        )}
-      </Container>
+
+      {topRated && topRated.length > 0 && (
+        <Section title="Top Rated">
+          {topRated.map(tv => (
+            <Poster
+              id={tv.id}
+              imageUrl={tv.poster_path}
+              title={tv.name}
+              year={tv.first_air_date}
+              isMovie={true}
+              key={tv.id}
+            />
+          ))}
+        </Section>
+      )}
+      {popular && popular.length > 0 && (
+        <Section title="Popular">
+          {popular.map(tv => (
+            <Poster
+              id={tv.id}
+              imageUrl={tv.poster_path}
+              title={tv.name}
+              year={tv.first_air_date}
+              isMovie={true}
+              key={tv.id}
+            />
+          ))}
+        </Section>
+      )}
     </React.Fragment>
   );
 
