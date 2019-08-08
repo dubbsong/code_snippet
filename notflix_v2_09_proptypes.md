@@ -14,14 +14,14 @@ $ yarn add prop-types
 ...
 import PropTypes from 'prop-types';
 
-const MoviePresenter = ({ loading, nowPlaying, popular, error }) => (
+const MoviePresenter = ({ loading, nowPlaying, topRated, error }) => (
   <HeaderMovie />
 );
 
 MoviePresenter.propTypes = {
   loading: PropTypes.bool.isRequired,
   nowPlaying: PropTypes.array,
-  popular: PropTypes.array,
+  topRated: PropTypes.array,
   error: PropTypes.string
 };
 
@@ -34,9 +34,7 @@ MoviePresenter.propTypes = {
 ...
 import PropTypes from 'prop-types';
 
-const TVPresenter = ({ loading, topRated, popular, error }) => (
-  <HeaderTV />
-);
+const TVPresenter = (loading, topRated, popular, error) => <HeaderTV />;
 
 TVPresenter.propTypes = {
   loading: PropTypes.bool.isRequired,
@@ -56,18 +54,18 @@ import PropTypes from 'prop-types';
 
 const SearchPresenter = ({
   loading,
+  searchWord,
   movieResults,
   tvResults,
-  searchWord,
   error,
   handleSubmit
 }) => 'Search Input & Results Area';
 
 SearchPresenter.propTypes = {
   loading: PropTypes.bool.isRequired,
+  searchWord: PropTypes.string,
   movieResults: PropTypes.array,
   tvResults: PropTypes.array,
-  searchWord: PropTypes.string,
   error: PropTypes.string,
   handleSubmit: PropTypes.func.isRequired
 };
@@ -81,15 +79,16 @@ export default SearchPresenter;
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const SearchPresenter = ({ loading, result, error }) => 'Each Detail Area';
+const DetailPresenter = ({ loading, detailResult, error }) =>
+  'Each Detail Area';
 
-SearchPresenter.propTypes = {
+DetailPresenter.propTypes = {
   loading: PropTypes.bool.isRequired,
-  result: PropTypes.string,
+  detailResult: PropTypes.string,
   error: PropTypes.string
 };
 
-export default SearchPresenter;
+export default DetailPresenter;
 ```
 
 <br>
