@@ -120,7 +120,7 @@ const Image = styled.div`
 const HoverContent = styled.div`
   opacity: 0;
 
-  @media (max-width: 768px) {
+  @media (max-width: 576px) {
     opacity: 1;
   }
 `;
