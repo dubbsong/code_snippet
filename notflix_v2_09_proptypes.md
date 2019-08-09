@@ -84,7 +84,7 @@ const DetailPresenter = ({ loading, detailResult, error }) =>
 
 DetailPresenter.propTypes = {
   loading: PropTypes.bool.isRequired,
-  detailResult: PropTypes.string,
+  detailResult: PropTypes.object,
   error: PropTypes.string
 };
 

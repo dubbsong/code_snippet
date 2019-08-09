@@ -463,7 +463,7 @@ export default class extends React.Component {
 
     this.state = {
       loading: true,
-      result: null,
+      detailResult: null,
       error: null,
       isMovie: pathname.includes('/movie/')
     };
@@ -478,18 +478,18 @@ export default class extends React.Component {
     } = this.props;
 
     const parsedId = parseInt(id);
-    let result = null;
+    let detailResult = null;
 
     try {
       if (this.state.isMovie) {
-        result = await movieApi.movieDetail(parsedId);
+        detailResult = await movieApi.movieDetail(parsedId);
       } else {
-        result = await tvApi.tvDetail(parsedId);
+        detailResult = await tvApi.tvDetail(parsedId);
       }
     } catch {
       this.setState({ error: "Can't find anything." });
     } finally {
-      this.setState({ loading: false, result });
+      this.setState({ loading: false, detailResult });
     }
   };
 
@@ -520,10 +520,10 @@ export default class extends React.Component {
     try {
       if (this.state.isMovie) {
         const request = await movieApi.movieDetail(parsedId);
-        result = request.data;
+        detailResult = request.data;
       } else {
         const request = await tvApi.tvDetail(parsedId);
-        result = request.data;
+        detailResult = request.data;
       }
     } catch {
       ...
@@ -550,9 +550,9 @@ export default class extends React.Component {
 
     try {
       if (this.state.isMovie) {
-        ({ data: result } = await movieApi.movieDetail(parsedId));
+        ({ data: detailResult } = await movieApi.movieDetail(parsedId));
       } else {
-        ({ data: result } = await tvApi.tvDetail(parsedId));
+        ({ data: detailResult } = await tvApi.tvDetail(parsedId));
       }
     } catch {
       ...
