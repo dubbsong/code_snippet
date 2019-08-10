@@ -166,7 +166,7 @@ export default class extends React.Component {
 
 > `input`에 `batman`을 입력하고 `Enter`를 누르면, Network 탭에서 `movie`, `tv`의 `results`를 확인할 수 있다.
 >
-> `console.log(value);`를 제거한다.
+> `console.log(value);` 제거
 
 <br>
 
