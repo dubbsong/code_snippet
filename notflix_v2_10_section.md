@@ -176,7 +176,13 @@ const Poster = ({ id, imageUrl, title, year, isMovie = false }) => (
   <Link to={isMovie ? `/movie/${id}` : `/show/${id}`}>
     <ImageContainer>
       <Logo src={logo} alt="" />
-      <Image bgUrl={`https://image.tmdb.org/t/p/w300${imageUrl}`} />
+      <Image
+        bgUrl={
+          imageUrl
+            ? `https://image.tmdb.org/t/p/w300${imageUrl}`
+            : require('../assets/img/no_poster.png')
+        }
+      />
       <HoverContent>
         <LeftContent>
           <FontAwesomeIcon icon={faPlayCircle} size="2x" />
