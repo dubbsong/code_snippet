@@ -299,7 +299,6 @@ const TVPresenter = ({ loading, topRated, popular, error }) =>
               imageUrl={tv.poster_path}
               title={tv.name}
               year={tv.first_air_date}
-              isMovie={true}
               key={tv.id}
             />
           ))}
