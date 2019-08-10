@@ -179,6 +179,7 @@ export default class extends React.Component {
 import Section from '../../Components/Section';
 import Loader from '../../Components/Loader';
 
+
 ...
 
 const SearchPresenter = ({...}) => (
