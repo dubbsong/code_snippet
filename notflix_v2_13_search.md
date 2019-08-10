@@ -9,16 +9,17 @@ import styled from 'styled-components';
 
 const Container = styled.div`
   margin: 70px 0 50px 0;
-  padding: 0 4%;
 `;
 
-const Form = styled.form``;
+const Form = styled.form`
+	padding: 0 4%;
+	margin-bottom: 40px;
+`;
 
 const Input = styled.input`
   all: unset;
-  width: 150px;
+  width: 100%;
   font-size: 20px;
-  border-bottom: 2px solid #b3b3b3;
 `;
 
 const SearchPresenter = ({
