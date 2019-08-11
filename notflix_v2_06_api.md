@@ -73,9 +73,13 @@ import './api'; // 확인 후 제거
 ...
 ```
 
-> 개발자 도구 `Network` 탭에서 `now_playing` 데이터 확인
+> 개발자 도구 `Network` 탭에서 `now_playing` 데이터(`result`) 확인
 >
 > `import './api';` 제거
+>
+> `api.get('movie/now_playing');` 제거
+>
+> `export default api;` 제거
 
 <br>
 
@@ -86,19 +90,16 @@ import './api'; // 확인 후 제거
 - api.js
 
 ```react
-import axios from 'axios';
+...
 
 const api = axios.create({
-  baseURL: 'https://api.themoviedb.org/3/',
-  params: {
-    api_key: 'b1aff257ceb0cbcdd236cef217694a61',
-    language: 'en-US'
-  }
+  ...
 });
 
 export const movieApi = {
   nowPlaying: () => api.get('movie/now_playing'),
   topRated: () => api.get('movie/top_rated'),
+  upcoming: () => api.get('movie/upcoming'),
   search: word =>
     api.get('search/movie', {
       params: {
@@ -109,8 +110,9 @@ export const movieApi = {
 };
 
 export const tvApi = {
-  topRated: () => api.get('tv/top_rated'),
   popular: () => api.get('tv/popular'),
+  topRated: () => api.get('tv/top_rated'),
+  airingToday: () => api.get('tv/airing_today'),
   search: word =>
     api.get('search/tv', {
       params: {
