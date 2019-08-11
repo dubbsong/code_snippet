@@ -14,7 +14,9 @@ export default class extends React.Component {
     try {
       const nowPlaying = await movieApi.nowPlaying();
       const topRated = await movieApi.topRated();
-      console.log(nowPlaying, topRated);
+      const upcoming = await movieApi.upcoming();
+
+      console.log(nowPlaying, topRated, upcoming);
     } catch {
       this.setState({ error: "Can't find movie information." });
     } finally {
@@ -28,7 +30,7 @@ export default class extends React.Component {
 
 > 1. `Movies` 클릭
 > 2. 개발자 도구 `Console` 탭 클릭
-> 3. `nowPlaying`, `topRated` 확인
+> 3. `nowPlaying`, `topRated`, `upcoming` 확인
 
 2. state 설정
    - [구조 분해 할당](https://github.com/dubbsong/code_snippet/blob/master/es6_02_destructuring%20assignment.md) 사용
@@ -45,13 +47,19 @@ export default class extends React.Component {
       const {
         data: { results: nowPlaying }
       } = await movieApi.nowPlaying();
+
       const {
         data: { results: topRated }
       } = await movieApi.topRated();
 
+      const {
+        data: { results: upcoming }
+      } = await movieApi.upcoming();
+
       this.setState({
         nowPlaying: nowPlaying,
-        topRated: topRated
+        topRated: topRated,
+        upcoming: upcoming
       });
     } catch {
       ...
@@ -123,9 +131,11 @@ export default class extends React.Component {
   // Logic
   componentDidMount = async () => {
     try {
-      const topRated = await tvApi.topRated();
       const popular = await tvApi.popular();
-      console.log(topRated, popular);
+      const topRated = await tvApi.topRated();
+      const airingToday = await tvApi.airingToday();
+
+      console.log(popular, topRated, airingToday);
     } catch {
       this.setState({ error: "Can't find tv information." });
     } finally {
@@ -139,7 +149,7 @@ export default class extends React.Component {
 
 > 1. `TV Shows` 클릭
 > 2. 개발자 도구 `Console` 탭 클릭
-> 3. `topRated`, `popular` 확인
+> 3. `popular`, `topRated`, `airingToday` 확인
 
 2. state 설정
 
@@ -153,15 +163,21 @@ export default class extends React.Component {
   componentDidMount = async () => {
     try {
       const {
-        data: { results: topRated }
-      } = await tvApi.topRated();
-      const {
         data: { results: popular }
       } = await tvApi.popular();
 
+      const {
+        data: { results: topRated }
+      } = await tvApi.topRated();
+
+      const {
+        data: { results: airingToday }
+      } = await tvApi.airingToday();
+
       this.setState({
+        popular: popular,
         topRated: topRated,
-        popular: popular
+        airingToday: airingToday
       });
     } catch {
       ...
@@ -239,6 +255,7 @@ export default class extends React.Component {
     try {
       const movieResults = await movieApi.search(this.state.searchWord);
       const tvResults = await tvApi.search(this.state.searchWord);
+
       console.log(movieResults, tvResults);
     } catch {
       this.setState({ error: "Can't find results." });
@@ -284,6 +301,7 @@ export default class extends React.Component {
       const {
         data: { results: movieResults }
       } = await movieApi.search(this.state.searchWord);
+
       const {
         data: { results: tvResults }
       } = await tvApi.search(this.state.searchWord);
@@ -299,14 +317,12 @@ export default class extends React.Component {
     }
   };
 
-  handleSubmit = () => {
-    if (this.state.searchWord !== '') {
-      this.searchByWord();
-    }
-  };
+  ...
 
   // 확인 후 제거
-  componentDidMount() {...}
+  componentDidMount() {
+    this.handleSubmit();
+  }
 
   render() {
     console.log(this.state); // 확인 후 제거
@@ -501,7 +517,7 @@ export default class extends React.Component {
 }
 ```
 
-> `Console` 탭에서 `result` 확인
+> `Console` 탭에서 `detailResult` 확인
 >
 > `Check movie or show` 제거
 
