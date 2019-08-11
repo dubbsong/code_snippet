@@ -10,6 +10,7 @@ export default class extends React.Component {
     loading: true,
     nowPlaying: null,
     topRated: null,
+    upcoming: null,
     error: null
   };
 
@@ -21,6 +22,7 @@ export default class extends React.Component {
         loading={this.state.loading}
         nowPlaying={this.state.nowPlaying}
         topRated={this.state.topRated}
+        upcoming={this.state.upcoming}
         error={this.state.error}
       />
     );
@@ -36,8 +38,9 @@ export default class extends React.Component {
 export default class extends React.Component {
   state = {
     loading: true,
-    topRated: null,
     popular: null,
+    topRated: null,
+    airingToday: null,
     error: null
   };
 
@@ -47,8 +50,9 @@ export default class extends React.Component {
     return (
       <TVPresenter
         loading={this.state.loading}
-        topRated={this.state.topRated}
         popular={this.state.popular}
+        topRated={this.state.topRated}
+        airingToday={this.state.airingToday}
         error={this.state.error}
       />
     );
