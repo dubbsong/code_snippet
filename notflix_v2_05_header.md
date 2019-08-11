@@ -51,7 +51,7 @@ assets
 - MoviePresenter.js
 
 ```react
-import React from 'react';
+...
 import MovieHeader from 'Components/MovieHeader';
 
 const MoviePresenter = () => <MovieHeader />;
@@ -62,7 +62,7 @@ export default MoviePresenter;
 - TVPresenter.js
 
 ```react
-import React from 'react';
+...
 import TVHeader from 'Components/TVHeader';
 
 const TVPresenter = () => <TVHeader />;

@@ -14,14 +14,15 @@ $ yarn add prop-types
 ...
 import PropTypes from 'prop-types';
 
-const MoviePresenter = ({ loading, nowPlaying, topRated, error }) => (
-  <HeaderMovie />
+const MoviePresenter = ({ loading, nowPlaying, topRated, upcoming, error }) => (
+  <MovieHeader />
 );
 
 MoviePresenter.propTypes = {
   loading: PropTypes.bool.isRequired,
   nowPlaying: PropTypes.array,
   topRated: PropTypes.array,
+  upcoming: PropTypes.array,
   error: PropTypes.string
 };
 
@@ -34,12 +35,15 @@ MoviePresenter.propTypes = {
 ...
 import PropTypes from 'prop-types';
 
-const TVPresenter = (loading, topRated, popular, error) => <HeaderTV />;
+const TVPresenter = ({ loading, popular, topRated, airingToday, error }) => (
+  <TVHeader />
+);
 
 TVPresenter.propTypes = {
   loading: PropTypes.bool.isRequired,
-  topRated: PropTypes.array,
   popular: PropTypes.array,
+  topRated: PropTypes.array,
+  airingToday: PropTypes.array,
   error: PropTypes.string
 };
 

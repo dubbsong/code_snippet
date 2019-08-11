@@ -80,25 +80,41 @@ $ touch DetailPresenter.js
 - MoviePresenter.js
 
 ```react
-export default () => 'Movies Area';
+import React from 'react';
+
+const MoviePresenter = () => 'Movies Area';
+
+export default MoviePresenter;
 ```
 
 - TVPresenter.js
 
 ```react
-export default () => 'TV Shows Area';
+import React from 'react';
+
+const TVPresenter = () => 'TV Shows Area';
+
+export default TVPresenter;
 ```
 
 - SearchPresenter.js
 
 ```react
-export default () => 'Search Input & Results Area';
+import React from 'react';
+
+const SearchPresenter = () => 'Search Input & Results Area';
+
+export default SearchPresenter;
 ```
 
 - DetailPresenter.js
 
 ```react
-export default () => 'Each Detail Area';
+import React from 'react';
+
+const DetailPresenter = () => 'Each Detail Area';
+
+export default DetailPresenter;
 ```
 
 <br>
