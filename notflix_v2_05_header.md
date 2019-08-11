@@ -1,15 +1,15 @@
-###### 컴포넌트 생성: `HeaderMovie` / `HeaderTV`
+###### 컴포넌트 생성: `MovieHeader` / `TVHeader`
 
 ```bash
 $ cd src
 $ cd Components
-$ touch HeaderMovie.js
-$ touch HeaderTV.js
+$ touch MovieHeader.js
+$ touch TVHeader.js
 ```
 
 <br>
 
-###### HeaderMovie 설정
+###### MovieHeader 설정
 
 - GlobalStyle.js
 
@@ -36,13 +36,12 @@ const globalStyle = createGlobalStyle`
 
 <br>
 
-###### 이미지 추가: `bg_movie.jpg` / `bg_tv.webp`
+###### 이미지 추가
 
 ```bash
 assets
-  └─ img
-      ├─ bg_movie.jpg
-      └─ bg_tv.webp
+  ├─ bg_movie.webp
+  └─ bg_tv.webp
 ```
 
 <br>
@@ -53,9 +52,9 @@ assets
 
 ```react
 import React from 'react';
-import HeaderMovie from 'Components/HeaderMovie';
+import MovieHeader from 'Components/MovieHeader';
 
-const MoviePresenter = () => <HeaderMovie />;
+const MoviePresenter = () => <MovieHeader />;
 
 export default MoviePresenter;
 ```
@@ -64,19 +63,19 @@ export default MoviePresenter;
 
 ```react
 import React from 'react';
-import HeaderTV from 'Components/HeaderTV';
+import TVHeader from 'Components/TVHeader';
 
-const TVPresenter = () => <HeaderTV />;
+const TVPresenter = () => <TVHeader />;
 
 export default TVPresenter;
 ```
 
-- HeaderMovie.js
+- MovieHeader.js
 
 ```react
 import React from 'react';
 import styled from 'styled-components';
-import bg from 'assets/img/bg_movie.jpg';
+import bg from 'assets/bg_movie.webp';
 
 const Header = styled.header`
   background-image: url(${bg});
@@ -92,12 +91,12 @@ export default () => (
 );
 ```
 
-- HeaderTV.js
+- TVHeader.js
 
 ```react
 import React from 'react';
 import styled from 'styled-components';
-import bg from 'assets/img/bg_tv.webp';
+import bg from 'assets/bg_tv.webp';
 
 const Header = styled.header`
   background-image: url(${bg});
@@ -111,6 +110,7 @@ export default () => (
     <h4>오많배</h4>
   </Header>
 );
+
 ```
 
 > 각 Header 배경 이미지가 표시된다.
@@ -121,7 +121,7 @@ export default () => (
 
 ###### Header 구조 설정
 
-- HeaderMovie.js
+- MovieHeader.js
 
 ```react
 ...
@@ -134,7 +134,7 @@ const Title = styled.h2``;
 
 const Button = styled.button``;
 
-const Summary = styled.p``;
+const Overview = styled.p``;
 
 export default () => (
   <Header>
@@ -143,16 +143,16 @@ export default () => (
       <Title>The Dark Knight</Title>
       <Button>Play</Button>
       <Button>My List</Button>
-      <Summary>
+      <Overview>
         A city swarms with fear. And a twisted, cackling madman will shatter the
         very notion of a hero. Why so serious?
-      </Summary>
+      </Overview>
     </Content>
   </Header>
 );
 ```
 
-- HeaderTV.js
+- TVHeader.js
 
 ```react
 ...
@@ -165,19 +165,19 @@ const Title = styled.h2``;
 
 const Button = styled.button``;
 
-const Summary = styled.p``;
+const Overview = styled.p``;
 
 export default () => (
   <Header>
     <Gradient />
     <Content>
-      <Title>Love Death + Robots</Title>
+      <Title>Love, Death + Robots</Title>
       <Button>Play</Button>
       <Button>My List</Button>
-      <Summary>
-        Logn after the fall of humanity, three robots embark on a sightseeing
+      <Overview>
+        Long after the fall of humanity, three robots embark on a sightseeing
         tour of a post-apocalyptic city.
-      </Summary>
+      </Overview>
     </Content>
   </Header>
 );
@@ -187,14 +187,12 @@ export default () => (
 
 ###### Header CSS 설정
 
-- HeaderMovie.js
-- HeaderTV.js
+- MovieHeader.js
 
 ```react
 ...
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlay } from '@fortawesome/free-solid-svg-icons';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faPlay, faPlus } from '@fortawesome/free-solid-svg-icons';
 
 const Header = styled.header`
   ...
@@ -219,32 +217,33 @@ const Content = styled.div`
   width: 35%;
 
   @media (max-width: 768px) {
-		top: 60%;
+    top: 60%;
     width: 100%;
   }
 `;
 
 const Title = styled.h2`
   font-size: 40px;
-  letter-spacing: 1.5px;
-  margin-bottom: 10px;
-  text-shadow: 2px 2px 10px #141414;
+  font-weight: 900;
+  letter-spacing: 1.2px;
+  margin-bottom: 8px;
+  text-shadow: 5px 5px 20px #141414;
 
-  @media (max-width: 576px) {
+  @media (max-width: 768px) {
     font-size: 24px;
   }
 `;
 
 const Button = styled.button`
-  background-color: rgba(51, 51, 51, 0.4);
-  color: inherit;
   width: 120px;
   height: 30px;
+  background-color: rgba(51, 51, 51, 0.4);
+  color: inherit;
   font-size: 14px;
   letter-spacing: 1.5px;
   border-width: 0;
   border-radius: 2px;
-  margin-right: 5px;
+  margin-right: 8px;
   cursor: pointer;
 
   &:hover {
@@ -256,34 +255,141 @@ const Button = styled.button`
     outline: none;
   }
 
-  @media (max-width: 576px) {
-    width: 90px;
-    height: 25px;
+  @media (max-width: 768px) {
+    width: 85px;
+    height: 22px;
     font-size: 8px;
   }
 `;
 
-const Summary = styled.p`
+const Overview = styled.p`
   font-size: 16px;
-  line-height: 3vh;
-  text-align: justify;
+  letter-spacing: 1.2px;
+  line-height: 1.2;
   color: #e6e6e6;
-  margin-top: 10px;
-  text-shadow: 2px 2px 10px #141414;
+  text-shadow: 5px 5px 20px #141414;
+  margin-top: 8px;
 `;
 
 export default () => (
   <Header>
-    ...
+    <Gradient />
     <Content>
-      <Title>...</Title>
+      <Title>The Dark Knight</Title>
       <Button>
         <FontAwesomeIcon icon={faPlay} /> Play
       </Button>
       <Button>
         <FontAwesomeIcon icon={faPlus} /> My List
       </Button>
-      <Summary>...</Summary>
+      <Overview>
+        A city swarms with fear. And a twisted, cackling madman will shatter the
+        very notion of a hero. Why so serious?
+      </Overview>
+    </Content>
+  </Header>
+);
+```
+
+- TVHeader.js
+
+```react
+...
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlay, faPlus } from '@fortawesome/free-solid-svg-icons';
+
+const Header = styled.header`
+  ...
+  position: relative;
+`;
+
+const Gradient = styled.div`
+  background-image: linear-gradient(
+    180deg,
+    transparent,
+    rgba(40, 40, 40, 0.6),
+    rgba(20, 20, 20, 1)
+  );
+  height: 80vh;
+`;
+
+const Content = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 0;
+  padding: 0 4%;
+  width: 35%;
+
+  @media (max-width: 768px) {
+    top: 60%;
+    width: 100%;
+  }
+`;
+
+const Title = styled.h2`
+  font-size: 40px;
+  font-weight: 900;
+  letter-spacing: 1.2px;
+  margin-bottom: 8px;
+  text-shadow: 5px 5px 20px #141414;
+
+  @media (max-width: 768px) {
+    font-size: 24px;
+  }
+`;
+
+const Button = styled.button`
+  width: 120px;
+  height: 30px;
+  background-color: rgba(51, 51, 51, 0.4);
+  color: inherit;
+  font-size: 14px;
+  letter-spacing: 1.5px;
+  border-width: 0;
+  border-radius: 2px;
+  margin-right: 8px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #e6e6e6;
+    color: #000000;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  @media (max-width: 768px) {
+    width: 85px;
+    height: 22px;
+    font-size: 8px;
+  }
+`;
+
+const Overview = styled.p`
+  font-size: 16px;
+  letter-spacing: 1.2px;
+  line-height: 1.2;
+  color: #e6e6e6;
+  text-shadow: 5px 5px 20px #141414;
+  margin-top: 8px;
+`;
+
+export default () => (
+  <Header>
+    <Gradient />
+    <Content>
+      <Title>Love, Death + Robots</Title>
+      <Button>
+        <FontAwesomeIcon icon={faPlay} /> Play
+      </Button>
+      <Button>
+        <FontAwesomeIcon icon={faPlus} /> My List
+      </Button>
+      <Overview>
+        Long after the fall of humanity, three robots embark on a sightseeing
+        tour of a post-apocalyptic city.
+      </Overview>
     </Content>
   </Header>
 );
