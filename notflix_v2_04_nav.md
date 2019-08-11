@@ -14,8 +14,8 @@ $ touch Nav.js
 
 ```react
 import React from 'react';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const Nav = styled.nav``;
 
@@ -23,19 +23,19 @@ const List = styled.ul``;
 
 const Item = styled.li``;
 
-const SLink = styled(Link)``;
+const StyledLink = styled(Link)``;
 
 export default () => (
   <Nav>
     <List>
       <Item>
-        <SLink to="/">Movies</SLink>
+        <StyledLink to="/">Movies</StyledLink>
       </Item>
       <Item>
-        <SLink to="/tv">TV Shows</SLink>
+        <StyledLink to="/tv">TV Shows</StyledLink>
       </Item>
       <Item>
-        <SLink to="/search">Search</SLink>
+        <StyledLink to="/search">Search</StyledLink>
       </Item>
     </List>
   </Nav>
@@ -63,25 +63,6 @@ export default () => (
 <br>
 
 ###### CSS 설정
-
-- GlobalStyle.js
-
-```react
-...
-
-const globalStyle = createGlobalStyle`
-  ...
-
-  body {
-    ...
-    padding-top: 70px;
-  }
-  
-  ...
-`;
-
-...
-```
 
 - Nav.js
 
@@ -117,15 +98,34 @@ const SLink = styled(Link)`
 ...
 ```
 
+- GlobalStyle.js
+
+```react
+...
+
+const globalStyle = createGlobalStyle`
+  ...
+
+  body {
+    ...
+    padding-top: 70px;
+  }
+
+  ...
+`;
+
+...
+```
+
 <br>
 
-###### 디렉토리 생성: `assets` / `img`
+<br>
+
+###### 디렉토리 생성: `assets`
 
 ```bash
 $ cd src
 $ mkdir assets
-$ cd assets
-$ mkdir img
 ```
 
 <br>
@@ -134,8 +134,7 @@ $ mkdir img
 
 ```bash
 assets
-  └─ img
-      └─ logo.png
+  └─ logo.png
 ```
 
 <br>
@@ -146,7 +145,7 @@ assets
 
 ```react
 ...
-import logo from 'assets/img/logo.png';
+import logo from 'assets/logo.png';
 
 const Nav = styled.nav`
   position: fixed;
@@ -159,7 +158,7 @@ const Nav = styled.nav`
   padding: 0 4%;
   z-index: 10;
 
-  @media (max-width: 576px) {
+  @media (max-width: 768px) {
     justify-content: space-between;
   }
 `;
@@ -182,13 +181,15 @@ const Item = styled.li`
   }
 `;
 
-...
+const StyledLink = styled(Link)`
+  ...
+`;
 
 export default () => (
   <Nav>
-    <SLink to="/">
+    <StyledLink to="/">
       <Logo src={logo} alt="" />
-    </SLink>
+    </StyledLink>
     <List>
       ...
     </List>
@@ -196,7 +197,9 @@ export default () => (
 );
 ```
 
-> `background-color: #20a19c;`를 제거한다.
+> `background-color: #20a19c;` 제거
+
+<br>
 
 <br>
 
@@ -269,6 +272,9 @@ export default withRouter(props => (
 ));
 ```
 
+> 1. 개발자 도구 `Console` 탭으로 이동
+> 2. `location`의 `pathname` 확인
+
 <br>
 
 ###### active 설정
@@ -277,16 +283,20 @@ export default withRouter(props => (
 
 ```react
 ...
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
+
+...
 
 const Item = styled.li`
   ...
 
-  color: ${props => props.current ? '#ffffff' : '#b3b3b3'};
+  color: ${props => (props.current ? '#ffffff' : '#b3b3b3')};
 
   @media (max-width: 576px) {...}
 `;
 
-const SLink = styled(Link)`
+const StyledLink = styled(Link)`
   ...
   transition: color 0.2s ease-in-out;
 
