@@ -3,7 +3,7 @@
 ```bash
 $ cd src
 $ cd Components
-$ touch Footer
+$ touch Footer.js
 ```
 
 <br>
@@ -31,7 +31,6 @@ const Container = styled.div`
   justify-content: space-between;
   align-items: center;
   height: 40px;
-  color: #b3b3b3;
   padding: 0 4%;
 `;
 
@@ -39,13 +38,17 @@ const CopyRight = styled.p`
   font-size: 16px;
 `;
 
+const StyledIcon = styled(FontAwesomeIcon)`
+  font-size: 20px;
+`;
+
 export default () => (
   <Container>
     <CopyRight>
-      ©2019 <a href="https://dubbsong.github.io/">오많배</a>
+      ©2019 <a href="https://dubbsong.github.io">오많배</a>
     </CopyRight>
-    <a href="https://github.com/dubbsong">
-      <FontAwesomeIcon icon={faGithubSquare} size="2x" />
+    <a href="https://dubbsong.github.io">
+      <StyledIcon icon={faGithubSquare} />
     </a>
   </Container>
 );
