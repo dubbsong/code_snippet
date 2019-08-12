@@ -53,7 +53,7 @@ TVPresenter.propTypes = {
 - SearchPresenter.js
 
 ```react
-...
+import React from 'react';
 import PropTypes from 'prop-types';
 
 const SearchPresenter = ({
@@ -74,13 +74,13 @@ SearchPresenter.propTypes = {
   handleSubmit: PropTypes.func.isRequired
 };
 
-...
+export default SearchPresenter;
 ```
 
 - DetailPresenter.js
 
 ```react
-...
+import React from 'react';
 import PropTypes from 'prop-types';
 
 const DetailPresenter = ({ loading, detailResult, error }) =>
@@ -92,7 +92,7 @@ DetailPresenter.propTypes = {
   error: PropTypes.string
 };
 
-...
+export default DetailPresenter;
 ```
 
 > `detailResult: PropTypes.object`에 주의
