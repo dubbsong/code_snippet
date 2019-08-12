@@ -1,3 +1,12 @@
+## Set GlobalStyle
+
+1. 설정되어 있는 모든 속성 초기화
+2. 필요한 기본 style 설정
+
+<br>
+
+<br>
+
 ###### styled-component 설치
 
 ```bash
@@ -24,7 +33,7 @@ $ touch GlobalStyle.js
 
 <br>
 
-###### Basic CSS 설정
+###### GlobalStyle 설정
 
 - GlobalStyle.js
 
@@ -32,7 +41,7 @@ $ touch GlobalStyle.js
 import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
 
-const globalStyle = createGlobalStyle`
+const GlobalStyle = createGlobalStyle`
   ${reset}
 
   * {
@@ -45,19 +54,15 @@ const globalStyle = createGlobalStyle`
     background-color: #141414;
     color: #ffffff;
   }
-  
+
   a {
     text-decoration: none;
     color: inherit;
   }
 `;
 
-export default globalStyle;
+export default GlobalStyle;
 ```
-
-> `${reset}`: 모든 CSS 속성을 초기화한다.
->
-> `etc`: 필요한 기본 속성을 설정한다.
 
 - App.js
 

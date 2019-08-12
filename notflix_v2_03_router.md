@@ -1,15 +1,17 @@
-###### `Container / Presenter` 패턴 사용
+#### `Container & Presenter` Pattern
 
-> 1. `Container`
->    - Write Logic
->    - state 관리, API 호출 등의 로직 처리
-> 2. `Presenter`
->    - Only UI
->    - stateless, prop-types 설정
+1. `Container`
+   - Write Logic
+   - state 관리, API 호출 등의 로직 처리
+2. `Presenter`
+   - Only UI
+   - stateless, prop-types 설정
+
+<br>
 
 <br>
 
-<br>
+#### Route 설정: `Container & Presenter` pattern 사용
 
 ###### 디렉토리 생성: `Routes`
 
@@ -32,7 +34,7 @@ $ mkdir Detail
 
 <br>
 
-###### 컴포넌트 생성: `index` / `Container` / `Presenter`
+###### 파일 생성: `index` / `Container` / `Presenter`
 
 - Movie
 
@@ -80,41 +82,25 @@ $ touch DetailPresenter.js
 - MoviePresenter.js
 
 ```react
-import React from 'react';
-
-const MoviePresenter = () => 'Movies Area';
-
-export default MoviePresenter;
+export default () => 'Movies Area';
 ```
 
 - TVPresenter.js
 
 ```react
-import React from 'react';
-
-const TVPresenter = () => 'TV Shows Area';
-
-export default TVPresenter;
+export default () => 'TV Shows Area';
 ```
 
 - SearchPresenter.js
 
 ```react
-import React from 'react';
-
-const SearchPresenter = () => 'Search Input & Results Area';
-
-export default SearchPresenter;
+export default () => 'Search Input & Results Area';
 ```
 
 - DetailPresenter.js
 
 ```react
-import React from 'react';
-
-const DetailPresenter = () => 'Each Detail Area';
-
-export default DetailPresenter;
+export default () => 'Each Detail Area';
 ```
 
 <br>
@@ -215,6 +201,8 @@ export default DetailContainer;
 
 <br>
 
+#### Router 설정
+
 ###### react-router-dom 설치
 
 ```bash
@@ -233,7 +221,7 @@ $ touch Router.js
 
 <br>
 
-###### Route 설정
+###### 코드 작성
 
 - Router.js
 
@@ -267,6 +255,8 @@ export default () => (
 ```
 
 <br>
+
+###### Import Router
 
 - App.js
 

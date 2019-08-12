@@ -1,3 +1,13 @@
+## Get Started
+
+1. 프로젝트 생성
+2. 기본 설정
+3. 프로젝트 실행
+
+<br>
+
+<br>
+
 ###### 프로젝트 생성: `notflix`
 
 ```bash
@@ -24,15 +34,15 @@ $ code .
 
 ## Used
 - ReactJS
-- Container & Presenter Pattern
 - Styled Components
+- Container & Presenter Pattern
 - TMDB API
 
 ## Todo
 - [] Movies
 - [] TV Shows
 - [] Search
-- [] Detail
+- [] Each Detail
 ```
 
 <br>
@@ -46,7 +56,7 @@ public
 
 <br>
 
-###### 코드 추가
+###### 코드 추가 및 수정
 
 - index.html
 
@@ -106,7 +116,7 @@ src
 
 <br>
 
-###### 코드 수정 및 작성
+###### 코드 수정
 
 - index.js
 
@@ -140,7 +150,7 @@ export default App;
 
 <br>
 
-###### 서버 실행
+###### 프로젝트 실행
 
 ```bash
 $ yarn start
