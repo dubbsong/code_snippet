@@ -1,7 +1,7 @@
 ## Set GlobalStyle
 
-1. 설정되어 있는 모든 속성 초기화
-2. 필요한 기본 style 설정
+1. 모든 속성 초기화
+2. 기본 style 설정
 
 <br>
 
@@ -23,7 +23,7 @@ $ yarn add styled-reset
 
 <br>
 
-###### 컴포넌트 생성: `GlobalStyle`
+###### 컴포넌트 생성
 
 ```bash
 $ cd src
@@ -33,7 +33,7 @@ $ touch GlobalStyle.js
 
 <br>
 
-###### GlobalStyle 설정
+###### Style 설정
 
 - GlobalStyle.js
 

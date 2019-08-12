@@ -1,3 +1,13 @@
+## Set Router
+
+1. Route 설정 (`Container & Presenter` pattern 사용)
+2. Router 설정 (각 Route 컴포넌트 연결)
+3. App 컴포넌트에서 import
+
+<br>
+
+<br>
+
 #### `Container & Presenter` Pattern
 
 1. `Container`
@@ -11,9 +21,9 @@
 
 <br>
 
-#### Route 설정: `Container & Presenter` pattern 사용
+#### Route 설정
 
-###### 디렉토리 생성: `Routes`
+###### 디렉토리 생성
 
 ```bash
 $ cd src
@@ -22,7 +32,7 @@ $ mkdir Routes
 
 <br>
 
-###### 디렉토리 생성: `Movie` / `TV` / `Search` / `Detail`
+###### 디렉토리 생성
 
 ```bash
 $ cd Routes
@@ -211,7 +221,7 @@ $ yarn add react-router-dom
 
 <br>
 
-###### 컴포넌트 생성: `Router`
+###### 컴포넌트 생성
 
 ```bash
 $ cd src
@@ -240,23 +250,21 @@ import Detail from 'Routes/Detail';
 
 export default () => (
   <Router>
-    <React.Fragment>
-      <Switch>
-        <Route path="/" exact component={Movie} />
-        <Route path="/tv" component={TV} />
-        <Route path="/search" component={Search} />
-        <Route path="/movie/:id" component={Detail} />
-        <Route path="/show/:id" component={Detail} />
-        <Redirect from="*" to="/" />
-      </Switch>
-    </React.Fragment>
+    <Switch>
+      <Route path="/" exact component={Movie} />
+      <Route path="/tv" component={TV} />
+      <Route path="/search" component={Search} />
+      <Route path="/movie/:id" component={Detail} />
+      <Route path="/show/:id" component={Detail} />
+      <Redirect from="*" to="/" />
+    </Switch>
   </Router>
 );
 ```
 
 <br>
 
-###### Import Router
+#### Import
 
 - App.js
 

@@ -1,4 +1,17 @@
-###### 컴포넌트 생성: `Nav`
+## Set Nav
+
+1. Nav 구성
+2. Logo 추가
+3. Icon 추가
+4. withRouter 설정
+
+<br>
+
+<br>
+
+#### Nav 구성
+
+###### 컴포넌트 생성
 
 ```bash
 $ cd src
@@ -8,7 +21,7 @@ $ touch Nav.js
 
 <br>
 
-###### Nav 설정
+###### 코드 작성
 
 - Nav.js
 
@@ -42,6 +55,10 @@ export default () => (
 );
 ```
 
+<br>
+
+###### Import
+
 - Router.js
 
 ```react
@@ -50,19 +67,17 @@ import Nav from './Nav';
 
 export default () => (
   <Router>
-    <React.Fragment>
-      <Nav />
-      <Switch>
-        ...
-      </Switch>
-    </React.Fragment>
+    <Nav />
+    <Switch>
+      ...
+    </Switch>
   </Router>
 );
 ```
 
 <br>
 
-###### CSS 설정
+###### Style 설정
 
 - Nav.js
 
@@ -103,7 +118,7 @@ const SLink = styled(Link)`
 ```react
 ...
 
-const globalStyle = createGlobalStyle`
+const GlobalStyle = createGlobalStyle`
   ...
 
   body {
@@ -121,6 +136,8 @@ const globalStyle = createGlobalStyle`
 
 <br>
 
+#### Logo 추가
+
 ###### 디렉토리 생성: `assets`
 
 ```bash
@@ -130,7 +147,7 @@ $ mkdir assets
 
 <br>
 
-###### 이미지 추가: `logo.png`
+###### 이미지 추가
 
 ```bash
 assets
@@ -139,7 +156,7 @@ assets
 
 <br>
 
-###### logo 설정
+###### logo 삽입
 
 - Nav.js
 
@@ -148,42 +165,14 @@ assets
 import logo from 'assets/logo.png';
 
 const Nav = styled.nav`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 68px;
-  display: flex;
-  align-items: center;
-  padding: 0 4%;
-  z-index: 10;
-
-  @media (max-width: 768px) {
-    justify-content: space-between;
-  }
+  ...
 `;
 
 const Logo = styled.img`
   width: 90px;
 `;
 
-const List = styled.ul`
-  ...
-  margin-left: 10px;
-`;
-
-const Item = styled.li`
-  ...
-  margin-left: 8px;
-
-  @media (max-width: 576px) {
-    margin: 0;
-  }
-`;
-
-const StyledLink = styled(Link)`
-  ...
-`;
+...
 
 export default () => (
   <Nav>
@@ -197,11 +186,51 @@ export default () => (
 );
 ```
 
+<br>
+
+###### Style 설정
+
+```react
+...
+
+const Nav = styled.nav`
+  ...
+  display: flex;
+  align-items: center;
+  padding: 0 4%;
+  z-index: 10;
+
+  @media (max-width: 768px) {
+    justify-content: space-between;
+  }
+`;
+
+...
+
+const List = styled.ul`
+  ...
+  margin-left: 10px;
+`;
+
+const Item = styled.li`
+  ...
+  margin-left: 8px;
+
+  @media (max-width: 576px) {
+    margin-left: 0;
+  }
+`;
+
+...
+```
+
 > `background-color: #20a19c;` 제거
 
 <br>
 
 <br>
+
+#### Icon 추가
 
 ###### react-fontawesome 설치
 
@@ -213,7 +242,7 @@ $ yarn add @fortawesome/free-solid-svg-icons
 
 <br>
 
-###### faSearch 아이콘 설정
+###### icon 삽입
 
 - Nav.js
 
@@ -224,17 +253,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 ...
 
-const Item = styled.li`
-  ...
-
-  &:last-child {
-    width: 50px;
-  }
-
-  @media (max-width: 576px) {...}
-`;
-
-...
+const StyledIcon = styled(FontAwesomeIcon)``;
 
 export default () => (
   <Nav>
@@ -242,9 +261,9 @@ export default () => (
     <List>
       ...
       <Item>
-        <SLink to="/search">
-          <FontAwesomeIcon icon={faSearch} />
-        </SLink>
+        <StyledLink to="/search">
+          <StyledIcon icon={faSearch} />
+        </StyledLink>
       </Item>
     </List>
   </Nav>
@@ -253,9 +272,31 @@ export default () => (
 
 <br>
 
+###### style 설정
+
+- Nav.js
+
+```react
+...
+
+const Item = styled.li`
+  ...
+
+  &:last-child {
+    width: 50px;
+  }
+`;
+
+...
+```
+
 <br>
 
-###### withRouter 확인
+<br>
+
+#### withRouter 설정
+
+###### props 확인
 
 - Nav.js
 
@@ -279,7 +320,7 @@ export default withRouter(props => (
 
 <br>
 
-###### active 설정
+###### Active 설정
 
 - Nav.js
 
@@ -289,9 +330,7 @@ export default withRouter(props => (
 const Item = styled.li`
   ...
 
-  color: ${props => (props.current ? '#ffffff' : '#b3b3b3')};
-
-  @media (max-width: 576px) {...}
+  color: ${props => props.current ? '#ffffff' : '#b3b3b3'};
 `;
 
 const StyledLink = styled(Link)`
@@ -302,6 +341,8 @@ const StyledLink = styled(Link)`
     color: #ffffff;
   }
 `;
+
+...
 
 export default withRouter(({ location: { pathname } }) => (
   <Nav>
@@ -320,6 +361,8 @@ export default withRouter(({ location: { pathname } }) => (
   </Nav>
 ));
 ```
+
+> 각 Item이 현재 위치를 표시한다.
 
 <br>
 
