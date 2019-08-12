@@ -48,28 +48,6 @@ assets
 
 ###### 배경 이미지 설정
 
-- MoviePresenter.js
-
-```react
-...
-import MovieHeader from 'Components/MovieHeader';
-
-const MoviePresenter = () => <MovieHeader />;
-
-export default MoviePresenter;
-```
-
-- TVPresenter.js
-
-```react
-...
-import TVHeader from 'Components/TVHeader';
-
-const TVPresenter = () => <TVHeader />;
-
-export default TVPresenter;
-```
-
 - MovieHeader.js
 
 ```react
@@ -91,6 +69,19 @@ export default () => (
 );
 ```
 
+- MoviePresenter.js
+
+```react
+import React from 'react';
+import MovieHeader from 'Components/MovieHeader';
+
+const MoviePresenter = () => <MovieHeader />;
+
+export default MoviePresenter;
+```
+
+<br>
+
 - TVHeader.js
 
 ```react
@@ -111,6 +102,17 @@ export default () => (
   </Header>
 );
 
+```
+
+- TVPresenter.js
+
+```react
+import React from 'react';
+import TVHeader from 'Components/TVHeader';
+
+const TVPresenter = () => <TVHeader />;
+
+export default TVPresenter;
 ```
 
 > 각 Header 배경 이미지가 표시된다.
@@ -271,21 +273,20 @@ const Overview = styled.p`
   margin-top: 8px;
 `;
 
+const StyledIcon = styled(FontAwesomeIcon)``;
+
 export default () => (
   <Header>
     <Gradient />
     <Content>
-      <Title>The Dark Knight</Title>
+      ...
       <Button>
-        <FontAwesomeIcon icon={faPlay} /> Play
+        <StyledIcon icon={faPlay} /> Play
       </Button>
       <Button>
-        <FontAwesomeIcon icon={faPlus} /> My List
+        <StyledIcon icon={faPlus} /> My List
       </Button>
-      <Overview>
-        A city swarms with fear. And a twisted, cackling madman will shatter the
-        very notion of a hero. Why so serious?
-      </Overview>
+      ...
     </Content>
   </Header>
 );
@@ -375,21 +376,20 @@ const Overview = styled.p`
   margin-top: 8px;
 `;
 
+const StyledIcon = styled(FontAwesomeIcon)``;
+
 export default () => (
   <Header>
     <Gradient />
     <Content>
-      <Title>Love, Death + Robots</Title>
+      ...
       <Button>
-        <FontAwesomeIcon icon={faPlay} /> Play
+        <StyledIcon icon={faPlay} /> Play
       </Button>
       <Button>
-        <FontAwesomeIcon icon={faPlus} /> My List
+        <StyledIcon icon={faPlus} /> My List
       </Button>
-      <Overview>
-        Long after the fall of humanity, three robots embark on a sightseeing
-        tour of a post-apocalyptic city.
-      </Overview>
+      ...
     </Content>
   </Header>
 );
