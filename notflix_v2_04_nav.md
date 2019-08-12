@@ -253,6 +253,8 @@ export default () => (
 
 <br>
 
+<br>
+
 ###### withRouter 확인
 
 - Nav.js
@@ -282,10 +284,6 @@ export default withRouter(props => (
 - Nav.js
 
 ```react
-...
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
-
 ...
 
 const Item = styled.li`

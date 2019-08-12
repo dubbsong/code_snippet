@@ -26,28 +26,6 @@ $ touch GlobalStyle.js
 
 ###### Basic CSS 설정
 
-- App.js
-
-```react
-...
-import GlobalStyle from './GlobalStyle';
-
-class App extends Component {
-  render() {
-    return (
-      <React.Fragment>
-        <h2>오많배</h2>
-        <GlobalStyle />
-      </React.Fragment>
-    );
-  }
-}
-
-...
-```
-
-<br>
-
 - GlobalStyle.js
 
 ```react
@@ -80,6 +58,26 @@ export default globalStyle;
 > `${reset}`: 모든 CSS 속성을 초기화한다.
 >
 > `etc`: 필요한 기본 속성을 설정한다.
+
+- App.js
+
+```react
+...
+import GlobalStyle from './GlobalStyle';
+
+class App extends Component {
+  render() {
+    return (
+      <React.Fragment>
+        <h2>오많배</h2>
+        <GlobalStyle />
+      </React.Fragment>
+    );
+  }
+}
+
+...
+```
 
 <br>
 

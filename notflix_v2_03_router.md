@@ -213,6 +213,8 @@ export default DetailContainer;
 
 <br>
 
+<br>
+
 ###### react-router-dom 설치
 
 ```bash
