@@ -20,7 +20,7 @@ const MoviePresenter = ({...}) =>
   ) : (
     <React.Fragment>
       <Helmet>
-        <title>Movies | NOTFLIX</title>
+        <title>Movies | Notflix</title>
       </Helmet>
       ...
     </React.Fragment>
@@ -45,7 +45,7 @@ const TVPresenter = ({...}) =>
   ) : (
     <React.Fragment>
       <Helmet>
-        <title>TV | NOTFLIX</title>
+        <title>TV | Notflix</title>
       </Helmet>
       ...
     </React.Fragment>
@@ -69,7 +69,7 @@ import Helmet from 'react-helmet';
 const SearchPresenter = ({...}) => (
   <Container>
     <Helmet>
-      <title>Search | NOTFLIX</title>
+      <title>Search | Notflix</title>
     </Helmet>
     <Form onSubmit={...}>
       ...
@@ -97,7 +97,7 @@ const DetailPresenter = ({...}) =>
   loading ? (
     <React.Fragment>
       <Helmet>
-        <title>Loading | NOTFLIX</title>
+        <title>Loading | Notflix</title>
       </Helmet>
       <Loader />
     </React.Fragment>
@@ -106,7 +106,7 @@ const DetailPresenter = ({...}) =>
       <Helmet>
         <title>
           {detailResult.title ? detailResult.title : detailResult.name} |
-          NOTFLIX
+          Notflix
         </title>
       </Helmet>
       ...

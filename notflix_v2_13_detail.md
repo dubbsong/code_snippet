@@ -7,28 +7,14 @@
 
 <br>
 
-###### 이미지 추가: `no_poster.png`
-
-```bash
-assets
-  └─ img
-      └─ no_poster.png
-```
-
-<br>
-
 ###### 코드 작성
 
 - DetailPresenter.js
 
 ```react
-import React from 'react';
-import PropTypes from 'prop-types';
+...
 import styled from 'styled-components';
 import Loader from 'Components/Loader';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlay } from '@fortawesome/free-solid-svg-icons';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 const Container = styled.div`
   width: 100%;
@@ -83,12 +69,12 @@ const LeftContent = styled.div`
 
 const RightContent = styled.div`
   width: 50%;
-  padding-top: 80px;
+  padding-top: 50vh;
   margin-left: 40px;
 
   @media (max-width: 768px) {
     width: 100%;
-    padding: 80px 10px;
+    padding: 60% 10px 0;
     margin: 0;
     position: absolute;
     height: 100%;
@@ -122,41 +108,12 @@ const Divider = styled.span`
 const Overview = styled.p`
   font-size: 20px;
   line-height: 1.4;
+  color: #e6e6e6;
   margin-bottom: 40px;
   text-shadow: 5px 5px 20px #141414;
 
   @media (max-width: 768px) {
     font-size: 16px;
-  }
-`;
-
-const ButtonContainer = styled.div`
-  @media (max-width: 768px) {
-    position: absolute;
-    bottom: 20px;
-  }
-`;
-
-const Button = styled.button`
-  background-color: transparent;
-  color: inherit;
-  width: 120px;
-  height: 40px;
-  font-size: 16px;
-  letter-spacing: 1.5px;
-  border-width: 0;
-  border-radius: 3px;
-  margin-right: 5px;
-  cursor: pointer;
-
-  &:first-child {
-    color: #e50914;
-    border: 2px solid #e50914;
-  }
-
-  &:last-child {
-    color: #ffffff;
-    border: 2px solid #ffffff;
   }
 `;
 
@@ -175,7 +132,7 @@ const DetailPresenter = ({ loading, detailResult, error }) =>
           bgImage={
             detailResult.poster_path
               ? `https://image.tmdb.org/t/p/original${detailResult.poster_path}`
-              : require('../../assets/img/no_poster.png')
+              : require('../../assets/vertical_no_poster.png')
           }
         />
         <RightContent>
@@ -210,14 +167,6 @@ const DetailPresenter = ({ loading, detailResult, error }) =>
               ? `${detailResult.overview.substring(0, 450)}...`
               : detailResult.overview}
           </Overview>
-          <ButtonContainer>
-            <Button>
-              <FontAwesomeIcon icon={faPlay} /> Play
-            </Button>
-            <Button>
-              <FontAwesomeIcon icon={faPlus} /> My List
-            </Button>
-          </ButtonContainer>
         </RightContent>
       </Content>
     </Container>

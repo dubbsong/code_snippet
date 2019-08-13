@@ -43,6 +43,41 @@ $ code .
 - [] TV Shows
 - [] Search
 - [] Each Detail
+
+## Structure
+​```
+src
+  ├─ Components
+  │   ├─ App.js
+  │   ├─ GlobalStyle.js
+  │   ├─ Router.js
+  │   ├─ Nav.js
+  │   ├─ Header
+  │   ├─ Section.js
+  │   ├─ Poster.js
+  │   ├─ Loader.js
+  │   ├─ Message.js
+  │   └─ Footer.js
+  ├─ Routes
+  │   ├─ Movie
+  │   │   ├─ index.js
+  │   │   ├─ MovieContainer.js
+  │   │   └─ MoviePresenter.js
+  │   ├─ TV
+  │   │   ├─ index.js
+  │   │   ├─ TVContainer.js
+  │   │   └─ TVPresenter.js
+  │   ├─ Search
+  │   │   ├─ index.js
+  │   │   ├─ SearchContainer.js
+  │   │   └─ SearchPresenter.js
+  │   └─ Detail
+  │       ├─ index.js
+  │       ├─ DetailContainer.js
+  │       └─ DetailPresenter.js
+  ├─ api.js
+  └─ index.js
+  ```
 ```
 
 <br>
@@ -157,6 +192,28 @@ $ yarn start
 ```
 
 > 화면에 `오많배`가 표시된다.
+
+<br>
+
+<br>
+
+###### Repository 생성
+
+1. https://github.com 이동
+2. `Repositories` 탭 클릭
+3. `New` 버튼 클릭
+4. `Repository name` 기입
+5. `Create repository` 버튼 클릭
+6. `Terminal` 작성
+
+```bash
+$ cd notflix
+$ git init
+$ git add .
+$ git commit -m '1st commit'
+$ git remote add origin https://github.com/dubbsong/notflix.git
+$ git push -u origin master
+```
 
 <br>
 

@@ -55,7 +55,7 @@ import React from 'react';
 import styled from 'styled-components';
 import bg from 'assets/bg_movie.webp';
 
-const Header = styled.header`
+const Container = styled.div`
   background-image: url(${bg});
   background-size: cover;
   background-position: top center;
@@ -63,9 +63,9 @@ const Header = styled.header`
 `;
 
 export default () => (
-  <Header>
+  <Container>
     <h4>오많배</h4>
-  </Header>
+  </Container>
 );
 ```
 
@@ -89,7 +89,7 @@ import React from 'react';
 import styled from 'styled-components';
 import bg from 'assets/bg_tv.webp';
 
-const Header = styled.header`
+const Container = styled.div`
   background-image: url(${bg});
   background-size: cover;
   background-position: top center;
@@ -97,9 +97,9 @@ const Header = styled.header`
 `;
 
 export default () => (
-  <Header>
+  <Container>
     <h4>오많배</h4>
-  </Header>
+  </Container>
 );
 
 ```
@@ -139,7 +139,7 @@ const Button = styled.button``;
 const Overview = styled.p``;
 
 export default () => (
-  <Header>
+  <Container>
     <Gradient />
     <Content>
       <Title>The Dark Knight</Title>
@@ -150,7 +150,7 @@ export default () => (
         very notion of a hero. Why so serious?
       </Overview>
     </Content>
-  </Header>
+  </Container>
 );
 ```
 
@@ -170,7 +170,7 @@ const Button = styled.button``;
 const Overview = styled.p``;
 
 export default () => (
-  <Header>
+  <Container>
     <Gradient />
     <Content>
       <Title>Love, Death + Robots</Title>
@@ -181,7 +181,7 @@ export default () => (
         tour of a post-apocalyptic city.
       </Overview>
     </Content>
-  </Header>
+  </Container>
 );
 ```
 
@@ -196,7 +196,7 @@ export default () => (
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay, faPlus } from '@fortawesome/free-solid-svg-icons';
 
-const Header = styled.header`
+const Container = styled.header`
   ...
   position: relative;
 `;
@@ -276,7 +276,7 @@ const Overview = styled.p`
 const StyledIcon = styled(FontAwesomeIcon)``;
 
 export default () => (
-  <Header>
+  <Container>
     <Gradient />
     <Content>
       ...
@@ -288,7 +288,7 @@ export default () => (
       </Button>
       ...
     </Content>
-  </Header>
+  </Container>
 );
 ```
 
@@ -299,7 +299,7 @@ export default () => (
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay, faPlus } from '@fortawesome/free-solid-svg-icons';
 
-const Header = styled.header`
+const Container = styled.header`
   ...
   position: relative;
 `;
@@ -379,7 +379,7 @@ const Overview = styled.p`
 const StyledIcon = styled(FontAwesomeIcon)``;
 
 export default () => (
-  <Header>
+  <Container>
     <Gradient />
     <Content>
       ...
@@ -391,7 +391,7 @@ export default () => (
       </Button>
       ...
     </Content>
-  </Header>
+  </Container>
 );
 ```
 

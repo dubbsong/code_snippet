@@ -3,36 +3,39 @@
 - SearchPresenter.js
 
 ```react
-import React from 'react';
-import PropTypes from 'prop-types';
+...
 import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
-const Container = styled.div`
-  margin: 70px 0 50px 0;
-`;
+const Container = styled.div``;
 
 const Form = styled.form`
-	padding: 0 4%;
-	margin-bottom: 40px;
+  padding: 80px 4% 0;
+  margin-bottom: 60px;
+  display: flex;
+  align-items: center;
+`;
+
+const StyledIcon = styled(FontAwesomeIcon)`
+  font-size: 20px;
 `;
 
 const Input = styled.input`
   all: unset;
   width: 100%;
   font-size: 20px;
+  margin-left: 8px;
 `;
 
-const SearchPresenter = ({
-  loading,
-  searchWord,
-  movieResults,
-  tvResults,
-  error,
-  handleSubmit
-}) => (
+const SearchPresenter = ({...}) => (
   <Container>
-    <Form>
-      <Input value={searchWord} placeholder="Search By Word..." />
+    <Form onSubmit={handleSubmit}>
+      <StyledIcon icon={faSearch} />
+      <Input
+        value={searchWord}
+        placeholder="Search movies or tv shows by word..."
+      />
     </Form>
   </Container>
 );
@@ -109,12 +112,16 @@ export default class extends React.Component {
 ```react
 ...
 
-const SearchPresenter = ({...}) => (
+const SearchPresenter = ({
+  ...
+  updateWord
+}) => (
   <Container>
     <Form onSubmit={...}>
+      <StyledIcon icon={...} />
       <Input
-        value={searchWord}
-        placeholder="Search Movie or TV Show By Word..."
+        value={...}
+        placeholder="..."
         onChange={updateWord}
       />
     </Form>
@@ -186,15 +193,46 @@ export default class extends React.Component {
 ```react
 ...
 import Section from 'Components/Section';
-import Poster from 'Components/Poster';
+import VPoster from 'Components/VPoster';
 import Loader from 'Components/Loader';
 
-...
+const Container = styled.div``;
 
-const SearchPresenter = ({...}) => (
+const Form = styled.form`
+  padding: 80px 4% 0;
+  margin-bottom: 60px;
+  display: flex;
+  align-items: center;
+`;
+
+const StyledIcon = styled(FontAwesomeIcon)`
+  font-size: 20px;
+`;
+
+const Input = styled.input`
+  all: unset;
+  width: 100%;
+  font-size: 20px;
+  margin-left: 8px;
+`;
+
+const SearchPresenter = ({
+  loading,
+  searchWord,
+  movieResults,
+  tvResults,
+  error,
+  handleSubmit,
+  updateWord
+}) => (
   <Container>
-    <Form onSubmit={...}>
-      ...
+    <Form onSubmit={handleSubmit}>
+      <StyledIcon icon={faSearch} />
+      <Input
+        value={searchWord}
+        placeholder="Search movies or tv shows by word..."
+        onChange={updateWord}
+      />
     </Form>
     {loading ? (
       <Loader />
@@ -203,7 +241,7 @@ const SearchPresenter = ({...}) => (
         {movieResults && movieResults.length > 0 && (
           <Section title="Movie Results">
             {movieResults.map(movie => (
-              <Poster
+              <VPoster
                 id={movie.id}
                 imageUrl={movie.poster_path}
                 title={movie.title}
@@ -217,7 +255,7 @@ const SearchPresenter = ({...}) => (
         {tvResults && tvResults.length > 0 && (
           <Section title="TV Show Results">
             {tvResults.map(tv => (
-              <Poster
+              <VPoster
                 id={tv.id}
                 imageUrl={tv.poster_path}
                 title={tv.name}

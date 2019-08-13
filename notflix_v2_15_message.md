@@ -14,14 +14,14 @@ $ touch Message.js
 
 ```react
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const Container = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 180px;
-  width: 100%;
+  align-items: center;
+  height: 120px;
 `;
 
 const Text = styled.h4`

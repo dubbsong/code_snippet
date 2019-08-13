@@ -45,7 +45,7 @@ const StyledIcon = styled(FontAwesomeIcon)`
 export default () => (
   <Container>
     <CopyRight>
-      ©2019 <a href="https://dubbsong.github.io">오많배</a>
+      ©2019 <a href="https://dubbsong.github.io">ㅇㅁㅂ</a>
     </CopyRight>
     <a href="https://dubbsong.github.io">
       <StyledIcon icon={faGithubSquare} />
