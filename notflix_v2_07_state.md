@@ -8,6 +8,7 @@
 export default class extends React.Component {
   state = {
     loading: true,
+    trending: null,
     nowPlaying: null,
     topRated: null,
     upcoming: null,
@@ -20,6 +21,7 @@ export default class extends React.Component {
     return (
       <MoviePresenter
         loading={this.state.loading}
+        trending={this.state.trending}
         nowPlaying={this.state.nowPlaying}
         topRated={this.state.topRated}
         upcoming={this.state.upcoming}
@@ -38,9 +40,10 @@ export default class extends React.Component {
 export default class extends React.Component {
   state = {
     loading: true,
+    trending: null,
+    onTheAir: null,
     popular: null,
     topRated: null,
-    airingToday: null,
     error: null
   };
 
@@ -50,9 +53,10 @@ export default class extends React.Component {
     return (
       <TVPresenter
         loading={this.state.loading}
+        trending={this.state.trending}
+        onTheAir={this.state.onTheAir}
         popular={this.state.popular}
         topRated={this.state.topRated}
-        airingToday={this.state.airingToday}
         error={this.state.error}
       />
     );
@@ -98,17 +102,15 @@ export default class extends React.Component {
 export default class extends React.Component {
   state = {
     loading: true,
-    detailResult: null,
+    result: null,
     error: null
   };
-
-  // Logic
 
   render() {
     return (
       <DetailPresenter
         loading={this.state.loading}
-        detailResult={this.state.detailResult}
+        result={this.state.result}
         error={this.state.error}
       />
     );

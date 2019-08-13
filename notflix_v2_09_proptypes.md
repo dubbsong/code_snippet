@@ -14,12 +14,18 @@ $ yarn add prop-types
 ...
 import PropTypes from 'prop-types';
 
-const MoviePresenter = ({ loading, nowPlaying, topRated, upcoming, error }) => (
-  <MovieHeader />
-);
+const MoviePresenter = ({
+  loading,
+  trending,
+  nowPlaying,
+  topRated,
+  upcoming,
+  error
+}) => <MovieHeader />;
 
 MoviePresenter.propTypes = {
   loading: PropTypes.bool.isRequired,
+  trending: PropTypes.array,
   nowPlaying: PropTypes.array,
   topRated: PropTypes.array,
   upcoming: PropTypes.array,
@@ -35,15 +41,21 @@ MoviePresenter.propTypes = {
 ...
 import PropTypes from 'prop-types';
 
-const TVPresenter = ({ loading, popular, topRated, airingToday, error }) => (
-  <TVHeader />
-);
+const TVPresenter = ({
+  loading,
+  trending,
+  onTheAir,
+  popular,
+  topRated,
+  error
+}) => <TVHeader />;
 
 TVPresenter.propTypes = {
   loading: PropTypes.bool.isRequired,
+  trending: PropTypes.array,
+  onTheAir: PropTypes.array,
   popular: PropTypes.array,
   topRated: PropTypes.array,
-  airingToday: PropTypes.array,
   error: PropTypes.string
 };
 
@@ -83,12 +95,12 @@ export default SearchPresenter;
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const DetailPresenter = ({ loading, detailResult, error }) =>
+const DetailPresenter = ({ loading, result, error }) =>
   'Each Detail Area';
 
 DetailPresenter.propTypes = {
   loading: PropTypes.bool.isRequired,
-  detailResult: PropTypes.object,
+  result: PropTypes.object,
   error: PropTypes.string
 };
 

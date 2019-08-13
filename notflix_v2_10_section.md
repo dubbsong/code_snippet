@@ -379,20 +379,11 @@ export default HPoster;
 - MoviePresenter.js
 
 ```react
-import React from 'react';
-import MovieHeader from 'Components/MovieHeader';
-import PropTypes from 'prop-types';
+...
 import Section from 'Components/Section';
 import HPoster from 'Components/HPoster';
 
-const MoviePresenter = ({
-  loading,
-  trending,
-  nowPlaying,
-  topRated,
-  upcoming,
-  error
-}) =>
+const MoviePresenter = ({...}) =>
   loading ? null : (
     <React.Fragment>
       <MovieHeader />
@@ -455,35 +446,17 @@ const MoviePresenter = ({
     </React.Fragment>
   );
 
-MoviePresenter.propTypes = {
-  loading: PropTypes.bool.isRequired,
-  trending: PropTypes.array,
-  nowPlaying: PropTypes.array,
-  topRated: PropTypes.array,
-  upcoming: PropTypes.array,
-  error: PropTypes.string
-};
-
-export default MoviePresenter;
+...
 ```
 
 - TVPresenter.js
 
 ```react
-import React from 'react';
-import TVHeader from 'Components/TVHeader';
-import PropTypes from 'prop-types';
+...
 import Section from 'Components/Section';
 import HPoster from 'Components/HPoster';
 
-const TVPresenter = ({
-  loading,
-  trending,
-  onTheAir,
-  popular,
-  topRated,
-  error
-}) =>
+const TVPresenter = ({...}) =>
   loading ? null : (
     <React.Fragment>
       <TVHeader />
@@ -542,16 +515,7 @@ const TVPresenter = ({
     </React.Fragment>
   );
 
-TVPresenter.propTypes = {
-  loading: PropTypes.bool.isRequired,
-  trending: PropTypes.array,
-  onTheAir: PropTypes.array,
-  popular: PropTypes.array,
-  topRated: PropTypes.array,
-  error: PropTypes.string
-};
-
-export default TVPresenter;
+...
 ```
 
 <br><br>

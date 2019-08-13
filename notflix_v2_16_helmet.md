@@ -105,7 +105,7 @@ const DetailPresenter = ({...}) =>
     <Container>
       <Helmet>
         <title>
-          {detailResult.title ? detailResult.title : detailResult.name} |
+          {result.title ? result.title : result.name} |
           Notflix
         </title>
       </Helmet>

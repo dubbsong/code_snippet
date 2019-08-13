@@ -117,68 +117,55 @@ const Overview = styled.p`
   }
 `;
 
-const DetailPresenter = ({ loading, detailResult, error }) =>
+const DetailPresenter = ({ loading, result, error }) =>
   loading ? (
     <Loader />
   ) : (
     <Container>
       <Backdrop
-        bgImage={`https://image.tmdb.org/t/p/original${
-          detailResult.backdrop_path
-        }`}
+        bgImage={`https://image.tmdb.org/t/p/original${result.backdrop_path}`}
       />
       <Content>
         <LeftContent
           bgImage={
-            detailResult.poster_path
-              ? `https://image.tmdb.org/t/p/original${detailResult.poster_path}`
+            result.poster_path
+              ? `https://image.tmdb.org/t/p/original${result.poster_path}`
               : require('../../assets/vertical_no_poster.png')
           }
         />
         <RightContent>
-          <Title>
-            {detailResult.title ? detailResult.title : detailResult.name}
-          </Title>
+          <Title>{result.title ? result.title : result.name}</Title>
           <ItemContainer>
             <Item>
-              {detailResult.release_date
-                ? detailResult.release_date.substring(0, 4)
-                : detailResult.first_air_date.substring(0, 4)}
+              {result.release_date
+                ? result.release_date.substring(0, 4)
+                : result.first_air_date.substring(0, 4)}
             </Item>
             <Divider>•</Divider>
             <Item>
-              {detailResult.runtime
-                ? detailResult.runtime
-                : detailResult.episode_run_time}{' '}
-              min
+              {result.runtime ? result.runtime : result.episode_run_time} min
             </Item>
             <Divider>•</Divider>
             <Item>
-              {detailResult.genres &&
-                detailResult.genres.map((genre, index) =>
-                  index === detailResult.genres.length - 1
+              {result.genres &&
+                result.genres.map((genre, index) =>
+                  index === result.genres.length - 1
                     ? genre.name
                     : `${genre.name} / `
                 )}
             </Item>
           </ItemContainer>
           <Overview>
-            {detailResult.overview.length > 450
-              ? `${detailResult.overview.substring(0, 450)}...`
-              : detailResult.overview}
+            {result.overview.length > 450
+              ? `${result.overview.substring(0, 450)}...`
+              : result.overview}
           </Overview>
         </RightContent>
       </Content>
     </Container>
   );
 
-DetailPresenter.propTypes = {
-  loading: PropTypes.bool.isRequired,
-  detailResult: PropTypes.object,
-  error: PropTypes.string
-};
-
-export default DetailPresenter;
+...
 ```
 
 <br>

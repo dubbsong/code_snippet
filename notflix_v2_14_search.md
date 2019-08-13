@@ -196,43 +196,12 @@ import Section from 'Components/Section';
 import VPoster from 'Components/VPoster';
 import Loader from 'Components/Loader';
 
-const Container = styled.div``;
+...
 
-const Form = styled.form`
-  padding: 80px 4% 0;
-  margin-bottom: 60px;
-  display: flex;
-  align-items: center;
-`;
-
-const StyledIcon = styled(FontAwesomeIcon)`
-  font-size: 20px;
-`;
-
-const Input = styled.input`
-  all: unset;
-  width: 100%;
-  font-size: 20px;
-  margin-left: 8px;
-`;
-
-const SearchPresenter = ({
-  loading,
-  searchWord,
-  movieResults,
-  tvResults,
-  error,
-  handleSubmit,
-  updateWord
-}) => (
+const SearchPresenter = ({...}) => (
   <Container>
-    <Form onSubmit={handleSubmit}>
-      <StyledIcon icon={faSearch} />
-      <Input
-        value={searchWord}
-        placeholder="Search movies or tv shows by word..."
-        onChange={updateWord}
-      />
+    <Form onSubmit={...}>
+      ...
     </Form>
     {loading ? (
       <Loader />

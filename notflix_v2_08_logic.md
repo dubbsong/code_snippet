@@ -12,11 +12,12 @@ export default class extends React.Component {
   // Logic
   async componentDidMount() {
     try {
+      const trending = await movieApi.trending();
       const nowPlaying = await movieApi.nowPlaying();
       const topRated = await movieApi.topRated();
       const upcoming = await movieApi.upcoming();
 
-      console.log(nowPlaying, topRated, upcoming);
+      console.log(trending, nowPlaying, topRated, upcoming);
     } catch {
       this.setState({ error: "Can't find movie information." });
     } finally {
@@ -45,6 +46,10 @@ export default class extends React.Component {
   async componentDidMount() {
     try {
       const {
+        data: { results: trending }
+      } = await movieApi.trending();
+
+      const {
         data: { results: nowPlaying }
       } = await movieApi.nowPlaying();
 
@@ -57,6 +62,7 @@ export default class extends React.Component {
       } = await movieApi.upcoming();
 
       this.setState({
+        trending: trending,
         nowPlaying: nowPlaying,
         topRated: topRated,
         upcoming: upcoming
@@ -131,11 +137,12 @@ export default class extends React.Component {
   // Logic
   componentDidMount = async () => {
     try {
+      const trending = await tvApi.trending();
+      const onTheAir = await tvApi.onTheAir();
       const popular = await tvApi.popular();
       const topRated = await tvApi.topRated();
-      const airingToday = await tvApi.airingToday();
 
-      console.log(popular, topRated, airingToday);
+      console.log(trending, onTheAir, popular, topRated);
     } catch {
       this.setState({ error: "Can't find tv information." });
     } finally {
@@ -163,6 +170,14 @@ export default class extends React.Component {
   componentDidMount = async () => {
     try {
       const {
+        data: { results: trending }
+      } = await tvApi.trending();
+
+      const {
+        data: { results: onTheAir }
+      } = await tvApi.onTheAir();
+
+      const {
         data: { results: popular }
       } = await tvApi.popular();
 
@@ -170,14 +185,11 @@ export default class extends React.Component {
         data: { results: topRated }
       } = await tvApi.topRated();
 
-      const {
-        data: { results: airingToday }
-      } = await tvApi.airingToday();
-
       this.setState({
-        popular: popular,
-        topRated: topRated,
-        airingToday: airingToday
+        trending,
+        onTheAir,
+        popular,
+        topRated
       });
     } catch {
       ...
@@ -254,6 +266,7 @@ export default class extends React.Component {
   searchByWord = async () => {
     try {
       const movieResults = await movieApi.search(this.state.searchWord);
+      
       const tvResults = await tvApi.search(this.state.searchWord);
 
       console.log(movieResults, tvResults);
@@ -307,8 +320,8 @@ export default class extends React.Component {
       } = await tvApi.search(this.state.searchWord);
 
       this.setState({
-        movieResults: movieResults,
-        tvResults: tvResults
+        movieResults,
+        tvResults
       });
     } catch {
       ...
@@ -494,18 +507,18 @@ export default class extends React.Component {
     } = this.props;
 
     const parsedId = parseInt(id);
-    let detailResult = null;
+    let result = null;
 
     try {
       if (this.state.isMovie) {
-        detailResult = await movieApi.movieDetail(parsedId);
+        result = await movieApi.movieDetail(parsedId);
       } else {
-        detailResult = await tvApi.tvDetail(parsedId);
+        result = await tvApi.tvDetail(parsedId);
       }
     } catch {
       this.setState({ error: "Can't find anything." });
     } finally {
-      this.setState({ loading: false, detailResult });
+      this.setState({ loading: false, result });
     }
   };
 
@@ -536,10 +549,10 @@ export default class extends React.Component {
     try {
       if (this.state.isMovie) {
         const request = await movieApi.movieDetail(parsedId);
-        detailResult = request.data;
+        result = request.data;
       } else {
         const request = await tvApi.tvDetail(parsedId);
-        detailResult = request.data;
+        result = request.data;
       }
     } catch {
       ...
@@ -566,9 +579,9 @@ export default class extends React.Component {
 
     try {
       if (this.state.isMovie) {
-        ({ data: detailResult } = await movieApi.movieDetail(parsedId));
+        ({ data: result } = await movieApi.movieDetail(parsedId));
       } else {
-        ({ data: detailResult } = await tvApi.tvDetail(parsedId));
+        ({ data: result } = await tvApi.tvDetail(parsedId));
       }
     } catch {
       ...
