@@ -97,6 +97,7 @@ const api = axios.create({
 });
 
 export const movieApi = {
+  trending: () => api.get('trending/movie/week'),
   nowPlaying: () => api.get('movie/now_playing'),
   topRated: () => api.get('movie/top_rated'),
   upcoming: () => api.get('movie/upcoming'),
@@ -110,9 +111,10 @@ export const movieApi = {
 };
 
 export const tvApi = {
+  trending: () => api.get('trending/tv/week'),
+  onTheAir: () => api.get('tv/on_the_air'),
   popular: () => api.get('tv/popular'),
   topRated: () => api.get('tv/top_rated'),
-  airingToday: () => api.get('tv/airing_today'),
   search: word =>
     api.get('search/tv', {
       params: {
