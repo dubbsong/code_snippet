@@ -106,6 +106,8 @@ export default class extends React.Component {
     error: null
   };
 
+  // Logic
+
   render() {
     return (
       <DetailPresenter
@@ -116,6 +118,18 @@ export default class extends React.Component {
     );
   }
 }
+```
+
+<br>
+
+<br>
+
+###### Commit
+
+```bash
+$ git add .
+$ git commit -m 'Set State'
+$ git push origin master
 ```
 
 <br>

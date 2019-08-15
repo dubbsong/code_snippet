@@ -7,7 +7,7 @@
 
 <br>
 
-###### 코드 작성
+###### Detail 설정
 
 - DetailPresenter.js
 
@@ -16,15 +16,67 @@
 import styled from 'styled-components';
 import Loader from 'Components/Loader';
 
+const Container = styled.div``;
+
+const Backdrop = styled.div``;
+
+const Content = styled.div``;
+
+const LeftContent = styled.div``;
+
+const RightContent = styled.div``;
+
+const Title = styled.h2``;
+
+const ItemContainer = styled.div``;
+
+const Item = styled.span``;
+
+const Divider = styled.span``;
+
+const Overview = styled.p``;
+
+const DetailPresenter = ({ loading, result, error }) =>
+  loading ? (
+    <Loader />
+  ) : (
+    <Container>
+      <Backdrop />
+      <Content>
+        <LeftContent />
+        <RightContent>
+          <Title>title</Title>
+          <ItemContainer>
+            <Item>2019</Item>
+            <Divider>•</Divider>
+            <Item>112 min</Item>
+            <Divider>•</Divider>
+            <Item>Action • Comedy</Item>
+            <Divider>•</Divider>
+          </ItemContainer>
+          <Overview>Lorem Ipsum...</Overview>
+        </RightContent>
+      </Content>
+    </Container>
+  );
+
+...
+```
+
+<br>
+
+###### Style 설정
+
+- DetailPresenter.js
+
+```react
+...
+
 const Container = styled.div`
   width: 100%;
   height: 100vh;
   padding: 70px 4% 50px;
   position: relative;
-
-  @media (max-width: 768px) {
-    padding: 0;
-  }
 `;
 
 const Backdrop = styled.div`
@@ -35,13 +87,9 @@ const Backdrop = styled.div`
   height: 100%;
   position: absolute;
   top: 0;
-  left: 0;
+  left: 0%;
   filter: blur(3px);
-  opacity: 0.4;
-
-  @media (max-width: 768px) {
-    display: none;
-  }
+  opacity: 0.8;
 `;
 
 const Content = styled.div`
@@ -61,9 +109,7 @@ const LeftContent = styled.div`
   box-shadow: 5px 5px 20px #141414;
 
   @media (max-width: 768px) {
-    width: 100%;
-    filter: blur(2px);
-    opacity: 0.5;
+    display: none;
   }
 `;
 
@@ -74,10 +120,9 @@ const RightContent = styled.div`
 
   @media (max-width: 768px) {
     width: 100%;
-    padding: 60% 10px 0;
-    margin: 0;
     position: absolute;
-    height: 100%;
+    bottom: 0;
+    margin-left: 8px;
   }
 `;
 
@@ -109,11 +154,10 @@ const Overview = styled.p`
   font-size: 20px;
   line-height: 1.4;
   color: #e6e6e6;
-  margin-bottom: 40px;
   text-shadow: 5px 5px 20px #141414;
 
   @media (max-width: 768px) {
-    font-size: 16px;
+    font-size: 18px;
   }
 `;
 
@@ -130,7 +174,7 @@ const DetailPresenter = ({ loading, result, error }) =>
           bgImage={
             result.poster_path
               ? `https://image.tmdb.org/t/p/original${result.poster_path}`
-              : require('../../assets/vertical_no_poster.png')
+              : require('../../assets/no_v_poster.png')
           }
         />
         <RightContent>
@@ -143,7 +187,7 @@ const DetailPresenter = ({ loading, result, error }) =>
             </Item>
             <Divider>•</Divider>
             <Item>
-              {result.runtime ? result.runtime : result.episode_run_time} min
+              {result.runtime ? result.runtime : result.episode_run_time}
             </Item>
             <Divider>•</Divider>
             <Item>

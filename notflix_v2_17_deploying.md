@@ -1,3 +1,5 @@
+## with Github
+
 ###### 코드 수정
 
 - Router.js
@@ -13,6 +15,82 @@ import {
 ```
 
 <br>
+
+###### Commit
+
+```bash
+$ git add .
+$ git commit -m 'Change to HashRouter'
+$ git push origin master
+```
+
+<br>
+
+###### CLI
+
+```bash
+$ yarn build
+```
+
+<br>
+
+###### 코드 추가
+
+- package.json
+
+```json
+"homepage": "https://dubbsong.github.io/notflix"
+```
+
+<br>
+
+###### CLI
+
+```bash
+$ yarn build
+$ yarn add gh-pages
+```
+
+<br>
+
+###### 코드 추가
+
+- package.json
+
+```json
+"scripts": {
+  "start": "...",
+  "build": "...",
+  "test": "...",
+  "eject": "...",
+  "deploy": "gh-pages -d build",
+  "predeploy": "yarn run build"
+}
+```
+
+<br>
+
+###### Commit
+
+```bash
+$ git add .
+$ git commit -m 'Add sth'
+$ git push origin master
+```
+
+<br>
+
+###### CLI
+
+```bash
+$ yarn run deploy
+```
+
+<br>
+
+<br>
+
+## with Netlify
 
 ###### Netlify
 
@@ -31,7 +109,20 @@ import {
 13. `Production: master@HEAD`를 클릭하면 `Deploy log` 확인 가능
     - `live`가 표시되면 완성쓰
 
-14. `https://romantic-swanson-971944.netlify.com`를 package.json에 추가
+
+<br>
+
+###### What?
+
+```bash
+
+```
+
+<br>
+
+###### 주소 추가
+
+- package.json
 
 ```json
 "homepage": "https://romantic-swanson-971944.netlify.com"

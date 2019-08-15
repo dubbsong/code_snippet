@@ -36,38 +36,14 @@ export default () => (
 
 <br>
 
-###### Import Loader
+<br>
 
-- MoviePresenter.js
+###### Commit
 
-```react
-...
-import Loader from 'Components/Loader';
-
-const MoviePresenter = ({...}) =>
-  loading ? (
-    <Loader />
-  ) : (
-    ...
-  );
-
-...
-```
-
-- TVPresenter.js
-
-```react
-...
-import Loader from 'Components/Loader';
-
-const TVPresenter = ({...}) =>
-  loading ? (
-    <Loader />
-  ) : (
-    ...
-  );
-
-...
+```bash
+$ git add .
+$ git commit -m 'Set Loader'
+$ git push origin master
 ```
 
 <br>

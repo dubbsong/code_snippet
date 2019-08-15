@@ -253,7 +253,9 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 ...
 
-const StyledIcon = styled(FontAwesomeIcon)``;
+const StyledIcon = styled(FontAwesomeIcon)`
+	font-size: 16px;
+`;
 
 export default () => (
   <Nav>
@@ -363,6 +365,18 @@ export default withRouter(({ location: { pathname } }) => (
 ```
 
 > 각 Item이 현재 위치를 표시한다.
+
+<br>
+
+<br>
+
+###### Commit
+
+```bash
+$ git add .
+$ git commit -m 'Set Nav'
+$ git push origin master
+```
 
 <br>
 

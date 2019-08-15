@@ -128,3 +128,15 @@ export const tvApi = {
 <br>
 
 <br>
+
+###### Commit
+
+```bash
+$ git add .
+$ git commit -m 'Set API'
+$ git push origin master
+```
+
+<br>
+
+<br>

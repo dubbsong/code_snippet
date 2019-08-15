@@ -1,4 +1,4 @@
-###### 코드 추가
+###### Search 설정
 
 - SearchPresenter.js
 
@@ -10,6 +10,35 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 const Container = styled.div``;
 
+const Form = styled.form``;
+
+const StyledIcon = styled(FontAwesomeIcon)``;
+
+const Input = styled.input``;
+
+const SearchPresenter = ({...}) => (
+  <Container>
+    <Form>
+      <StyledIcon />
+      <Input placeholder="Search by word..." />
+    </Form>
+  </Container>
+);
+
+...
+```
+
+<br>
+
+###### Style 설정
+
+- SearchPresenter.js
+
+```react
+...
+
+const Container = styled.div``;
+
 const Form = styled.form`
   padding: 80px 4% 0;
   margin-bottom: 60px;
@@ -18,7 +47,7 @@ const Form = styled.form`
 `;
 
 const StyledIcon = styled(FontAwesomeIcon)`
-  font-size: 20px;
+  font-size: 16px;
 `;
 
 const Input = styled.input`
@@ -28,14 +57,18 @@ const Input = styled.input`
   margin-left: 8px;
 `;
 
-const SearchPresenter = ({...}) => (
+const SearchPresenter = ({
+  loading,
+  searchWord,
+  movieResults,
+  tvResults,
+  error,
+  handleSubmit
+}) => (
   <Container>
     <Form onSubmit={handleSubmit}>
       <StyledIcon icon={faSearch} />
-      <Input
-        value={searchWord}
-        placeholder="Search movies or tv shows by word..."
-      />
+      <Input placeholder="Search by word..." value={searchWord} />
     </Form>
   </Container>
 );
@@ -88,11 +121,11 @@ export default class extends React.Component {
     console.log(event);
   };
 
-  searchByWord = async () => {
+  handleSubmit = event => {
     ...
   };
 
-  handleSubmit = event => {
+  searchByWord = async () => {
     ...
   };
 
@@ -118,10 +151,10 @@ const SearchPresenter = ({
 }) => (
   <Container>
     <Form onSubmit={...}>
-      <StyledIcon icon={...} />
+      ...
       <Input
-        value={...}
         placeholder="..."
+        value={...}
         onChange={updateWord}
       />
     </Form>
@@ -192,9 +225,9 @@ export default class extends React.Component {
 
 ```react
 ...
+import Loader from 'Components/Loader';
 import Section from 'Components/Section';
 import VPoster from 'Components/VPoster';
-import Loader from 'Components/Loader';
 
 ...
 
@@ -240,6 +273,20 @@ const SearchPresenter = ({...}) => (
 );
 
 ...
+```
+
+> `begins`를 입력하고 `Enter`를 누르면, 각 결과가 표시된다.
+
+<br>
+
+<br>
+
+###### Commit
+
+```bash
+$ git add .
+$ git commit -m 'Set Search'
+$ git push origin master
 ```
 
 <br>

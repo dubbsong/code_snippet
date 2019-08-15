@@ -75,7 +75,7 @@ export default class extends React.Component {
   }
 
   render() {
-    console.log(this.state);
+    console.log(this.state);  // 확인 후 제거
 
     ...
   }
@@ -83,41 +83,6 @@ export default class extends React.Component {
 ```
 
 > `Console` 탭에서 state의 3가지 변화 확인
-
-3. Error 확인
-
-```react
-...
-
-export default class extends React.Component {
-  ...
-
-  // Logic
-  async componentDidMount() {
-    try {
-      ...
-
-      throw Error(); // 확인 후 제거
-
-      ...
-    } catch {
-      ...
-    } finally {
-      ...
-    }
-  }
-
-  render() {
-    console.log(this.state); // 확인 후 제거
-
-    ...
-  }
-}
-```
-
-> `Console` 탭에서 state의 3가지 변화 확인
->
-> `throw Error();` 제거
 >
 > `console.log(this.state);` 제거
 
@@ -199,7 +164,7 @@ export default class extends React.Component {
   };
 
   render() {
-    console.log(this.state);
+    console.log(this.state);  // 확인 후 제거
 
     ...
   }
@@ -207,41 +172,6 @@ export default class extends React.Component {
 ```
 
 > `Console` 탭에서 state의 3가지 변화 확인
-
-3. Error 확인
-
-```react
-...
-
-export default class extends React.Component {
-  ...
-
-  // Logic
-  componentDidMount = async () => {
-    try {
-      ...
-
-      throw Error(); // 확인 후 제거
-
-      ...
-    } catch {
-      ...
-    } finally {
-      ...
-    }
-  };
-
-  render() {
-    console.log(this.state); // 확인 후 제거
-
-    ...
-  }
-}
-```
-
-> `Console` 탭에서 state의 3가지 변화 확인
->
-> `throw Error();` 제거
 >
 > `console.log(this.state);` 제거
 
@@ -263,10 +193,15 @@ export default class extends React.Component {
   };
 
   // Logic
+  handleSubmit = () => {
+    if (this.state.searchWord !== '') {
+      this.searchByWord();
+    }
+  };
+
   searchByWord = async () => {
     try {
       const movieResults = await movieApi.search(this.state.searchWord);
-      
       const tvResults = await tvApi.search(this.state.searchWord);
 
       console.log(movieResults, tvResults);
@@ -274,12 +209,6 @@ export default class extends React.Component {
       this.setState({ error: "Can't find results." });
     } finally {
       this.setState({ loading: false });
-    }
-  };
-
-  handleSubmit = () => {
-    if (this.state.searchWord !== '') {
-      this.searchByWord();
     }
   };
 
@@ -309,6 +238,8 @@ export default class extends React.Component {
   };
 
   // Logic
+  handleSubmit = () => {...};
+
   searchByWord = async () => {
     try {
       const {
@@ -329,8 +260,6 @@ export default class extends React.Component {
       ...
     }
   };
-
-  ...
 
   // 확인 후 제거
   componentDidMount() {
@@ -598,7 +527,19 @@ export default class extends React.Component {
 }
 ```
 
-> `console.log(result);` 제거
+> `console.log(this.state);` 제거
+
+<br>
+
+<br>
+
+###### Commit
+
+```bash
+$ git add .
+$ git commit -m 'Set Logic'
+$ git push origin master
+```
 
 <br>
 

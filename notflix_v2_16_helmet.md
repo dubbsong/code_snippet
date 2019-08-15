@@ -71,9 +71,6 @@ const SearchPresenter = ({...}) => (
     <Helmet>
       <title>Search | Notflix</title>
     </Helmet>
-    <Form onSubmit={...}>
-      ...
-    </Form>
     ...
   </Container>
 );
@@ -117,6 +114,18 @@ const DetailPresenter = ({...}) =>
 ```
 
 > 각 detail로 이동하면, 브라우저 탭에 `해당 detail | NOTFLIX`가 표시된다.
+
+<br>
+
+<br>
+
+###### Commit
+
+```bash
+$ git add .
+$ git commit -m 'Set Helmet'
+$ git push origin master
+```
 
 <br>
 

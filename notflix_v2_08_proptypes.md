@@ -11,7 +11,7 @@ $ yarn add prop-types
 - MoviePresenter.js
 
 ```react
-...
+import React from 'react';
 import PropTypes from 'prop-types';
 
 const MoviePresenter = ({
@@ -21,7 +21,7 @@ const MoviePresenter = ({
   topRated,
   upcoming,
   error
-}) => <MovieHeader />;
+}) => 'Movies Area';
 
 MoviePresenter.propTypes = {
   loading: PropTypes.bool.isRequired,
@@ -32,13 +32,13 @@ MoviePresenter.propTypes = {
   error: PropTypes.string
 };
 
-...
+export default MoviePresenter;
 ```
 
 - TVPresenter.js
 
 ```react
-...
+import React from 'react';
 import PropTypes from 'prop-types';
 
 const TVPresenter = ({
@@ -48,7 +48,7 @@ const TVPresenter = ({
   popular,
   topRated,
   error
-}) => <TVHeader />;
+}) => 'TV Shows Area';
 
 TVPresenter.propTypes = {
   loading: PropTypes.bool.isRequired,
@@ -59,7 +59,7 @@ TVPresenter.propTypes = {
   error: PropTypes.string
 };
 
-...
+export default TVPresenter;
 ```
 
 - SearchPresenter.js
@@ -95,8 +95,7 @@ export default SearchPresenter;
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const DetailPresenter = ({ loading, result, error }) =>
-  'Each Detail Area';
+const DetailPresenter = ({ loading, result, error }) => 'Each Detail Area';
 
 DetailPresenter.propTypes = {
   loading: PropTypes.bool.isRequired,
@@ -108,6 +107,18 @@ export default DetailPresenter;
 ```
 
 > `detailResult: PropTypes.object`에 주의
+
+<br>
+
+<br>
+
+###### Commit
+
+```bash
+$ git add .
+$ git commit -m 'Set PropTypes'
+$ git push origin master
+```
 
 <br>
 

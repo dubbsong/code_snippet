@@ -8,7 +8,7 @@ $ touch Message.js
 
 <br>
 
-###### 코드 작성
+###### Message 설정
 
 - Message.js
 
@@ -16,6 +16,33 @@ $ touch Message.js
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+
+const Container = styled.div``;
+
+const Text = styled.h4``;
+
+const Message = ({ text, color }) => (
+  <Container>
+    <Text color={color}>{text}</Text>
+  </Container>
+);
+
+Message.propTypes = {
+  text: PropTypes.string.isRequired,
+  color: PropTypes.string.isRequired
+};
+
+export default Message;
+```
+
+<br>
+
+###### Style 설정
+
+- Message.js
+
+```react
+...
 
 const Container = styled.div`
   display: flex;
@@ -26,20 +53,10 @@ const Container = styled.div`
 
 const Text = styled.h4`
   font-size: 20px;
-  color: #e50914;
+  color: ${props => props.color};
 `;
 
-const Message = ({ text }) => (
-  <Container>
-    <Text>{text}</Text>
-  </Container>
-);
-
-Message.propTypes = {
-  text: PropTypes.string.isRequired
-};
-
-export default Message;
+...
 ```
 
 <br>
@@ -58,7 +75,7 @@ const MoviePresenter = ({...}) =>
   ) : (
     <React.Fragment>
       ...
-      {error && <Message text={error} />}
+      {error && <Message text={error} color="#e50914" />}
       <Footer />
     </React.Fragment>
   );
@@ -78,7 +95,7 @@ const TVPresenter = ({...}) =>
   ) : (
     <React.Fragment>
       ...
-      {error && <Message text={error} />}
+      {error && <Message text={error} color="#e50914" />}
       <Footer />
     </React.Fragment>
   );
@@ -104,89 +121,13 @@ const SearchPresenter = ({...}) => (
     ) : (
       <React.Fragment>
         ...
-        {error && <Message text={error} />}
-      </React.Fragment>
-    )}
-  </Container>
-);
-
-...
-```
-
-<br>
-
-###### Error Test
-
-- MovieContainer.js
-
-```react
-// Logic
-...
-
-throw Error();
-
-...
-```
-
-> `Can't find movie information.`이 표시된다.
->
-> `throw Error()` 제거
-
-- TVContainer.js
-
-```react
-// Logic
-...
-
-throw Error();
-
-...
-```
-
-> `Can't find tv information.`이 표시된다.
->
-> `throw Error()` 제거
-
-- SearchContainer.js
-
-```react
-// Logic
-...
-
-throw Error();
-
-...
-```
-
-> `begins`를 입력하면, `Can't find results.`가 표시된다.
->
-> `throw Error()` 제거
-
-<br>
-
-<br>
-
-###### No result: `Nothing found`
-
-- SearchPresenter.js
-
-```react
-...
-
-const SearchPresenter = ({...}) => (
-  <Container>
-    <Form onSubmit={...}>
-      ...
-    </Form>
-    {loading ? (
-      ...
-    ) : (
-      <React.Fragment>
-        ...
+        {error && <Message text={error} color="#e50914" />}
         {movieResults &&
           movieResults.length === 0 &&
           tvResults &&
-          tvResults.length === 0 && <Message text="Nothing found" />}
+          tvResults.length === 0 && (
+            <Message text="Nothing found" color="#e5e5e5" />
+          )}
       </React.Fragment>
     )}
   </Container>
@@ -195,57 +136,16 @@ const SearchPresenter = ({...}) => (
 ...
 ```
 
-> `asdf;213`과 같이 존재하지 않는 것을 검색하면, `Nothing found`가 표시된다.
-
 <br>
 
 <br>
 
-###### color props 전달
+###### Commit
 
-- Message.js
-
-```react
-...
-
-const Text = styled.h4`
-  ...
-  color: ${props => props.color};
-`;
-
-const Message = ({ text, color }) => (
-  <Container>
-    <Text color={color}>{text}</Text>
-  </Container>
-);
-
-Message.propTypes = {
-  ...
-  color: PropTypes.string.isRequired
-};
-
-...
-```
-
-- MoviePresenter.js
-
-```react
-{error && <Message text={error} color="#e50914" />}
-```
-
-- TVPresenter.js
-
-```react
-{error && <Message text={error} color="#e50914" />}
-```
-
-- SearchPresenter.js
-
-```react
-{error && <Message text={error} color="#e50914" />}
-{movieResults && movieResults.length === 0 && tvResults && tvResults.length === 0 && (
-  <Message text="Nothing found" color="#e5e5e5" />
-)}
+```bash
+$ git add .
+$ git commit -m 'Set Message'
+$ git push origin master
 ```
 
 <br>

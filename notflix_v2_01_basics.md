@@ -36,13 +36,7 @@ $ code .
 - ReactJS
 - Styled Components
 - Container & Presenter Pattern
-- TMDB API
-
-## Todo
-- [] Movies
-- [] TV Shows
-- [] Search
-- [] Each Detail
+- The Movie DB API
 
 ## Structure
 src
@@ -51,7 +45,7 @@ src
   │   ├─ GlobalStyle.js
   │   ├─ Router.js
   │   ├─ Nav.js
-  │   ├─ Header
+  │   ├─ Header.js
   │   ├─ Section.js
   │   ├─ Poster.js
   │   ├─ Loader.js
@@ -83,7 +77,8 @@ src
 
 ```bash
 public
-  └─ favicon.ico
+  ├─ favicon.ico
+  └─ favicon.png
 ```
 
 <br>
@@ -94,9 +89,46 @@ public
 
 ```html
 ...
-<link href="https://fonts.googleapis.com/css?family=Blinker&display=swap" rel="stylesheet">
-<title>Notflix</title>
-...
+
+<head>
+  ...
+  <meta name="description" content="Notflix" />
+  <link rel="apple-touch-icon" href="favicon.png" />
+  ...
+  <link href="https://fonts.googleapis.com/css?family=Blinker&display=swap" rel="stylesheet">
+  <title>Notflix</title>
+</head>
+
+<body>
+  ...
+</body>
+
+</html>
+```
+
+- manifest.json
+
+```json
+{
+  "short_name": "Notflix",
+  "name": "Notflix",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "favicon.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
 ```
 
 <br>
@@ -108,6 +140,8 @@ public
 - src/index.css
 - src/logo.svg
 - src/serviceWorker.js
+- logo192.png
+- logo512.png
 
 <br>
 

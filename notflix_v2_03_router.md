@@ -301,3 +301,15 @@ class App extends Component {
 <br>
 
 <br>
+
+###### Commit
+
+```bash
+$ git add .
+$ git commit -m 'Set Router'
+$ git push origin master
+```
+
+<br>
+
+<br>
