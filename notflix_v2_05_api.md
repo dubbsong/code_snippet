@@ -54,7 +54,7 @@ import axios from 'axios';
 const api = axios.create({
   baseURL: 'https://api.themoviedb.org/3/',
   params: {
-    api_key: 'b1aff257ceb0cbcdd236cef217694a61',
+    api_key: '자신의 api key 입력',
     language: 'en-US'
   }
 });

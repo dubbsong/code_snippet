@@ -2,7 +2,7 @@
 
 ```bash
 $ cd src
-$ cd Components
+$ cd components
 $ touch Section.js
 $ touch HPoster.js
 $ touch VPoster.js
@@ -353,8 +353,8 @@ const HPoster = ({ id, imageUrl, title, year, isMovie = false }) => (
 
 ```react
 ...
-import Section from 'Components/Section';
-import HPoster from 'Components/HPoster';
+import Section from 'components/Section';
+import HPoster from 'components/HPoster';
 
 const MoviePresenter = ({...}) =>
   loading ? (
@@ -428,8 +428,8 @@ const MoviePresenter = ({...}) =>
 
 ```react
 ...
-import Section from 'Components/Section';
-import HPoster from 'Components/HPoster';
+import Section from 'components/Section';
+import HPoster from 'components/HPoster';
 
 const TVPresenter = ({...}) =>
   loading ? (

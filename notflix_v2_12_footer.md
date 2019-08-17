@@ -2,7 +2,7 @@
 
 ```bash
 $ cd src
-$ cd Components
+$ cd components
 $ touch Footer.js
 ```
 
@@ -109,7 +109,7 @@ export default () => (
 
 ```react
 ...
-import Footer from 'Components/Footer';
+import Footer from 'components/Footer';
 
 const MoviePresenter = ({...}) =>
   loading ? (
@@ -128,7 +128,7 @@ const MoviePresenter = ({...}) =>
 
 ```react
 ...
-import Footer from 'Components/Footer';
+import Footer from 'components/Footer';
 
 const TVPresenter = ({...}) =>
   loading ? (

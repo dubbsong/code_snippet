@@ -2,7 +2,7 @@
 
 ```bash
 $ cd src
-$ cd Components
+$ cd components
 $ touch Loader.js
 ```
 

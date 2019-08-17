@@ -225,9 +225,9 @@ export default class extends React.Component {
 
 ```react
 ...
-import Loader from 'Components/Loader';
-import Section from 'Components/Section';
-import VPoster from 'Components/VPoster';
+import Loader from 'components/Loader';
+import Section from 'components/Section';
+import VPoster from 'components/VPoster';
 
 ...
 

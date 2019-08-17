@@ -14,7 +14,7 @@
 ```react
 ...
 import styled from 'styled-components';
-import Loader from 'Components/Loader';
+import Loader from 'components/Loader';
 
 const Container = styled.div``;
 

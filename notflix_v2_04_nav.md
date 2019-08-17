@@ -15,7 +15,7 @@
 
 ```bash
 $ cd src
-$ cd Components
+$ cd components
 $ touch Nav.js
 ```
 
@@ -151,7 +151,7 @@ $ mkdir assets
 
 ```bash
 assets
-  └─ logo.png
+  └─ logo_nav.png
 ```
 
 <br>
@@ -162,7 +162,7 @@ assets
 
 ```react
 ...
-import logo from 'assets/logo.png';
+import logo from 'assets/logo_nav.png';
 
 const Nav = styled.nav`
   ...

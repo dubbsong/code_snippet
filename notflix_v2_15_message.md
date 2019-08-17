@@ -67,7 +67,7 @@ const Text = styled.h4`
 
 ```react
 ...
-import Message from 'Components/Message';
+import Message from 'components/Message';
 
 const MoviePresenter = ({...}) =>
   loading ? (
@@ -87,7 +87,7 @@ const MoviePresenter = ({...}) =>
 
 ```react
 ...
-import Message from 'Components/Message';
+import Message from 'components/Message';
 
 const TVPresenter = ({...}) =>
   loading ? (
@@ -107,7 +107,7 @@ const TVPresenter = ({...}) =>
 
 ```react
 ...
-import Message from 'Components/Message';
+import Message from 'components/Message';
 
 ...
 

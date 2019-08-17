@@ -27,7 +27,7 @@ $ yarn add styled-reset
 
 ```bash
 $ cd src
-$ cd Components
+$ cd components
 $ touch GlobalStyle.js
 ```
 

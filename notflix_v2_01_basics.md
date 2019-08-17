@@ -30,17 +30,18 @@ $ code .
 
 ```markdown
 # NOTFLIX
+- Netflix Clone with ReactJS
 - Learning React and ES6 by building a Movie App.
 
 ## Used
 - ReactJS
 - Styled Components
 - Container & Presenter Pattern
-- The Movie DB API
+- TMDB API
 
 ## Structure
 src
-  ├─ Components
+  ├─ components
   │   ├─ App.js
   │   ├─ GlobalStyle.js
   │   ├─ Router.js
@@ -51,7 +52,7 @@ src
   │   ├─ Loader.js
   │   ├─ Message.js
   │   └─ Footer.js
-  ├─ Routes
+  ├─ routes
   │   ├─ Movie
   │   │   ├─ index.js
   │   │   ├─ MovieContainer.js
@@ -78,7 +79,8 @@ src
 ```bash
 public
   ├─ favicon.ico
-  └─ favicon.png
+  ├─ logo192.png
+  └─ logo512.png
 ```
 
 <br>
@@ -88,20 +90,20 @@ public
 - index.html
 
 ```html
-...
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
   ...
-  <meta name="description" content="Notflix" />
-  <link rel="apple-touch-icon" href="favicon.png" />
+  <meta name="theme-color" content="#141414" />
+  <meta name="description" content="Netflix Clone" />
+  <link rel="apple-touch-icon" href="logo192.png" />
   ...
   <link href="https://fonts.googleapis.com/css?family=Blinker&display=swap" rel="stylesheet">
   <title>Notflix</title>
 </head>
 
-<body>
-  ...
-</body>
+...
 
 </html>
 ```
@@ -113,21 +115,11 @@ public
   "short_name": "Notflix",
   "name": "Notflix",
   "icons": [
-    {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
-    },
-    {
-      "src": "favicon.png",
-      "type": "image/png",
-      "sizes": "192x192"
-    }
+    ...
   ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  ...
+  "theme_color": "#141414",
+  ...
 }
 ```
 
@@ -140,8 +132,6 @@ public
 - src/index.css
 - src/logo.svg
 - src/serviceWorker.js
-- logo192.png
-- logo512.png
 
 <br>
 
@@ -167,7 +157,7 @@ NODE_PATH=src
 
 ```bash
 $ cd src
-$ mkdir Components
+$ mkdir components
 ```
 
 <br>
@@ -176,7 +166,7 @@ $ mkdir Components
 
 ```bash
 src
-  └─ Components
+  └─ components
       └─ App.js
 ```
 
@@ -189,7 +179,7 @@ src
 ```react
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from 'Components/App';
+import App from 'components/App';
 
 ReactDOM.render(<App />, document.getElementById('root'));
 ```

@@ -27,7 +27,7 @@
 
 ```bash
 $ cd src
-$ mkdir Routes
+$ mkdir routes
 ```
 
 <br>
@@ -35,7 +35,7 @@ $ mkdir Routes
 ###### 디렉토리 생성
 
 ```bash
-$ cd Routes
+$ cd routes
 $ mkdir Movie
 $ mkdir TV
 $ mkdir Search
@@ -225,7 +225,7 @@ $ yarn add react-router-dom
 
 ```bash
 $ cd src
-$ cd Components
+$ cd components
 $ touch Router.js
 ```
 
@@ -243,10 +243,10 @@ import {
   Switch,
   Redirect
 } from 'react-router-dom';
-import Movie from 'Routes/Movie';
-import TV from 'Routes/TV';
-import Search from 'Routes/Search';
-import Detail from 'Routes/Detail';
+import Movie from 'routes/Movie';
+import TV from 'routes/TV';
+import Search from 'routes/Search';
+import Detail from 'routes/Detail';
 
 export default () => (
   <Router>

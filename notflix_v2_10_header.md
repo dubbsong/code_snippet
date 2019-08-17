@@ -2,7 +2,7 @@
 
 ```bash
 $ cd src
-$ cd Components
+$ cd components
 $ touch MovieHeader.js
 ```
 
@@ -71,8 +71,8 @@ export default () => (
 
 ```react
 ...
-import Loader from 'Components/Loader';
-import MovieHeader from 'Components/MovieHeader';
+import Loader from 'components/Loader';
+import MovieHeader from 'components/MovieHeader';
 
 const MoviePresenter = ({...}) =>
   loading ? (
