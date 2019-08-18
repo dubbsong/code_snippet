@@ -74,7 +74,7 @@ src
 ```
 <br>
 
-###### favicon 추가
+###### favicon & logo 대체
 
 ```bash
 public
@@ -112,7 +112,7 @@ public
 
 ```json
 {
-  "short_name": "Notflix",
+  "short_name": "NOTFLIX",
   "name": "Notflix",
   "icons": [
     ...
