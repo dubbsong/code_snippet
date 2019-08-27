@@ -97,7 +97,6 @@ public
   ...
   <meta name="theme-color" content="#141414" />
   <meta name="description" content="Netflix Clone" />
-  <link rel="apple-touch-icon" href="logo192.png" />
   ...
   <link href="https://fonts.googleapis.com/css?family=Blinker&display=swap" rel="stylesheet">
   <title>Notflix</title>
@@ -153,7 +152,7 @@ NODE_PATH=src
 
 <br>
 
-###### 디렉토리 생성: `Components`
+###### 디렉토리 생성: `components`
 
 ```bash
 $ cd src
