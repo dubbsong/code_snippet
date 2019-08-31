@@ -34,7 +34,7 @@ $ code .
 
 <br>
 
-###### package.json 생성 및 작성
+###### package.json 생성
 
 ```bash
 $ npm init
@@ -50,7 +50,7 @@ $ npm init
 $ npm install express --save
 ```
 
-> package.json 내의 dependencies에 추가된다.
+> package.json 내의 dependencies에 express가 추가된다.
 
 <br>
 
