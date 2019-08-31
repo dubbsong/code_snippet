@@ -2,7 +2,16 @@
 
 ```bash
 $ cd Desktop
-$ mkdir express_helloworld
+$ mkdir test_express
+```
+
+<br>
+
+###### VSCode 실행
+
+```bash
+$ cd test_express
+$ code .
 ```
 
 <br>
@@ -10,11 +19,10 @@ $ mkdir express_helloworld
 ###### package.json 생성 및 작성
 
 ```bash
-$ cd express_helloworld
 $ npm init
 ```
 
-> 대부분의 항목에서 Enter 키를 눌러 기본값을 수락한다.
+> 모든 항목에서 Enter 키를 눌러 기본값을 수락한다.
 
 <br>
 
