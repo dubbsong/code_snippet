@@ -1,7 +1,7 @@
-- Multiplication Table
+#### 구구단 2단 출력 알고리즘
 
 ```js
-function multiplicationTable() {
+function twoTimesTable() {
   for (let i = 2; i < 3; i++) {
     for (let j = 1; j < 10; j++) {
       console.log(`${i} * ${j} = ${i * j}`);
@@ -9,7 +9,7 @@ function multiplicationTable() {
   }
 }
 
-console.log(multiplicationTable());
+twoTimesTable();
 
 // 2 * 1 = 2
 // 2 * 2 = 4
@@ -21,5 +21,7 @@ console.log(multiplicationTable());
 // 2 * 8 = 16
 // 2 * 9 = 18
 ```
+
+<br>
 
 <br>
