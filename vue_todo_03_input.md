@@ -27,13 +27,11 @@
 
 <script>
   export default {
-    data: function() {
-      return {
-        newTodoItem: ""
-      };
-    },
+    data: () => ({
+      newTodoItem: ""
+    }),
     methods: {
-      addTodo: function() {
+      addTodo() {
         console.log(this.newTodoItem);
       }
     }
@@ -50,13 +48,11 @@
 ```vue
 <script>
   export default {
-    data: function() {
-      return {
-        newTodoItem: ""
-      };
-    },
+    data: () => ({
+      newTodoItem: ""
+    }),
     methods: {
-      addTodo: function() {
+      addTodo() {
         localStorage.setItem(this.newTodoItem, this.newTodoItem);
       }
     }
@@ -73,13 +69,11 @@
 ```vue
 <script>
   export default {
-    data: function() {
-      return {
-        newTodoItem: ""
-      };
-    },
+    data: () => ({
+      newTodoItem: ""
+    }),
     methods: {
-      addTodo: function() {
+      addTodo() {
         localStorage.setItem(this.newTodoItem, this.newTodoItem);
         this.newTodoItem = "";
       }
@@ -95,17 +89,15 @@
 ```vue
 <script>
   export default {
-    data: function() {
-      return {
-        newTodoItem: ""
-      };
-    },
+    data: () => ({
+      newTodoItem: ""
+    }),
     methods: {
-      addTodo: function() {
+      addTodo() {
         localStorage.setItem(this.newTodoItem, this.newTodoItem);
         this.clearInput();
       },
-      clearInput: function() {
+      clearInput() {
         this.newTodoItem = "";
       }
     }
@@ -117,7 +109,7 @@
 >
 > `this`를 사용해서 `data`와 `methods`에 접근할 수 있다.
 
-6. keyup 추가
+6. keyup\.enter 이벤트 추가
 
 ```vue
 <template>
@@ -152,14 +144,14 @@
   }
   
   .inputBox {
-    background: #ffffff;
+    background-color: #ffffff;
     height: 50px;
     line-height: 50px;
     border-radius: 5px;
   }
   
   .inputBox input {
-    font-size: 0.9rem;
+    font-size: 1rem;
     border-style: none;
   }
   
@@ -197,17 +189,15 @@
 
 <script>
   export default {
-    data: function() {
-      return {
-        newTodoItem: ""
-      };
-    },
+    data: () => ({
+      newTodoItem: ""
+    }),
     methods: {
-      addTodo: function() {
+      addTodo() {
         localStorage.setItem(this.newTodoItem, this.newTodoItem);
         this.clearInput();
       },
-      clearInput: function() {
+      clearInput() {
         this.newTodoItem = "";
       }
     }
@@ -220,14 +210,14 @@
   }
   
   .inputBox {
-    background: #ffffff;
+    background-color: #ffffff;
     height: 50px;
     line-height: 50px;
     border-radius: 5px;
   }
   
   .inputBox input {
-    font-size: 0.9rem;
+    font-size: 1rem;
     border-style: none;
   }
   
