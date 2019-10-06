@@ -4,23 +4,23 @@
 
 #### TodoList.vue
 
-1. 더미 데이터 저장 (Local Storage)
+1. 더미 데이터 저장
 
-| Key   | Value |
+| key   | Value |
 | ----- | ----- |
 | HTML  | HTML  |
 | CSS   | CSS   |
 | JS    | JS    |
 | VueJS | VueJS |
 
-2. 더미 데이터 Console 출력
+> `개발자 도구/Application/Local Storage/http://localhost:8080`에 4쌍의 값을 저장한다.
+
+2. 더미 데이터 출력
 
 ```vue
 <template>
   <div>
     <ul>
-      <li></li>
-      <li></li>
       <li></li>
     </ul>
   </div>
@@ -28,11 +28,6 @@
 
 <script>
   export default {
-    data: function() {
-      return {
-        todoItems: []
-      };
-    },
     created: function() {
       if (localStorage.length > 0) {
         for (let i = 0; i < localStorage.length; i++) {
@@ -48,15 +43,127 @@
 >
 > `created`: 인스턴스가 생성되자마자 호출되는 라이프사이클 훅
 
-3. 각 값을 배열에 push
+3. 빈 배열에 값 push
 
 ```vue
 <script>
   export default {
-    data: function() {
-      return {
-        todoItems: []
-      };
+    data: () => ({
+      todoItems: []
+    }),
+    created: function() {
+      if (localStorage.length > 0) {
+        for (let i = 0; i < localStorage.length; i++) {
+          if (localStorage.key(i) !== "loglevel:webpack-dev-server") {
+            this.todoItems.push(localStorage.key(i));
+          }
+        }
+      }
+    }
+  };
+</script>
+```
+
+> `개발자 도구/Vue/<TodoList>`에서 `todoItems: Array[4]` 를 확인할 수 있다.
+
+4. 배열의 값을 list에 뿌려주기
+
+```vue
+<template>
+  <div>
+    <ul>
+      <li
+        v-for="todoItem in todoItems"
+        v-bind:key="todoItem"
+      >
+        {{ todoItem }}
+      </li>
+    </ul>
+  </div>
+</template>
+```
+
+> list에 `HTML`, `CSS`, `JS`, `VueJS`가 각각 뿌려진다.
+
+5. CSS Styling
+
+```vue
+<template>
+  <div>
+    <ul>
+      <li
+        v-for="todoItem in todoItems"
+        v-bind:key="todoItem"
+        class="shadow"
+      >
+        {{ todoItem }}
+        <span class="removeBtn">
+          <i class="fas fa-trash-alt"></i>
+        </span>
+      </li>
+    </ul>
+  </div>
+</template>
+
+<script>
+  ...
+</script>
+
+<style scoped>
+  ul {
+    list-style-type: none;
+    text-align: left;
+    padding-left: 0;
+    margin-top: 0;
+  }
+  
+  li {
+    background: #ffffff;
+    height: 50px;
+    min-height: 50px;
+    line-height: 50px;
+    padding: 0 1rem;
+    margin: 0.5rem 0;
+    border-radius: 5px;
+    display: flex;
+  }
+  
+  .removeBtn {
+    color: #de4343;
+    margin-left: auto;
+  }
+</style>
+```
+
+6. click 이벤트 추가
+
+```vue
+<template>
+  <div>
+    <ul>
+      <li
+        v-for="todoItem in todoItems"
+        v-bind:key="todoItem"
+        class="shadow"
+      >
+        {{ todoItem }}
+        <span class="removeBtn" v-on:click="removeTodo">
+          <i class="fas fa-trash-alt"></i>
+        </span>
+      </li>
+    </ul>
+  </div>
+</template>
+
+<script>
+  export default {
+    data: () => ({
+      todoItems: []
+    }),
+    methods: {
+      removeTodo: function() {
+        console.log("Remove Item");
+      }
     },
     created: function() {
       if (localStorage.length > 0) {
@@ -71,106 +178,19 @@
 </script>
 ```
 
-> `개발자 도구/Vue/<TodoList>`에서 `todoItems: Array[4]`를 확인할 수 있다.
+> 제거 버튼을 클릭하면, Console 탭에 `Remove Item`이 출력된다.
 
-4. 배열의 값을 list로 출력
-
-```vue
-<template>
-  <div>
-    <ul>
-      <li v-for="todoItem in todoItems" v-bind:key="todoItem">
-        {{ todoItem }}
-      </li>
-    </ul>
-  </div>
-</template>
-```
-
-> 화면에 `HTML`, `CSS`, `JS`, `VueJS`가 출력된다.
-
-5. CSS Styling (ul, li)
+7. index 부여
 
 ```vue
 <template>
   <div>
     <ul>
-      <li v-for="todoItem in todoItems" v-bind:key="todoItem" class="shadow">
-        {{ todoItem }}
-      </li>
-    </ul>
-  </div>
-</template>
-
-<script>
-  ...
-</script>
-
-<style scoped>
-  ul {
-    text-align: left;
-    list-style-type: none;
-    padding-left: 0;
-    margin-top: 0;
-  }
-  
-  li {
-    background: #ffffff;
-    min-height: 50px;
-    height: 50px;
-    line-height: 50px;
-    padding: 0 0.9rem;
-    margin: 0.5rem 0;
-    border-radius: 5px;
-  }
-</style>
-```
-
-6. 제거 버튼 추가
-
-```vue
-<template>
-  <div>
-    <ul>
-      <li v-for="todoItem in todoItems" v-bind:key="todoItem" class="shadow">
-        {{ todoItem }}
-        <span class="removeBtn">
-          <i class="fas fa-trash-alt"></i>
-        </span>
-      </li>
-    </ul>
-  </div>
-</template>
-```
-
-7. CSS Styling (removeBtn)
-
-```vue
-<style scoped>
-  ul {
-  	...
-  }
-  
-  li {
-    ...
-    display: flex;
-  }
-  
-  .removeBtn {
-    ...
-    color: #de4343;
-    margin-left: auto;
-  }
-</style>
-```
-
-8. 제거할 item과 index Console 출력
-
-```vue
-<template>
-  <div>
-    <ul>
-      <li v-for="(todoItem in todoItems" v-bind:key="todoItem" class="shadow">
+      <li
+        v-for="(todoItem, index) in todoItems"
+        v-bind:key="todoItem"
+        class="shadow"
+      >
         {{ todoItem }}
         <span class="removeBtn" v-on:click="removeTodo(todoItem, index)">
           <i class="fas fa-trash-alt"></i>
@@ -182,11 +202,9 @@
 
 <script>
   export default {
-    data: function() {
-      return {
-        todoItems: []
-      };
-    },
+    data: () => ({
+      todoItems: []
+    }),
     methods: {
       removeTodo: function(todoItem, index) {
         console.log(todoItem, index);
@@ -205,20 +223,82 @@
 </script>
 ```
 
-> 제거 버튼을 누르면, 해당 item과 index가 Console 탭에 출력된다.
+> 제거 버튼을 클릭하면, 해당 todoItem과 index가 Console 탭에 출력된다.
 
-9. 제거 기능 구현
+8. localStorage의 해당 값 제거
 
 ```vue
+<template>
+  <div>
+    <ul>
+      <li
+        v-for="(todoItem, index) in todoItems"
+        v-bind:key="todoItem"
+        class="shadow"
+      >
+        {{ todoItem }}
+        <span class="removeBtn" v-on:click="removeTodo(todoItem, index)">
+          <i class="fas fa-trash-alt"></i>
+        </span>
+      </li>
+    </ul>
+  </div>
+</template>
+
 <script>
   export default {
-    data: function() {
-      return {
-        todoItems: []
-      };
-    },
+    data: () => ({
+      todoItems: []
+    }),
     methods: {
       removeTodo: function(todoItem, index) {
+        console.log(todoItem, index);
+        localStorage.removeItem(todoItem);
+      }
+    },
+    created: function() {
+      if (localStorage.length > 0) {
+        for (let i = 0; i < localStorage.length; i++) {
+          if (localStorage.key(i) !== "loglevel:webpack-dev-server") {
+            this.todoItems.push(localStorage.key(i));
+          }
+        }
+      }
+    }
+  };
+</script>
+```
+
+> localStorage의 값은 바로 제거되지만, list의 값은 새로고침 후에 제거된다.
+
+9. 새로고침 없이 함께 제거
+
+```vue
+<template>
+  <div>
+    <ul>
+      <li
+        v-for="(todoItem, index) in todoItems"
+        v-bind:key="todoItem"
+        class="shadow"
+      >
+        {{ todoItem }}
+        <span class="removeBtn" v-on:click="removeTodo(todoItem, index)">
+          <i class="fas fa-trash-alt"></i>
+        </span>
+      </li>
+    </ul>
+  </div>
+</template>
+
+<script>
+  export default {
+    data: () => ({
+      todoItems: []
+    }),
+    methods: {
+      removeTodo: function(todoItem, index) {
+        console.log(todoItem, index);
         localStorage.removeItem(todoItem);
         this.todoItems.splice(index, 1);
       }
@@ -236,19 +316,19 @@
 </script>
 ```
 
-> 제거 버튼을 누르면, 해당 item이 제거된다.
->
-> `splice()`: 배열에 item을 추가/제거한 후, 제거된 item을 반환한다.
->
-> `slice()`: 문자열/배열의 일부를 추출하고, 새 문자열/배열로 반환한다.
+> 제거 버튼을 클릭하면, 화면의 값과 localStorage의 값이 함께 제거된다.
 
-10. check 버튼 추가
+10. CSS Styling for checkBtn
 
 ```vue
 <template>
   <div>
     <ul>
-      <li v-for="(todoItem in todoItems" v-bind:key="todoItem" class="shadow">
+      <li
+        v-for="(todoItem, index) in todoItems"
+        v-bind:key="todoItem"
+        class="shadow"
+      >
         <i class="fas fa-check checkBtn"></i>
         {{ todoItem }}
         <span class="removeBtn" v-on:click="removeTodo(todoItem, index)">
@@ -258,11 +338,11 @@
     </ul>
   </div>
 </template>
-```
 
-11. CSS Styling (checkBtn)
+<script>
+  ...
+</script>
 
-```vue
 <style scoped>
   ...
   
@@ -274,13 +354,17 @@
 </style>
 ```
 
-12. click 이벤트 추가
+11. click 이벤트 추가
 
 ```vue
 <template>
   <div>
     <ul>
-      <li v-for="(todoItem in todoItems" v-bind:key="todoItem" class="shadow">
+      <li
+        v-for="(todoItem, index) in todoItems"
+        v-bind:key="todoItem"
+        class="shadow"
+      >
         <i class="fas fa-check checkBtn" v-on:click="toggleComplete"></i>
         {{ todoItem }}
         <span class="removeBtn" v-on:click="removeTodo(todoItem, index)">
@@ -290,21 +374,106 @@
     </ul>
   </div>
 </template>
+
+<script>
+  export default {
+    data: () => ({
+      todoItems: []
+    }),
+    methods: {
+      removeTodo: function(todoItem, index) {
+        console.log(todoItem, index);
+        localStorage.removeItem(todoItem);
+        this.todoItems.splice(index, 1);
+      },
+      toggleComplete: function() {
+        console.log("Check Item");
+      }
+    },
+    created: function() {
+      if (localStorage.length > 0) {
+        for (let i = 0; i < localStorage.length; i++) {
+          if (localStorage.key(i) !== "loglevel:webpack-dev-server") {
+            this.todoItems.push(localStorage.key(i));
+          }
+        }
+      }
+    }
+  };
+</script>
 ```
 
-13. 코드 수정 (todoInput.vue)
+> 체크 버튼을 클릭하면, Check Item이 Console 탭이 출력된다.
+
+<br>
+
+<br>
+
+#### todoInput.vue
+
+1. obj 객체 생성
 
 ```vue
 <script>
   export default {
-    data: function() {
-      return {
-        newTodoItem: ""
-      };
-    },
+    data: () => ({
+      newTodoItem: ""
+    }),
     methods: {
-      addTodo: function() {
-        if (this.newTodoItem !== "") {
+      addTodo() {
+        const obj = {
+          completed: false,
+          item: this.newTodoItem
+        };
+        
+        localStorage.setItem(this.newTodoItem, this.newTodoItem);
+        this.clearInput();
+      },
+      clearInput() {
+        this.newTodoItem = "";
+      }
+    }
+  };
+</script>
+```
+
+2. JSON.stringify
+
+```vue
+<script>
+  export default {
+    data: () => ({
+      newTodoItem: ""
+    }),
+    methods: {
+      addTodo() {
+        const obj = {
+          completed: false,
+          item: this.newTodoItem
+        };
+        
+        localStorage.setItem(this.newTodoItem, JSON.stringify(obj));
+        this.clearInput();
+      },
+      clearInput() {
+        this.newTodoItem = "";
+      }
+    }
+  };
+</script>
+```
+
+3. 조건식 작성
+
+```vue
+<script>
+  export default {
+    data: () => ({
+      newTodoItem: ""
+    }),
+    methods: {
+      addTodo() {
+        if (this.newTodoItem !== '') {
           const obj = {
             completed: false,
             item: this.newTodoItem
@@ -314,7 +483,7 @@
           this.clearInput();
         }
       },
-      clearInput: function() {
+      clearInput() {
         this.newTodoItem = "";
       }
     }
@@ -322,42 +491,36 @@
 </script>
 ```
 
-> 입력을 하고 새로고침을 해야만 화면에 출력된다.
+<br>
 
-14. 코드 수정 (todoList.vue)
+<br>
+
+#### todoList.vue
+
+1. 데이터 가져오기 (parsing)
 
 ```vue
-<template>
-  <div>
-    <ul>
-      <li v-for="{todoItem, index} in todoItems" v-bind:key="todoItem.item" class="shadow">
-        <i class="fas fa-check checkBtn" v-bind:class="{checkBtnCompleted: todoItem.completed}" v-on:click="toggleComplete(todoItem, index)"></i>
-        <span v-bind:class="{textCompleted:todoItem.completed}">{{ todoItem.item }}</span>
-        <span class="removeBtn" v-on:click="removeTodo(todoItem, index)">
-          <i class="fas fa-trash-alt"></i>
-        </span>
-    </ul>
-  </div>
-</template>
-
 <script>
   export default {
-    data: function() {
-      return {
-        todoItems: []
-      };
-    },
+    data: () => ({
+      todoItems: []
+    }),
     methods: {
       removeTodo: function(todoItem, index) {
+        console.log(todoItem, index);
         localStorage.removeItem(todoItem);
         this.todoItems.splice(index, 1);
+      },
+      toggleComplete: function() {
+        console.log("Check Item");
       }
     },
     created: function() {
       if (localStorage.length > 0) {
         for (let i = 0; i < localStorage.length; i++) {
           if (localStorage.key(i) !== "loglevel:webpack-dev-server") {
-            this.todoItems.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
+            console.log(JSON.parse(localStorage.getItem(localStorage.key(i))));
+            
             // this.todoItems.push(localStorage.key(i));
           }
         }
@@ -367,15 +530,86 @@
 </script>
 ```
 
-15. CSS Styling
+> `{completed: false, item: "HTML"}`과 같이, localStorage의 값이  Console 탭에 출력된다.
+
+2. 가져온 값을 배열에 push
 
 ```vue
+<template>
+  <div>
+    <ul>
+      <li
+        v-for="(todoItem, index) in todoItems"
+        v-bind:key="todoItem.item"
+        class="shadow"
+      >
+        <i class="fas fa-check checkBtn" v-on:click="toggleComplete"></i>
+        {{ todoItem.item }}
+        <span class="removeBtn" v-on:click="removeTodo(todoItem, index)">
+          <i class="fas fa-trash-alt"></i>
+        </span>
+      </li>
+    </ul>
+  </div>
+</template>
+
+<script>
+  export default {
+    data: () => ({
+      todoItems: []
+    }),
+    methods: {
+      removeTodo: function(todoItem, index) {
+        console.log(todoItem, index);
+        localStorage.removeItem(todoItem);
+        this.todoItems.splice(index, 1);
+      },
+      toggleComplete: function() {
+        console.log("Check Item");
+      }
+    },
+    created: function() {
+      if (localStorage.length > 0) {
+        for (let i = 0; i < localStorage.length; i++) {
+          if (localStorage.key(i) !== "loglevel:webpack-dev-server") {
+            this.todoItems.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
+          }
+        }
+      }
+    }
+  };
+</script>
+```
+
+> `{{todoItem.item}}`으로 인해 객체의 모양이 아닌 `HTML`, `CSS`, `JS`, `VueJS`만 출력된다.
+
+3. CSS Styling
+
+```vue
+<template>
+  <div>
+    <ul>
+      <li
+        v-for="(todoItem, index) in todoItems"
+        v-bind:key="todoItem.item"
+        class="shadow"
+      >
+        <i class="fas fa-check checkBtn" v-on:click="toggleComplete"></i>
+        <span class="textCompleted">{{ todoItem.item }}</span>
+        <span class="removeBtn" v-on:click="removeTodo(todoItem, index)">
+          <i class="fas fa-trash-alt"></i>
+        </span>
+      </li>
+    </ul>
+  </div>
+</template>
+
+<script>
+  ...
+</script>
+
 <style scoped>
   ...
-  
-  .checkBtnCompleted {
-    color: #b3adad;
-  }
   
   .textCompleted {
     color: #b3adad;
@@ -384,22 +618,137 @@
 </style>
 ```
 
-16. toggle 기능 추가
+> 각 list에 stripe line이 적용된다.
+
+4. class 바인딩
+
+```vue
+<template>
+  <div>
+    <ul>
+      <li
+        v-for="(todoItem, index) in todoItems"
+        v-bind:key="todoItem.item"
+        class="shadow"
+      >
+        <i class="fas fa-check checkBtn" v-on:click="toggleComplete"></i>
+        <span v-bind:class="{textCompleted: todoItem.completed}">{{ todoItem.item }}</span>
+        <span class="removeBtn" v-on:click="removeTodo(todoItem, index)">
+          <i class="fas fa-trash-alt"></i>
+        </span>
+      </li>
+    </ul>
+  </div>
+</template>
+```
+
+> `completed`가 true라면, stripe line이 보여진다.
+
+5. class 바인딩
+
+```vue
+<template>
+  <div>
+    <ul>
+      <li
+        v-for="(todoItem, index) in todoItems"
+        v-bind:key="todoItem.item"
+        class="shadow"
+      >
+        <i class="fas fa-check checkBtn" v-bind:class="{checkBtnCompleted: todoItem.completed}" v-on:click="toggleComplete(todoItem, index)"></i>
+        <span v-bind:class="{textCompleted: todoItem.completed}">{{ todoItem.item }}</span>
+        <span class="removeBtn" v-on:click="removeTodo(todoItem, index)">
+          <i class="fas fa-trash-alt"></i>
+        </span>
+      </li>
+    </ul>
+  </div>
+</template>
+
+<script>
+  export default {
+    data: () => ({
+      todoItems: []
+    }),
+    methods: {
+      removeTodo: function(todoItem, index) {
+        console.log(todoItem, index);
+        localStorage.removeItem(todoItem);
+        this.todoItems.splice(index, 1);
+      },
+      toggleComplete: function(todoItem, index) {
+        console.log(todoItem);
+      }
+    },
+    created: function() {
+      if (localStorage.length > 0) {
+        for (let i = 0; i < localStorage.length; i++) {
+          if (localStorage.key(i) !== "loglevel:webpack-dev-server") {
+            this.todoItems.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
+          }
+        }
+      }
+    }
+  };
+</script>
+```
+
+6. CSS Styling
+
+```vue
+<style scoped>
+  .checkBtnCompleted {
+    color: #b3adad;
+  }
+</style>
+```
+
+7. toggle 구현
 
 ```vue
 <script>
   export default {
-    data: function() {
-      return {
-        todoItems: []
-      };
-    },
+    data: () => ({
+      todoItems: []
+    }),
     methods: {
       removeTodo: function(todoItem, index) {
+        console.log(todoItem, index);
         localStorage.removeItem(todoItem);
         this.todoItems.splice(index, 1);
       },
-      toggleComplete: function(togoItem, index) {
+      toggleComplete: function(todoItem, index) {
+        todoItem.completed = !todoItem.completed;
+      }
+    },
+    created: function() {
+      if (localStorage.length > 0) {
+        for (let i = 0; i < localStorage.length; i++) {
+          if (localStorage.key(i) !== "loglevel:webpack-dev-server") {
+            this.todoItems.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
+          }
+        }
+      }
+    }
+  };
+</script>
+```
+
+8. localStorage 업데이트
+
+```vue
+<script>
+  export default {
+    data: () => ({
+      todoItems: []
+    }),
+    methods: {
+      removeTodo: function(todoItem, index) {
+        console.log(todoItem, index);
+        localStorage.removeItem(todoItem);
+        this.todoItems.splice(index, 1);
+      },
+      toggleComplete: function(todoItem, index) {
         todoItem.completed = !todoItem.completed;
         localStorage.removeItem(todoItem.item);
         localStorage.setItem(todoItem.item, JSON.stringify(todoItem));
@@ -410,7 +759,6 @@
         for (let i = 0; i < localStorage.length; i++) {
           if (localStorage.key(i) !== "loglevel:webpack-dev-server") {
             this.todoItems.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
-            // this.todoItems.push(localStorage.key(i));
           }
         }
       }
@@ -419,8 +767,9 @@
 </script>
 ```
 
-> check를 클릭하면, 가로줄이 나타난다.
+> 토글 기능이 정상 작동하고, 새로고침 후에도 변하지 않는다.
 
 <br>
 
 <br>
+
