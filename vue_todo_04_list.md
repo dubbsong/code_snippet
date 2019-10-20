@@ -97,7 +97,7 @@
         class="shadow"
       >
         {{ todoItem }}
-        <span class="removeBtn">
+        <span class="remove_btn">
           <i class="fas fa-trash-alt"></i>
         </span>
       </li>
@@ -118,18 +118,18 @@
   }
   
   li {
-    background: #ffffff;
+    background-color: #ffffff;
     height: 50px;
     min-height: 50px;
     line-height: 50px;
-    padding: 0 1rem;
-    margin: 0.5rem 0;
+    padding: 0 16px;
+    margin: 8px 0;
     border-radius: 5px;
     display: flex;
   }
   
   .removeBtn {
-    color: #de4343;
+    color: #e85a71;
     margin-left: auto;
   }
 </style>
@@ -147,7 +147,7 @@
         class="shadow"
       >
         {{ todoItem }}
-        <span class="removeBtn" v-on:click="removeTodo">
+        <span class="remove_btn" v-on:click="removeTodo">
           <i class="fas fa-trash-alt"></i>
         </span>
       </li>
@@ -192,7 +192,7 @@
         class="shadow"
       >
         {{ todoItem }}
-        <span class="removeBtn" v-on:click="removeTodo(todoItem, index)">
+        <span class="remove_btn" v-on:click="removeTodo(todoItem, index)">
           <i class="fas fa-trash-alt"></i>
         </span>
       </li>
@@ -237,7 +237,7 @@
         class="shadow"
       >
         {{ todoItem }}
-        <span class="removeBtn" v-on:click="removeTodo(todoItem, index)">
+        <span class="remove_btn" v-on:click="removeTodo(todoItem, index)">
           <i class="fas fa-trash-alt"></i>
         </span>
       </li>
@@ -252,53 +252,7 @@
     }),
     methods: {
       removeTodo: function(todoItem, index) {
-        console.log(todoItem, index);
-        localStorage.removeItem(todoItem);
-      }
-    },
-    created: function() {
-      if (localStorage.length > 0) {
-        for (let i = 0; i < localStorage.length; i++) {
-          if (localStorage.key(i) !== "loglevel:webpack-dev-server") {
-            this.todoItems.push(localStorage.key(i));
-          }
-        }
-      }
-    }
-  };
-</script>
-```
-
-> localStorage의 값은 바로 제거되지만, list의 값은 새로고침 후에 제거된다.
-
-9. 새로고침 없이 함께 제거
-
-```vue
-<template>
-  <div>
-    <ul>
-      <li
-        v-for="(todoItem, index) in todoItems"
-        v-bind:key="todoItem"
-        class="shadow"
-      >
-        {{ todoItem }}
-        <span class="removeBtn" v-on:click="removeTodo(todoItem, index)">
-          <i class="fas fa-trash-alt"></i>
-        </span>
-      </li>
-    </ul>
-  </div>
-</template>
-
-<script>
-  export default {
-    data: () => ({
-      todoItems: []
-    }),
-    methods: {
-      removeTodo: function(todoItem, index) {
-        console.log(todoItem, index);
+        // console.log(todoItem, index);
         localStorage.removeItem(todoItem);
         this.todoItems.splice(index, 1);
       }
@@ -316,9 +270,7 @@
 </script>
 ```
 
-> 제거 버튼을 클릭하면, 화면의 값과 localStorage의 값이 함께 제거된다.
-
-10. CSS Styling for checkBtn
+9. CSS Styling for checkBtn
 
 ```vue
 <template>
@@ -329,9 +281,9 @@
         v-bind:key="todoItem"
         class="shadow"
       >
-        <i class="fas fa-check checkBtn"></i>
+        <i class="fas fa-check check_btn"></i>
         {{ todoItem }}
-        <span class="removeBtn" v-on:click="removeTodo(todoItem, index)">
+        <span class="remove_btn" v-on:click="removeTodo(todoItem, index)">
           <i class="fas fa-trash-alt"></i>
         </span>
       </li>
@@ -347,14 +299,14 @@
   ...
   
   .checkBtn {
-    color: #62acde;
+    color: #4ea1d3;
     line-height: 45px;
     margin-right: 5px;
   }
 </style>
 ```
 
-11. click 이벤트 추가
+10. click 이벤트 추가
 
 ```vue
 <template>
@@ -365,9 +317,9 @@
         v-bind:key="todoItem"
         class="shadow"
       >
-        <i class="fas fa-check checkBtn" v-on:click="toggleComplete"></i>
+        <i class="fas fa-check check_btn" v-on:click="toggleComplete"></i>
         {{ todoItem }}
-        <span class="removeBtn" v-on:click="removeTodo(todoItem, index)">
+        <span class="remove_btn" v-on:click="removeTodo(todoItem, index)">
           <i class="fas fa-trash-alt"></i>
         </span>
       </li>
@@ -382,7 +334,7 @@
     }),
     methods: {
       removeTodo: function(todoItem, index) {
-        console.log(todoItem, index);
+        // console.log(todoItem, index);
         localStorage.removeItem(todoItem);
         this.todoItems.splice(index, 1);
       },
@@ -403,7 +355,7 @@
 </script>
 ```
 
-> 체크 버튼을 클릭하면, Check Item이 Console 탭이 출력된다.
+> 체크 버튼을 클릭하면, Check Item이 Console 탭에 출력된다.
 
 <br>
 
@@ -473,7 +425,7 @@
     }),
     methods: {
       addTodo() {
-        if (this.newTodoItem !== '') {
+        if (this.newTodoItem !== "") {
           const obj = {
             completed: false,
             item: this.newTodoItem
@@ -498,6 +450,7 @@
 #### todoList.vue
 
 1. 데이터 가져오기 (parsing)
+   - **기존의 localStorage 데이터를 모두 제거하고, 새로 입력한다.**
 
 ```vue
 <script>
@@ -507,7 +460,6 @@
     }),
     methods: {
       removeTodo: function(todoItem, index) {
-        console.log(todoItem, index);
         localStorage.removeItem(todoItem);
         this.todoItems.splice(index, 1);
       },
@@ -519,9 +471,8 @@
       if (localStorage.length > 0) {
         for (let i = 0; i < localStorage.length; i++) {
           if (localStorage.key(i) !== "loglevel:webpack-dev-server") {
-            console.log(JSON.parse(localStorage.getItem(localStorage.key(i))));
-            
             // this.todoItems.push(localStorage.key(i));
+            console.log(JSON.parse(localStorage.getItem(localStorage.key(i))));
           }
         }
       }
@@ -543,9 +494,9 @@
         v-bind:key="todoItem.item"
         class="shadow"
       >
-        <i class="fas fa-check checkBtn" v-on:click="toggleComplete"></i>
+        <i class="fas fa-check check_btn" v-on:click="toggleComplete"></i>
         {{ todoItem.item }}
-        <span class="removeBtn" v-on:click="removeTodo(todoItem, index)">
+        <span class="remove_btn" v-on:click="removeTodo(todoItem, index)">
           <i class="fas fa-trash-alt"></i>
         </span>
       </li>
@@ -560,7 +511,6 @@
     }),
     methods: {
       removeTodo: function(todoItem, index) {
-        console.log(todoItem, index);
         localStorage.removeItem(todoItem);
         this.todoItems.splice(index, 1);
       },
@@ -572,6 +522,8 @@
       if (localStorage.length > 0) {
         for (let i = 0; i < localStorage.length; i++) {
           if (localStorage.key(i) !== "loglevel:webpack-dev-server") {
+            // this.todoItems.push(localStorage.key(i));
+            // console.log(JSON.parse(localStorage.getItem(localStorage.key(i))));
             this.todoItems.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
           }
         }
@@ -594,9 +546,9 @@
         v-bind:key="todoItem.item"
         class="shadow"
       >
-        <i class="fas fa-check checkBtn" v-on:click="toggleComplete"></i>
-        <span class="textCompleted">{{ todoItem.item }}</span>
-        <span class="removeBtn" v-on:click="removeTodo(todoItem, index)">
+        <i class="fas fa-check check_btn" v-on:click="toggleComplete"></i>
+        <span class="text_completed">{{ todoItem.item }}</span>
+        <span class="remove_btn" v-on:click="removeTodo(todoItem, index)">
           <i class="fas fa-trash-alt"></i>
         </span>
       </li>
@@ -611,7 +563,7 @@
 <style scoped>
   ...
   
-  .textCompleted {
+  .text_completed {
     color: #b3adad;
     text-decoration: line-through;
   }
@@ -631,9 +583,9 @@
         v-bind:key="todoItem.item"
         class="shadow"
       >
-        <i class="fas fa-check checkBtn" v-on:click="toggleComplete"></i>
-        <span v-bind:class="{textCompleted: todoItem.completed}">{{ todoItem.item }}</span>
-        <span class="removeBtn" v-on:click="removeTodo(todoItem, index)">
+        <i class="fas fa-check check_btn" v-on:click="toggleComplete"></i>
+        <span v-bind:class="{text_completed: todoItem.completed}">{{ todoItem.item }}</span>
+        <span class="remove_btn" v-on:click="removeTodo(todoItem, index)">
           <i class="fas fa-trash-alt"></i>
         </span>
       </li>
@@ -655,9 +607,9 @@
         v-bind:key="todoItem.item"
         class="shadow"
       >
-        <i class="fas fa-check checkBtn" v-bind:class="{checkBtnCompleted: todoItem.completed}" v-on:click="toggleComplete(todoItem, index)"></i>
-        <span v-bind:class="{textCompleted: todoItem.completed}">{{ todoItem.item }}</span>
-        <span class="removeBtn" v-on:click="removeTodo(todoItem, index)">
+        <i class="fas fa-check check_btn" v-on:click="toggleComplete(todoItem, index)" v-bind:class="{check_btn_completed: todoItem.completed}"></i>
+        <span v-bind:class="{text_completed: todoItem.completed}">{{ todoItem.item }}</span>
+        <span class="remove_btn" v-on:click="removeTodo(todoItem, index)">
           <i class="fas fa-trash-alt"></i>
         </span>
       </li>
@@ -672,7 +624,6 @@
     }),
     methods: {
       removeTodo: function(todoItem, index) {
-        console.log(todoItem, index);
         localStorage.removeItem(todoItem);
         this.todoItems.splice(index, 1);
       },
@@ -697,7 +648,7 @@
 
 ```vue
 <style scoped>
-  .checkBtnCompleted {
+  .check_btn_completed {
     color: #b3adad;
   }
 </style>
@@ -744,7 +695,6 @@
     }),
     methods: {
       removeTodo: function(todoItem, index) {
-        console.log(todoItem, index);
         localStorage.removeItem(todoItem);
         this.todoItems.splice(index, 1);
       },
