@@ -215,6 +215,18 @@ $ touch TodoFooter.vue
 </style>
 ```
 
+> Colors:
+>
+> `#d8e9ef` (연한 파란색)
+>
+> `#454552` (검은색)
+>
+> `#e85a71` (빨간색)
+>
+> `#4ea1d3` (파란색)
+>
+> `#ffffff` (흰색)
+
 <br>
 
 <br>
