@@ -128,8 +128,8 @@
 <template>
   <div class="input_box shadow">
     <input type="text" v-model="newTodoItem" v-on:keyup.enter="addTodo" />
-    <span class="addContainer" v-on:click="addTodo">
-      <i class="fas fa-plus addBtn"></i>
+    <span class="add_container" v-on:click="addTodo">
+      <i class="fas fa-plus add_btn"></i>
     </span>
   </div>
 </template>
@@ -147,16 +147,14 @@
   }
   
   .input_box input {
-    font-size: 1rem;
-    border-style: none;
+    font-size: 16px;
   }
   
   .add_container {
-    background: linear-gradient(to right, #6478fb, #8763fb);
+    background-color: #4ea1d3;
     float: right;
-    width: 3rem;
+    width: 48px;
     border-radius: 0 5px 5px 0;
-    display: block;
     cursor: pointer;
   }
   
@@ -175,10 +173,10 @@
 
 ```vue
 <template>
-  <div class="inputBox shadow">
+  <div class="input_box shadow">
     <input type="text" v-model="newTodoItem" v-on:keyup.enter="addTodo" />
-    <span class="addContainer" v-on:click="addTodo">
-      <i class="fas fa-plus addBtn"></i>
+    <span class="add_container" v-on:click="addTodo">
+      <i class="fas fa-plus add_btn"></i>
     </span>
   </div>
 </template>
@@ -190,6 +188,7 @@
     }),
     methods: {
       addTodo() {
+        // console.log(this.newTodoItem);
         localStorage.setItem(this.newTodoItem, this.newTodoItem);
         this.clearInput();
       },
@@ -201,32 +200,26 @@
 </script>
 
 <style scoped>
-  input:focus {
-    outline: none;
-  }
-  
-  .inputBox {
+  .input_box {
     background-color: #ffffff;
     height: 50px;
     line-height: 50px;
     border-radius: 5px;
   }
   
-  .inputBox input {
-    font-size: 1rem;
-    border-style: none;
+  .input_box input {
+    font-size: 16px;
   }
   
-  .addContainer {
-    background: linear-gradient(to right, #6478fb, #8763fb);
+  .add_container {
+    background-color: #4ea1d3;
     float: right;
-    width: 3rem;
+    width: 48px;
     border-radius: 0 5px 5px 0;
-    display: block;
     cursor: pointer;
   }
   
-  .addBtn {
+  .add_btn {
     color: #ffffff;
     vertical-align: middle;
   }

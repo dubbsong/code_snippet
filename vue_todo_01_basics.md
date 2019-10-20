@@ -196,17 +196,17 @@ $ touch TodoFooter.vue
 ```vue
 <style>
   body {
-    background-color: #f6f6f6;
+    background-color: #d8e9ef;
+    color: #454552;
     text-align: center;
   }
   
   input {
-    border-style: groove;
     width: 200px;
   }
   
-  button {
-    border-style: groove;
+  :focus {
+    outline: none;
   }
   
   .shadow {
