@@ -43,7 +43,20 @@
 >
 > input에 입력을 하고 `add` 버튼을 누르면, `개발자 도구/Console`에 입력 값이 표시된다.
 
-3. 입력 값 저장
+3. keyup\.enter 이벤트 추가
+
+```vue
+<template>
+  <div>
+    <input type="text" v-model="newTodoItem" v-on:keyup.enter="addTodo" />
+    <button v-on:click="addTodo">add</button>
+  </div>
+</template>
+```
+
+> input에 입력을 하고 `Enter`를 누르면, `개발자 도구/Console`에 입력 값이 표시된다.
+
+4. 입력 값 저장
 
 ```vue
 <script>
@@ -64,7 +77,7 @@
 >
 > `localStorage.setItem('key', 'value');`: 값을 `key:value`의 형식으로 localStorage에 저장한다.
 
-4. input 초기화
+5. input 초기화
 
 ```vue
 <script>
@@ -84,7 +97,7 @@
 
 > input에 입력을 하고 `add` 버튼을 누르면, 값이 저장되고 input이 초기화된다.
 
-5. 코드 분할
+6. 코드 분할
 
 ```vue
 <script>
@@ -109,24 +122,11 @@
 >
 > `this`를 사용해서 `data`와 `methods`에 접근할 수 있다.
 
-6. keyup\.enter 이벤트 추가
-
-```vue
-<template>
-  <div>
-    <input type="text" v-model="newTodoItem" v-on:keyup.enter="addTodo" />
-    <button v-on:click="addTodo">add</button>
-  </div>
-</template>
-```
-
-> input에 입력을 하고 `Enter`를 누르면, 값이 저장되고 input이 초기화된다.
-
 7. CSS Styling
 
 ```vue
 <template>
-  <div class="inputBox shadow">
+  <div class="input_box shadow">
     <input type="text" v-model="newTodoItem" v-on:keyup.enter="addTodo" />
     <span class="addContainer" v-on:click="addTodo">
       <i class="fas fa-plus addBtn"></i>
@@ -139,23 +139,19 @@
 </script>
 
 <style scoped>
-  input:focus {
-    outline: none;
-  }
-  
-  .inputBox {
+  .input_box {
     background-color: #ffffff;
     height: 50px;
     line-height: 50px;
     border-radius: 5px;
   }
   
-  .inputBox input {
+  .input_box input {
     font-size: 1rem;
     border-style: none;
   }
   
-  .addContainer {
+  .add_container {
     background: linear-gradient(to right, #6478fb, #8763fb);
     float: right;
     width: 3rem;
@@ -164,7 +160,7 @@
     cursor: pointer;
   }
   
-  .addBtn {
+  .add_btn {
     color: #ffffff;
     vertical-align: middle;
   }
