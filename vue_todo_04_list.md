@@ -161,7 +161,7 @@
       todoItems: []
     }),
     methods: {
-      removeTodo: function() {
+      removeTodo() {
         console.log("Remove Item");
       }
     },
@@ -206,7 +206,7 @@
       todoItems: []
     }),
     methods: {
-      removeTodo: function(todoItem, index) {
+      removeTodo(todoItem, index) {
         console.log(todoItem, index);
       }
     },
@@ -270,7 +270,7 @@
 </script>
 ```
 
-9. CSS Styling for checkBtn
+9. check_btn 추가 및 styling
 
 ```vue
 <template>
@@ -298,7 +298,7 @@
 <style scoped>
   ...
   
-  .checkBtn {
+  .check_btn {
     color: #4ea1d3;
     line-height: 45px;
     margin-right: 5px;
@@ -333,12 +333,11 @@
       todoItems: []
     }),
     methods: {
-      removeTodo: function(todoItem, index) {
-        // console.log(todoItem, index);
+      removeTodo(todoItem, index) {
         localStorage.removeItem(todoItem);
         this.todoItems.splice(index, 1);
       },
-      toggleComplete: function() {
+      toggleComplete() {
         console.log("Check Item");
       }
     },
@@ -459,11 +458,11 @@
       todoItems: []
     }),
     methods: {
-      removeTodo: function(todoItem, index) {
+      removeTodo(todoItem, index) {
         localStorage.removeItem(todoItem);
         this.todoItems.splice(index, 1);
       },
-      toggleComplete: function() {
+      toggleComplete() {
         console.log("Check Item");
       }
     },

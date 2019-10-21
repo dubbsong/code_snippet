@@ -18,15 +18,15 @@
 
 ```vue
 <template>
-  <div class="clearAllContainer">
-    <span class="clearAllBtn">Clear All</span>
+  <div class="clear_all_container">
+    <span class="clear_all_btn">Clear All</span>
   </div>
 </template>
 
 <style scoded>
-  .clearAllContainer {
+  .clear_all_container {
     background-color: #ffffff;
-    width: 8.5rem;
+    width: 120px;
     height: 50px;
     min-height: 50px;
     line-height: 50px;
@@ -34,9 +34,8 @@
     margin: 0 auto;
   }
   
-  .clearAllBtn {
-    color: #e20303;
-    display: block;
+  .clear_all_btn {
+    color: #e85a71;
     cursor: pointer;
   }
 </style>
@@ -46,8 +45,8 @@
 
 ```vue
 <template>
-  <div class="clearAllContainer">
-    <span class="clearAllBtn" v-on:click="clearAll">Clear All</span>
+  <div class="clear_all_container">
+    <span class="clear_all_btn" v-on:click="clearAll">Clear All</span>
   </div>
 </template>
 ```
@@ -58,7 +57,7 @@
 <script>
   export default {
     methods: {
-      clearAll: function() {
+      clearAll() {
         localStorage.clear();
       }
     }
