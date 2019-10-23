@@ -204,6 +204,10 @@
 </script>
 
 <style scoped>
+  input {
+    width: 200px;
+  }
+  
   .input_box {
     background-color: #ffffff;
     height: 50px;

@@ -58,7 +58,7 @@ $ yarn serve
   
   <head>
     ...
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,500,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.1/css/all.css">
     <title>VueJS TODO</title>
   </head>
@@ -199,10 +199,6 @@ $ touch TodoFooter.vue
     background-color: #d8e9ef;
     color: #454552;
     text-align: center;
-  }
-  
-  input {
-    width: 200px;
   }
   
   :focus {
