@@ -128,7 +128,7 @@
     display: flex;
   }
   
-  .removeBtn {
+  .remove_btn {
     color: #e85a71;
     margin-left: auto;
   }
@@ -269,6 +269,14 @@
   };
 </script>
 ```
+
+<br>
+
+<br>
+
+<br>
+
+<br>
 
 9. check_btn 추가 및 styling
 

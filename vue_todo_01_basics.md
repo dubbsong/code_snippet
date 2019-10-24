@@ -198,6 +198,7 @@ $ touch TodoFooter.vue
   body {
     background-color: #d8e9ef;
     color: #454552;
+    font-family: 'Ubuntu', sans-serif;
     text-align: center;
   }
   
@@ -206,7 +207,7 @@ $ touch TodoFooter.vue
   }
   
   .shadow {
-    box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.03);
+    box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.04);
   }
 </style>
 ```

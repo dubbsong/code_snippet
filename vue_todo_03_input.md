@@ -39,11 +39,21 @@
 </script>
 ```
 
+```json
+// package.json
+
+"rules": {
+  "no-console": "off"
+}
+
+// 다시 실행
+```
+
 > input에 입력을 하면, `개발자 도구/Vue`에서 입력에 따라 변화하는 것을 확인할 수 있다.
 >
 > input에 입력을 하고 `add` 버튼을 누르면, `개발자 도구/Console`에 입력 값이 표시된다.
 >
-> package.json / rules / `"no-console": "off"` 추가 후 재실행
+> package.json / rules / `"no-console": "off"` 추가 후 다시 실행
 
 3. keyup\.enter 이벤트 추가
 

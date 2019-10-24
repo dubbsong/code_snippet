@@ -11,7 +11,7 @@
 
 <style scoped>
   h1 {
-    font-weight: 900;
+    font-weight: 700;
     margin: 40px 0 24px;
   }
 </style>
