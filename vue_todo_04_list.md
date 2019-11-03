@@ -49,13 +49,13 @@
 <script>
   export default {
     data: () => ({
-      todoItems: []
+      todos: []
     }),
     created: function() {
       if (localStorage.length > 0) {
         for (let i = 0; i < localStorage.length; i++) {
           if (localStorage.key(i) !== "loglevel:webpack-dev-server") {
-            this.todoItems.push(localStorage.key(i));
+            this.todos.push(localStorage.key(i));
           }
         }
       }
@@ -64,7 +64,7 @@
 </script>
 ```
 
-> `개발자 도구/Vue/<TodoList>`에서 `todoItems: Array[4]` 를 확인할 수 있다.
+> `개발자 도구/Vue/<TodoList>`에서 `todos: Array[4]` 를 확인할 수 있다.
 
 4. 배열의 값을 list에 뿌려주기
 
@@ -73,10 +73,10 @@
   <div>
     <ul>
       <li
-        v-for="todoItem in todoItems"
-        v-bind:key="todoItem"
+        v-for="todo in todos"
+        v-bind:key="todo"
       >
-        {{ todoItem }}
+        {{ todo }}
       </li>
     </ul>
   </div>
@@ -92,12 +92,12 @@
   <div>
     <ul>
       <li
-        v-for="todoItem in todoItems"
-        v-bind:key="todoItem"
+        v-for="todo in todo"
+        v-bind:key="todo"
         class="shadow"
       >
-        {{ todoItem }}
-        <span class="remove_btn">
+        {{ todo }}
+        <span class="remove-btn">
           <i class="fas fa-trash-alt"></i>
         </span>
       </li>
@@ -128,7 +128,7 @@
     display: flex;
   }
   
-  .remove_btn {
+  .remove-btn {
     color: #e85a71;
     margin-left: auto;
   }
@@ -142,12 +142,12 @@
   <div>
     <ul>
       <li
-        v-for="todoItem in todoItems"
-        v-bind:key="todoItem"
+        v-for="todo in todos"
+        v-bind:key="todo"
         class="shadow"
       >
-        {{ todoItem }}
-        <span class="remove_btn" v-on:click="removeTodo">
+        {{ todo }}
+        <span class="remove-btn" v-on:click="removeTodo">
           <i class="fas fa-trash-alt"></i>
         </span>
       </li>
@@ -158,18 +158,18 @@
 <script>
   export default {
     data: () => ({
-      todoItems: []
+      todos: []
     }),
     methods: {
       removeTodo() {
-        console.log("Remove Item");
+        console.log("Remove Todo");
       }
     },
     created: function() {
       if (localStorage.length > 0) {
         for (let i = 0; i < localStorage.length; i++) {
           if (localStorage.key(i) !== "loglevel:webpack-dev-server") {
-            this.todoItems.push(localStorage.key(i));
+            this.todos.push(localStorage.key(i));
           }
         }
       }
@@ -178,7 +178,7 @@
 </script>
 ```
 
-> 제거 버튼을 클릭하면, Console 탭에 `Remove Item`이 출력된다.
+> 제거 버튼을 클릭하면, Console 탭에 `Remove Todo`가 출력된다.
 
 7. index 부여
 
@@ -187,12 +187,12 @@
   <div>
     <ul>
       <li
-        v-for="(todoItem, index) in todoItems"
-        v-bind:key="todoItem"
+        v-for="(todo, index) in todos"
+        v-bind:key="todo"
         class="shadow"
       >
-        {{ todoItem }}
-        <span class="remove_btn" v-on:click="removeTodo(todoItem, index)">
+        {{ todo }}
+        <span class="remove-btn" v-on:click="removeTodo(todo, index)">
           <i class="fas fa-trash-alt"></i>
         </span>
       </li>
@@ -203,18 +203,18 @@
 <script>
   export default {
     data: () => ({
-      todoItems: []
+      todos: []
     }),
     methods: {
-      removeTodo(todoItem, index) {
-        console.log(todoItem, index);
+      removeTodo(todo, index) {
+        console.log(todo, index);
       }
     },
     created: function() {
       if (localStorage.length > 0) {
         for (let i = 0; i < localStorage.length; i++) {
           if (localStorage.key(i) !== "loglevel:webpack-dev-server") {
-            this.todoItems.push(localStorage.key(i));
+            this.todos.push(localStorage.key(i));
           }
         }
       }
@@ -223,7 +223,7 @@
 </script>
 ```
 
-> 제거 버튼을 클릭하면, 해당 todoItem과 index가 Console 탭에 출력된다.
+> 제거 버튼을 클릭하면, 해당 todo와 index가 Console 탭에 출력된다.
 
 8. localStorage의 해당 값 제거
 
