@@ -19,7 +19,7 @@
 
 ```bash
 $ cd Desktop
-$ vue create vue_todo
+$ vue create vue-todo
 ```
 
 > `> default (babel, eslint)`를 선택한다.
@@ -29,7 +29,7 @@ $ vue create vue_todo
 #### VSCode 실행
 
 ```bash
-$ cd vue_todo
+$ cd vue-todo
 $ code .
 ```
 
