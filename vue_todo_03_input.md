@@ -20,7 +20,7 @@
 ```vue
 <template>
   <div>
-    <input type="text" v-model="newTodoItem" />
+    <input type="text" v-model="newTodo" />
     <button v-on:click="addTodo">add</button>
   </div>
 </template>
@@ -28,11 +28,11 @@
 <script>
   export default {
     data: () => ({
-      newTodoItem: ""
+      newTodo: ""
     }),
     methods: {
       addTodo() {
-        console.log(this.newTodoItem);
+        console.log(this.newTodo);
       }
     }
   };
@@ -60,7 +60,7 @@
 ```vue
 <template>
   <div>
-    <input type="text" v-model="newTodoItem" v-on:keyup.enter="addTodo" />
+    <input type="text" v-model="newTodo" v-on:keyup.enter="addTodo" />
     <button v-on:click="addTodo">add</button>
   </div>
 </template>
@@ -74,12 +74,11 @@
 <script>
   export default {
     data: () => ({
-      newTodoItem: ""
+      newTodo: ""
     }),
     methods: {
       addTodo() {
-        // console.log(this.newTodoItem);
-        localStorage.setItem(this.newTodoItem, this.newTodoItem);
+        localStorage.setItem(this.newTodo, this.newTodo);
       }
     }
   };
@@ -96,12 +95,12 @@
 <script>
   export default {
     data: () => ({
-      newTodoItem: ""
+      newTodo: ""
     }),
     methods: {
       addTodo() {
-        localStorage.setItem(this.newTodoItem, this.newTodoItem);
-        this.newTodoItem = "";
+        localStorage.setItem(this.newTodo, this.newTodo);
+        this.newTodo = "";
       }
     }
   };
@@ -116,15 +115,15 @@
 <script>
   export default {
     data: () => ({
-      newTodoItem: ""
+      newTodo: ""
     }),
     methods: {
       addTodo() {
-        localStorage.setItem(this.newTodoItem, this.newTodoItem);
+        localStorage.setItem(this.newTodo, this.newTodo);
         this.clearInput();
       },
       clearInput() {
-        this.newTodoItem = "";
+        this.newTodo = "";
       }
     }
   };
@@ -140,7 +139,7 @@
 ```vue
 <template>
   <div class="input-box shadow">
-    <input type="text" v-model="newTodoItem" v-on:keyup.enter="addTodo" />
+    <input type="text" v-model="newTodo" v-on:keyup.enter="addTodo" />
     <span class="add-container" v-on:click="addTodo">
       <i class="fas fa-plus add-btn"></i>
     </span>
