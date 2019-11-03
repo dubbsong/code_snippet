@@ -139,10 +139,10 @@
 
 ```vue
 <template>
-  <div class="input_box shadow">
+  <div class="input-box shadow">
     <input type="text" v-model="newTodoItem" v-on:keyup.enter="addTodo" />
-    <span class="add_container" v-on:click="addTodo">
-      <i class="fas fa-plus add_btn"></i>
+    <span class="add-container" v-on:click="addTodo">
+      <i class="fas fa-plus add-btn"></i>
     </span>
   </div>
 </template>
@@ -152,19 +152,19 @@
 </script>
 
 <style scoped>
-  .input_box {
+  .input-box {
     background-color: #ffffff;
     height: 50px;
     line-height: 50px;
     border-radius: 5px;
   }
   
-  .input_box input {
+  .input-box input {
     font-size: 16px;
     border-style: none;
   }
   
-  .add_container {
+  .add-container {
     background-color: #4ea1d3;
     float: right;
     width: 48px;
@@ -172,72 +172,7 @@
     cursor: pointer;
   }
   
-  .add_btn {
-    color: #ffffff;
-    vertical-align: middle;
-  }
-</style>
-```
-
-<br>
-
-<br>
-
-#### Result
-
-```vue
-<template>
-  <div class="input_box shadow">
-    <input type="text" v-model="newTodoItem" v-on:keyup.enter="addTodo" />
-    <span class="add_container" v-on:click="addTodo">
-      <i class="fas fa-plus add_btn"></i>
-    </span>
-  </div>
-</template>
-
-<script>
-  export default {
-    data: () => ({
-      newTodoItem: ""
-    }),
-    methods: {
-      addTodo() {
-        // console.log(this.newTodoItem);
-        localStorage.setItem(this.newTodoItem, this.newTodoItem);
-        this.clearInput();
-      },
-      clearInput() {
-        this.newTodoItem = "";
-      }
-    }
-  };
-</script>
-
-<style scoped>
-  input {
-    width: 200px;
-  }
-  
-  .input_box {
-    background-color: #ffffff;
-    height: 50px;
-    line-height: 50px;
-    border-radius: 5px;
-  }
-  
-  .input_box input {
-    font-size: 16px;
-  }
-  
-  .add_container {
-    background-color: #4ea1d3;
-    float: right;
-    width: 48px;
-    border-radius: 0 5px 5px 0;
-    cursor: pointer;
-  }
-  
-  .add_btn {
+  .add-btn {
     color: #ffffff;
     vertical-align: middle;
   }
