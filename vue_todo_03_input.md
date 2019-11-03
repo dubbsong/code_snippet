@@ -168,7 +168,6 @@
     float: right;
     width: 48px;
     border-radius: 0 5px 5px 0;
-    cursor: pointer;
   }
   
   .add-btn {

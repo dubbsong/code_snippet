@@ -232,12 +232,12 @@
   <div>
     <ul>
       <li
-        v-for="(todoItem, index) in todoItems"
-        v-bind:key="todoItem"
+        v-for="(todo, index) in todos"
+        v-bind:key="todo"
         class="shadow"
       >
-        {{ todoItem }}
-        <span class="remove_btn" v-on:click="removeTodo(todoItem, index)">
+        {{ todo }}
+        <span class="remove-btn" v-on:click="removeTodo(todo, index)">
           <i class="fas fa-trash-alt"></i>
         </span>
       </li>
@@ -248,20 +248,19 @@
 <script>
   export default {
     data: () => ({
-      todoItems: []
+      todos: []
     }),
     methods: {
-      removeTodo: function(todoItem, index) {
-        // console.log(todoItem, index);
-        localStorage.removeItem(todoItem);
-        this.todoItems.splice(index, 1);
+      removeTodo(todo, index) {
+        localStorage.removeItem(todo);
+        this.todos.splice(index, 1);
       }
     },
     created: function() {
       if (localStorage.length > 0) {
         for (let i = 0; i < localStorage.length; i++) {
           if (localStorage.key(i) !== "loglevel:webpack-dev-server") {
-            this.todoItems.push(localStorage.key(i));
+            this.todos.push(localStorage.key(i));
           }
         }
       }
@@ -274,10 +273,6 @@
 
 <br>
 
-<br>
-
-<br>
-
 9. check_btn 추가 및 styling
 
 ```vue
@@ -285,13 +280,13 @@
   <div>
     <ul>
       <li
-        v-for="(todoItem, index) in todoItems"
-        v-bind:key="todoItem"
+        v-for="(todo, index) in todos"
+        v-bind:key="todo"
         class="shadow"
       >
-        <i class="fas fa-check check_btn"></i>
-        {{ todoItem }}
-        <span class="remove_btn" v-on:click="removeTodo(todoItem, index)">
+        <i class="fas fa-check check-btn"></i>
+        {{ todo }}
+        <span class="remove-btn" v-on:click="removeTodo(todo, index)">
           <i class="fas fa-trash-alt"></i>
         </span>
       </li>
@@ -306,7 +301,7 @@
 <style scoped>
   ...
   
-  .check_btn {
+  .check-btn {
     color: #4ea1d3;
     line-height: 45px;
     margin-right: 5px;
@@ -321,13 +316,13 @@
   <div>
     <ul>
       <li
-        v-for="(todoItem, index) in todoItems"
-        v-bind:key="todoItem"
+        v-for="(todo, index) in todos"
+        v-bind:key="todo"
         class="shadow"
       >
-        <i class="fas fa-check check_btn" v-on:click="toggleComplete"></i>
-        {{ todoItem }}
-        <span class="remove_btn" v-on:click="removeTodo(todoItem, index)">
+        <i class="fas fa-check check-btn" v-on:click="toggleComplete"></i>
+        {{ todo }}
+        <span class="remove-btn" v-on:click="removeTodo(todo, index)">
           <i class="fas fa-trash-alt"></i>
         </span>
       </li>
@@ -338,22 +333,22 @@
 <script>
   export default {
     data: () => ({
-      todoItems: []
+      todos: []
     }),
     methods: {
-      removeTodo(todoItem, index) {
-        localStorage.removeItem(todoItem);
-        this.todoItems.splice(index, 1);
+      removeTodo(todo, index) {
+        localStorage.removeItem(todo);
+        this.todos.splice(index, 1);
       },
       toggleComplete() {
-        console.log("Check Item");
+        console.log("Check Todo");
       }
     },
     created: function() {
       if (localStorage.length > 0) {
         for (let i = 0; i < localStorage.length; i++) {
           if (localStorage.key(i) !== "loglevel:webpack-dev-server") {
-            this.todoItems.push(localStorage.key(i));
+            this.todos.push(localStorage.key(i));
           }
         }
       }
@@ -362,7 +357,7 @@
 </script>
 ```
 
-> 체크 버튼을 클릭하면, Check Item이 Console 탭에 출력된다.
+> 체크 버튼을 클릭하면, Check Todo가 Console 탭에 출력된다.
 
 <br>
 
