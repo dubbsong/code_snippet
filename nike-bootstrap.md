@@ -35,3 +35,22 @@ allBtn[2].addEventListener('click', function() {
 });
 ```
 
+<br>
+
+#### 02
+
+```js
+for (let i = 0; i < 3; i++) {
+  allBtn[i].addEventListener('click', function() {
+    allBtn[0].classList.remove('orange');
+    allBtn[1].classList.remove('orange');
+    allBtn[2].classList.remove('orange');
+    allBtn[i].classList.add('orange');
+    allContent[0].classList.remove('show');
+    allContent[1].classList.remove('show');
+    allContent[2].classList.remove('show');
+    allContent[i].classList.add('show');
+  });
+}
+```
+
