@@ -50,7 +50,6 @@ $ mkdir assets
   </head>
   
   <body>
-    <!-- App -->
     <div id="app">
       <h1>What's up?</h1>
     </div>
@@ -89,7 +88,7 @@ body {
 }
 
 .nav-bar {
-  background: linear-gradient(-90deg, #84cf6a, #16c0b0);
+  background: linear-gradient(-90deg, #998ac5, #20a19c);
   height: 60px;
   margin-bottom: 15px;
 }
