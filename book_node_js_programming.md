@@ -110,6 +110,64 @@ server.listen(port, (err) => {
 
 ```js
 const http = require('http');
-const server = 
+const server = http.createServer((req, res) => {
+  var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+  console.log("ip: ", ip);
+  console.log("url: ", req.url);
+  console.log("headers: ", req.headers);
+  
+  res.statusCode = 200;
+  res.setHeader('Content-Type', 'text/plain');
+  res.end('Hello World\n' + JSON.stringify(req.headers, null, 4));
+});
+
+server.listen(80, (err) => {
+  if (err) {
+    console.log(err);
+  }
+  console.log(`Server running`);
+});
 ```
 
+- `node test.js`
+
+```json
+{
+  "host": "127.0.0.1",
+  "connection": "keep-alive",
+  "cache-control": "max-age=0",
+  "upgrade-insecure-requests": "1",
+  "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebkit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.79 Safari/537.36",
+  "sec-fetch-user": "?1",
+  "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+  "sec-fetch-site": "none",
+  "sec-fetch-mode": "navigate",
+  "accept-encoding": "gzip, deflate, br",
+  "accept-language": "ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7"
+}
+```
+
+- 실제로 동작하는 표준 코드 정도로 이해하면 된다.
+
+<br>
+
+<br>
+
+#### CH05 Node.js 시작하기
+
+- 디버깅하는 가장 기본적인 방법은, 화면에 현재 프로그램의 상태를 출력하는 것이다.
+- test.js
+
+```js
+setIntervel(() => {
+  console.log('Now Time is ', new Date());
+}, 5 * 1000);
+```
+
+> `$ node test.js`
+>
+> 현재 시간을 Terminal에 5초마다 출력한다.
+
+<br>
+
+<br>
