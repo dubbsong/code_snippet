@@ -57,12 +57,10 @@ $ npm install --save-dev sass-loader node-sass
 
 <script>
   export default {
-    data() {
-      return (
-        title: 'Sam Azor'
-      )
-    }
-  }
+    data: () => ({
+      title: "Sam Azor"
+    })
+  };
 </script>
 
 <style scoped>
@@ -76,4 +74,65 @@ $ npm install --save-dev sass-loader node-sass
 
 #### Nesting Components
 
+- EventList.vue
+
+```html
+<template>
+  <div>
+    <h1>Events Listing</h1>
+    <EventCard />
+    <p>
+      <router-link :to="{ name: 'event-show', params: { id: '1' } }">Show Event #1</router-link>
+    </p>
+  </div>
+</template>
+
+<script>
+  import EventCard from "@/components/EventCard";
+  
+  export default {
+    components: {
+      EventCard
+    }
+  };
+</script>
+```
+
+> Now, in our browser we can see `Sam Azor`.
+
+<br>
+
+<br>
+
+#### Adding Global Styles
+
 - 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
