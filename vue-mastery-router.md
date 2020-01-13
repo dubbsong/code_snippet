@@ -165,3 +165,127 @@ const routes = [
 <br>
 
 <br>
+
+#### Dynamic Routes
+
+- router/index.js
+
+```js
+const routes = [
+  ...
+  {
+    path: '/user/:username',
+    name: 'user',
+    component: User
+  }
+]
+```
+
+> `:username`을 동적 세그먼트(dynamic segment)라고 한다.
+
+- views/User.vue
+
+```html
+<template>
+  <div class="user">
+    <h1>This is a page for {{ $route.params.username }}</h1>
+  </div>
+</template>
+```
+
+> `localhost:8080/user/song`에 `This is a page for song`이 표시된다.
+
+<br>
+
+<br>
+
+#### Using Props for Routes
+
+- router/index.js
+
+```js
+const routes = [
+  ...
+  {
+    path: '/user/:username',
+    name: 'user',
+    component: User,
+    props: true
+  }
+]
+```
+
+<br>
+
+- views/User.vue
+
+```html
+<template>
+  <div class="user">
+    <h1>{{ username }}</h1>
+  </div>
+</template>
+
+<script>
+  export default {
+    props: ['username']
+  }
+</script>
+```
+
+> `localhost:8080/user/song`에 `song`이 표시된다.
+
+<br>
+
+<br>
+
+#### History mode
+
+- router/index.js
+
+```js
+...
+
+const router = new VueRouter({
+  mode: 'history',  // <----
+  base: process.env.BASE_URL,
+  routes
+})
+
+export default router
+```
+
+<br>
+
+<br>
+
+#### Handling 404s
+
+- components/NotFound.vue
+
+```html
+<template>
+  <h1>Not Found</h1>
+</template>
+```
+
+- router/index.js
+
+```js
+...
+import NotFound from '@/components/NotFound';
+
+const routes = [
+  ...
+  {
+    path: '*',
+    component: NotFound
+  }
+]
+```
+
+> router 설정이 되어 있지 않은 주소로 이동하면 `Not Found`가 표시된다.
+
+<br>
+
+<br>
